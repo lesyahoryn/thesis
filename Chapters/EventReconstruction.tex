@@ -1,0 +1,39 @@
+\chapter{Event Reconstruction}
+\label{ch:EventReconstruction}
+
+Event reconstruction is the process by which detector signals are turned into objects that can be used for physics analysis. This is a complex process that requires a great deal of focused effort by the \ac{ATLAS} collaboration. First, digital signals from the detector are collected into tracks and clusters, then they are combined to form first-stage physics objects. Then, a identification steps is performed, where quality requirements are placed on the first-stage objects to classify them into particles like electrons, muons, and jets that can be used in physics analyses. 
+
+These algorithms are centrally developed by the collaboration and designed to reconstruct and identify prompt objects ($|d_{0}| < 10| \textrm{mm}$). This section describes this process for objects which are relevant to this analysis, as well as the changes to these algorithms that we have implemented to be able to study displaced objects. Other objects, such as jets, taus, and missing transverse energy, are also reconstructed in this analysis, though the final event selection remains agnostic to their existence or quality, but does perform a overlap removal process to ensure that the same particle is not accidentally reconstructed as two different objects. 
+
+Reconstruction of tracks, including modifications to reconstruct tracks with high impact parameter, is described in \autoref{sec:trackreco}. Electron and muon reconstruction, as well as their modifications, are described in \autoref{sec:elecreco} and \autoref{sec:muonreco}, respectively. 
+
+
+
+%-----------------------------
+% Track Reconstruction
+%-----------------------------
+\section{Track Reconstruction}
+\label{sec:trackreco}
+
+\subsection{Primary Vertex Identification}
+\subsection{Large Radius Tracking}
+
+
+%-----------------------------
+% Electron Reconstruction
+%-----------------------------
+\section{Electrons}
+\label{sec:elecreco}
+
+\subsection{Standard Reconstruction and Identification}
+\subsection{Modifications}
+
+
+%-----------------------------
+% Muon Reconstruction
+%-----------------------------
+\section{Muons}
+\label{sec:muonreco}
+\subsection{Standard Reconstruction and Identification}
+\subsection{Modifications}
+
