@@ -27,6 +27,19 @@ Reconstruction of tracks, including modifications to reconstruct tracks with hig
 
 \subsection{Standard Reconstruction and Identification}
 \subsection{Modifications}
+To be able to reconstruct electrons with high impact parameter, several changes needed to be made to the reconstruction and identification algorthms. 
+
+First, the reconstruction algorithm needed to be changed to allow tracks with a high $d_{0}$ to be extrapolated to clusters, and remove a requirement on pixel hits, and instead only require a total number of silicon hits. The reconstruction is then run on the track collection including \ac{LRT} tracks. 
+
+%TODO: confirm Anthony's changes
+
+At the identification stage, we remove variables concerned with $d_{0}$ from the likelihood consideration, but do not retrain the likelihood itself. We also remove the cut on the number of silicon hits on top of that made at the reconstruction stage. 
+
+After these modifications, we introduce many fake electrons, primarily resulting from a fake \ac{LRT} track being associated to an \ac{EM} cluster from a photon. The most powerful discriminator is the consistency in the $p_{T}$ as measured by the track and the cluster. Furthermore, we require the primary track to be good quality, with $\chi^{2} < 2$ and $n_{holes} < ??$. 
+
+%TODO: plots of quality vars
+
+%TODO make electron reco, ID, signal efficiences with higher stats
 
 
 %-----------------------------
@@ -35,5 +48,36 @@ Reconstruction of tracks, including modifications to reconstruct tracks with hig
 \section{Muons}
 \label{sec:muonreco}
 \subsection{Standard Reconstruction and Identification}
+
+Muons are reconstructed by combining independently reconstructed tracks in the \ac{MS} and the \ac{ID}. \ac{CB} muon tracks are generally seeded from the \ac{MS}, then extrapolated inward and matched to an \ac{ID} track. Then, at the identification stage, quality requirements are imposed on the combined tracks to reduce improve the purity of the muon collection. For this analysis, the muon reconstruction remains unchanged, while changes are made at the identification stage. 
+
+\subsubsection{Muon Track Reconstruction}
+
+\subsubsection{Muon Identification}
+
+This analysis uses the default muon working point for ATLAS analyses, called a \emph{medium} muon. This working point places a requirement on the number of \ac{ID} and \ac{MS} hits that comprise the track to ensure a robust momentum measurement. At least 1 pixel hit, at least 5 \ac{SCT} hits, and at least 10\% of the \ac{TRT} hits associated to the object are included in the final fit are required. It also requires there to be fewer than 3 holes in the silicon tracking layers, where holes are defined as a lack of hit from a sensor traversed by the track. Furthermore, \ac{MS} track must have at least 3 hits in at least 2 \ac{MDT} layers. In the crack region $|\eta| < 0.1$, \ac{MS} tracks with at least three hits in only one \ac{MDT} layer are allowed provided there are no holes in the track. Finally, a loose requirement is placed on the consistency between the \ac{MS} and \ac{ID} tracks. Namely, the \emph{q/p significance}, the difference betweeen the charge and momentum ratio in the \ac{ID} and \ac{MS} divided by their uncertanities summed in quadrature, is required to be less than 7. 
+
+%TODO: insert plot about muon performance
+
+
 \subsection{Modifications}
+
+For this analysis, muons are reconstructed after \ac{LRT} is performed and the reconstruction and identification efficiency is quite high. Furthermore, we remove the requirement that the \ac{ID} track has at least one pixel hit, further improving the efficiency at high $d_{0}$. The effect of these improvements is show in fig %TODO
+
+
+This modification of the muon identification increases the fake rate of muons, so again we impose quality requirements that are independent of displacement. Primarily, we require the muon to have at least two precision hits and require the $\chi^{2}_{CB}/N_{DoF} < 3$. The $\chi^{2}_{CB}$ requirement is, in effect, a requirement on the consistnecy of the $p_{T}$ of the two tracks. 
+
+
+%TODO: plots of quality vars
+
+%TODO make muon reco, ID, signal efficiences with higher stats
+%TODO: why isn't the precision hit cut redundant?
+
+
+
+
+\section{Isolation}
+In this analysis, both muons and electrons are required to be isolated to reduce background from heavy flavor decays. 
+
+
 
