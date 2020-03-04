@@ -15,47 +15,38 @@ Reconstruction of tracks, including modifications to reconstruct tracks with hig
 \section{Track Reconstruction}
 \label{sec:trackreco}
 
+%describe kalman filter
+
 \subsection{Primary Vertex Identification}
 \subsection{Large Radius Tracking}
 
 
-%-----------------------------
-% Electron Reconstruction
-%-----------------------------
-\section{Electrons}
-\label{sec:elecreco}
-
-\subsection{Standard Reconstruction and Identification}
-\subsection{Modifications}
-To be able to reconstruct electrons with high impact parameter, several changes needed to be made to the reconstruction and identification algorthms. 
-
-First, the reconstruction algorithm needed to be changed to allow tracks with a high $d_{0}$ to be extrapolated to clusters, and remove a requirement on pixel hits, and instead only require a total number of silicon hits. The reconstruction is then run on the track collection including \ac{LRT} tracks. 
-
-%TODO: confirm Anthony's changes
-
-At the identification stage, we remove variables concerned with $d_{0}$ from the likelihood consideration, but do not retrain the likelihood itself. We also remove the cut on the number of silicon hits on top of that made at the reconstruction stage. 
-
-After these modifications, we introduce many fake electrons, primarily resulting from a fake \ac{LRT} track being associated to an \ac{EM} cluster from a photon. The most powerful discriminator is the consistency in the $p_{T}$ as measured by the track and the cluster. Furthermore, we require the primary track to be good quality, with $\chi^{2} < 2$ and $n_{holes} < ??$. 
-
-%TODO: plots of quality vars
-
-%TODO make electron reco, ID, signal efficiences with higher stats
 
 
 %-----------------------------
 % Muon Reconstruction
 %-----------------------------
 \section{Muons}
+%USED atlas-muon-reco.pdf
 \label{sec:muonreco}
 \subsection{Standard Reconstruction and Identification}
 
-Muons are reconstructed by combining independently reconstructed tracks in the \ac{MS} and the \ac{ID}. \ac{CB} muon tracks are generally seeded from the \ac{MS}, then extrapolated inward and matched to an \ac{ID} track. Then, at the identification stage, quality requirements are imposed on the combined tracks to reduce improve the purity of the muon collection. For this analysis, the muon reconstruction remains unchanged, while changes are made at the identification stage. 
+Muons are reconstructed by combining a \ac{MS} track with an \ac{ID} track. Then, at the identification stage, quality requirements are imposed on the combined tracks to reduce improve the purity of the muon collection. For this analysis, the muon reconstruction remains unchanged, while changes are made at the identification stage.
 
 \subsubsection{Muon Track Reconstruction}
+To reconstruct \ac{MS} tracks, a Hough transform is used to search for hits in each \ac{MDT} chamber to find hits following a trajectory on the $\eta$ plane of the detector. These hits are fit to a straight line within each chamber to form \emph{segments}. Co-located \ac{RPC} and \ac{TGC} hits are used to measure the $\phi$ coordinate. 
+
+Hits from segments in various layers are fit to form track candidates. This fitting is first seeded from segments in the middle layers of the \ac{MS} where more trigger hits are available, then extrapolated inward and outward. A next pass is done using inner and outer station segments as seeds. The extrapolation relies on relative positional and angular information, as well as the fit quality and hit multiplicity of the segments. Two segments are required to make a track, except in regions with limited detector coverage, where one high quality segment is sufficient. After all extrapolation, an overlap removal procedure is performed, allowing for a segment to be shared between at most two tracks. A $\chi^{2}$ test is performed, where outliers hits can be removed from the track and additional hits consistent with the track candidate's trajectory can be added.
+
+\subsubsection{Combined Muons}
+Next, the \ac{MS} tracks are combined with \ac{ID} tracks to form \ac{CB} muons, a track fit over the two tracks. \ac{CB} muon tracks are generally seeded from the \ac{MS}, then extrapolated inward and matched to an \ac{ID} track, but the inverse is also allowed. Hits from the \ac{MS} may be added or removed to improve the fit between the two tracks.
+
+
+%TO DO: what are "trigger hits"
 
 \subsubsection{Muon Identification}
 
-This analysis uses the default muon working point for ATLAS analyses, called a \emph{medium} muon. This working point places a requirement on the number of \ac{ID} and \ac{MS} hits that comprise the track to ensure a robust momentum measurement. At least 1 pixel hit, at least 5 \ac{SCT} hits, and at least 10\% of the \ac{TRT} hits associated to the object are included in the final fit are required. It also requires there to be fewer than 3 holes in the silicon tracking layers, where holes are defined as a lack of hit from a sensor traversed by the track. Furthermore, \ac{MS} track must have at least 3 hits in at least 2 \ac{MDT} layers. In the crack region $|\eta| < 0.1$, \ac{MS} tracks with at least three hits in only one \ac{MDT} layer are allowed provided there are no holes in the track. Finally, a loose requirement is placed on the consistency between the \ac{MS} and \ac{ID} tracks. Namely, the \emph{q/p significance}, the difference betweeen the charge and momentum ratio in the \ac{ID} and \ac{MS} divided by their uncertanities summed in quadrature, is required to be less than 7. 
+This analysis uses the default muon working point for ATLAS analyses, called a \emph{medium} muon. This working point places a requirement on the number of \ac{ID} and \ac{MS} hits that comprise the track to ensure a robust momentum measurement. At least 1 pixel hit, at least 5 \ac{SCT} hits, and at least 10\% of the \ac{TRT} hits associated to the object are included in the final fit are required. It also requires there to be fewer than 3 holes in the silicon tracking layers, where holes are defined as a missing hit from a sensor traversed by the track. Furthermore, \ac{MS} track must have at least 3 hits in at least 2 \ac{MDT} layers. In the crack region $|\eta| < 0.1$, \ac{MS} tracks with at least three hits in only one \ac{MDT} layer are allowed provided there are no holes in the track. Finally, a loose requirement is placed on the consistency between the \ac{MS} and \ac{ID} tracks. Namely, the \emph{q/p significance}, the difference between the charge and momentum ratio in the \ac{ID} and \ac{MS} divided by their uncertainties summed in quadrature, is required to be less than 7. 
 
 %TODO: insert plot about muon performance
 
@@ -65,13 +56,68 @@ This analysis uses the default muon working point for ATLAS analyses, called a \
 For this analysis, muons are reconstructed after \ac{LRT} is performed and the reconstruction and identification efficiency is quite high. Furthermore, we remove the requirement that the \ac{ID} track has at least one pixel hit, further improving the efficiency at high $d_{0}$. The effect of these improvements is show in fig %TODO
 
 
-This modification of the muon identification increases the fake rate of muons, so again we impose quality requirements that are independent of displacement. Primarily, we require the muon to have at least two precision hits and require the $\chi^{2}_{CB}/N_{DoF} < 3$. The $\chi^{2}_{CB}$ requirement is, in effect, a requirement on the consistnecy of the $p_{T}$ of the two tracks. 
+This modification of the muon identification increases the fake rate of muons, so again we impose quality requirements that are independent of displacement. Primarily, we require the muon to have at least two precision hits and require the $\chi^{2}_{CB}/N_{DoF} < 3$. The $\chi^{2}_{CB}$ requirement is, in effect, a requirement on the consistency of the $p_{T}$ of the two tracks. 
 
 
 %TODO: plots of quality vars
 
 %TODO make muon reco, ID, signal efficiences with higher stats
 %TODO: why isn't the precision hit cut redundant?
+
+
+
+%-----------------------------
+% Electron Reconstruction
+%-----------------------------
+\section{Electrons}
+%USED atlas-electron-reco.pdf atlas-electron-reco-sliding-window.pdf
+\label{sec:elecreco}
+
+Electrons are reconstructed using clusters from the \ac{EM} calorimeter as well as tracks from the \ac{ID}. Electron reconstruction brings more complication and ambiguity than muon reconstruction because of the presence of photons, converted photons, and bremsstrahlung radiation from electrons moving through material. These factors make the identification and accurate measurement of electrons quite challenging. More than in muon reconstruction, it relies on displacement-based quality information, posing a problem for this search. We modify these requirements and use \ac{LRT} tracks, but have a resulting lower selection efficiency. 
+
+\subsection{Standard Reconstruction and Identification}
+
+%TODO: schematic from page 10 of atlas-electron-reco
+
+\subsubsection{Cluster Reconstruction}
+
+First, clusters are formed from $\eta \times \phi$ towers of size $\Delta \eta \times \Delta \phi = 0.025 \times 0.025$, which is the granularity of the second layer of the \ac{EM} calorimeter where about 80\% of the energy in a shower is deposited. In each region, the energy deposited in all layers of the calorimeter is summed and are used as input to a seeding algorithm to form clusters. 
+
+A \emph{sliding window} algorithm is used to form clusters. In this algorithm, an $3 \times 5$ tower window is moved across each tower, the energy is summed inside of this window and if the sum is a local maximum and is above a threshold of $\et > 2.5 \GeV$, this window is considered a cluster. A duplicate removal process is then performed for nearby, similar energy clusters, keeping only the cluster with the largest $E_{T}$. Inefficiency in the cluster reconstruction step is negligible compared to the uncertainty in the next two steps. The efficiency of this step is 65\% at $\et = 4.5 \GeV$ and $> 99\%$ above $\et = 15 \GeV$.
+
+\subsubsection{Tracking}
+Since electrons are so light, they can lose a significant amount of their energy due to bremsstrahlung radiation as they traverse the \ac{ID}, thus resulting in a track seed that cannot be extended to the requisite number of silicon layers using the processes described in \ref{sec:trackreco}. Thus, a second pass at tracking, allowing for 30\% energy loss due to bremsstrahlung radiation at each detector layer is performed in the vicinity of a good quality \ac{EM} cluster. Here, the track candidate $p_{T}$ is lowered to $400 \MeV$ (compare to $1 \GeV$), but still uses the hypothesis that the track like that from a pion. If this fit still fails, a third pass is performed using the assumption that the track is like that from an electron, allowing for an additional degree of freedom in the $\chi^2$ calculation that accounts for additional radiation. In all, this gives 80\% reconstruction efficiency at $\et = 1 \GeV$ and 98\% above $\et = 10 \GeV$. 
+
+This loosened track fitting requirements allow for increased efficiency, but the resulting tracks do not correctly account for the energy loss of the electron to the material. An additional tracking pass, using an optimized \ac{GSF} is used to correct for this. 
+
+This procedure is performed on tracks with $>4$ silicon hits and roughly match to an \ac{EM} cluster. In general, this matching is done based on the angles of the track and the cluster, which creates a problem for tracks with high $d_{0}$. This needed to be altered in order to efficiently reconstruct electrons with high \dzero. 
+
+%TODO: replicate anthony doodle
+
+The \ac{GSF} procedure is based on a series of Kalman filters running in parallel. Six Gaussian filters are used to describe energy loss in material, and up to twelve are used to model the track parameters. This procedure also accounts for the increase in curvature caused by the decrease in momentum due to energy loss in material, improving the calculation of track parameters. An example of this is show in the figure below. The reconstruction efficiency for this step is around 98\% for electrons with $\et > 30 \GeV$. 
+
+%TODO: add qxd0 figure from p15 of atlas-electron-reco
+
+
+\subsubsection{Combined Reconstruction}
+
+%TODO: add figure from p 12 of atlas-electron-reco
+
+\subsubsection{Identification}
+
+
+\subsection{Modifications}
+To be able to reconstruct electrons with high impact parameter, several changes needed to be made to the reconstruction and identification algorithms. 
+
+First, the reconstruction algorithm needed to be changed to allow tracks with a high $d_{0}$ to be extrapolated to clusters, and remove a requirement on pixel hits, and instead only require a total number of silicon hits. The reconstruction is then run on the track collection including \ac{LRT} tracks. 
+
+At the identification stage, we remove variables concerned with $d_{0}$ from the likelihood consideration, but do not retrain the likelihood itself. We also remove the cut on the number of silicon hits on top of that made at the reconstruction stage. 
+
+After these modifications, we introduce many fake electrons, primarily resulting from a fake \ac{LRT} track being associated to an \ac{EM} cluster from a photon. The most powerful discriminator is the consistency in the $p_{T}$ as measured by the track and the cluster, defined as $\Delta p_{T} = p_{T}^{track}/p_{T}^{e}$. Furthermore, we require the primary track to be good quality, with $\chi^{2} < 2$ and at maximum one missing hit on track after the innermost hit. 
+
+%TODO: plots of quality vars
+
+%TODO make electron reco, ID, signal efficiences with higher stats
 
 
 
