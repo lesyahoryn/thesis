@@ -114,5 +114,5 @@ ax2.yaxis.set_label_coords(1.1, 0.4)
 ax2.plot(dayssince, words, "r-",linewidth=2)
 
 plt.autoscale()
-plt.savefig("pages.png",bbox_inches='tight')
-plt.savefig("pages.pdf",bbox_inches='tight')
+plt.savefig("scripts/pages.png",bbox_inches='tight')
+plt.savefig("scripts/pages.pdf",bbox_inches='tight')
