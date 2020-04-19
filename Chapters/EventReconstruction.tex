@@ -5,8 +5,7 @@ Event reconstruction is the process by which detector signals are turned into ob
 
 These algorithms are centrally developed by the collaboration and designed to reconstruct and identify prompt objects ($|d_{0}| < 10| \textrm{mm}$). This section describes this process for objects which are relevant to this analysis, as well as the changes to these algorithms that we have implemented to be able to study displaced objects. Other objects, such as jets, taus, and missing transverse energy, are also reconstructed in this analysis, though the final event selection remains agnostic to their existence or quality, but does perform a overlap removal process to ensure that the same particle is not accidentally reconstructed as two different objects. 
 
-Reconstruction of tracks, including modifications to reconstruct tracks with high impact parameter, is described in \autoref{sec:trackreco}. Electron and muon reconstruction, as well as their modifications, are described in \autoref{sec:elecreco} and \autoref{sec:muonreco}, respectively. 
-
+Reconstruction of tracks, including modifications to reconstruct tracks with high impact parameter, is described in \autoref{sec:trackreco}. Electron and muon reconstruction, as well as their modifications, are described in \autoref{sec:elecreco} and \autoref{sec:muonreco}, respectively. The reconstruction of jets, photons, and $\tau$ leptons is not discussed here. All of these objects are reconstructed in this analysis, though no selection is made on them. 
 
 
 %-----------------------------
@@ -15,13 +14,58 @@ Reconstruction of tracks, including modifications to reconstruct tracks with hig
 \section{Track Reconstruction}
 \label{sec:trackreco}
 
-%describe kalman filter
+Track reconstruction is the process by which \ac{ID} data is converted into particle trajectories. This is a complicated process, due to both the density of each event in the detector (in Run 2, there were an average of 40 collisons per bunch crossing, all of which produce hadronic sprays of particles), as well the helical trajectory (in $\phi$) the particles take due to the solenoidal magnetic field. Tracks are described by five parameters with respect to the beamspot position: \dzero (the transverse point of closest approach, or transverse impact parameter), \zzero (the longitudinal point of closest approach, or longitudinal impact parameter), $\phi$ (the azimuthal angle of the track momentum), $\theta$ (the polar angle of the track momentum), and $q/p$ (the ratio of the track's charge to the magnitude of its momentum).
 
-\subsection{Primary Vertex Identification}
+
+%From ATLAS-tracking-algo.pdf
+First, information from the \ac{ID} are converted into three-dimensional \emph{space-points}. In the Pixel detector, this is simply one cluster, while for the \ac{SCT}, it is taken from both sides of a strip layer.
+
+%From ATLAS-LRT.pdf
+Tracking in ATLAS is performed in two step. During the first step, called \emph{inside-out}, tracks are seeded from the silicon layers. In the Pixel and \ac{SCT} detectors, track seeds are formed from sets of three space-points, each from a separate layer. If the seed passes an assortment of selection criteria, including on the \pt and \dzero, track candidates are built using a combinatorial Kalman filter. These requirements serve to cut down on the number of tiemes the computationally expensive Kalman filter must be implemented. Multiple track candidates can be built from the same seed.
+
+\editnote{I'd like to learn what a Kalman filter is}
+
+%From ATLAS-tracking-algo.pdf
+Since all possible track combinations are created in the previous stage, an \emph{abiguity solving} step is now required. Tracks are scored based on a variety of critera, the number of holes (detector elements the track intersected with, but do not contain a cluster), $\chi^{2}$ (to prioritize tracks with a better fit), and \pt (to prioritize tracks with a higher \pt). A further requriement that no more than two tracks may share the same cluster to reduce the number of duplicate tracks; however, a cluster may be removed from a track to stay within this limit and the track is then re-scored. 
+
+Next, the track candidates are extended into the outer \ac{TRT} using a classical track extrapolation, then the track is scored using a method similar to the ambiguity solver. If this extension is successful, the track is labeled as having a \emph{\ac{TRT} extension}, if not, the track can still be retained, particularly at large $|\eta|$. However, if the score after TRT extension is worse than the silicon-only score, the track is rejected. This completes step one.
+
+\editnote{I'd like to learn how classical track extrapolation works}
+
+
+Step two takes an \emph{outside-in} approach, where track segments are reconstructed in the \ac{TRT}, seeded by depsoits in the \ac{EM} calorimeter. These segments are then extended inward to the silicon detectors, where any clusters not used in step one can be associated to the track. The extension inward is not required, as \ac{TRT}-only tracks are used for reconstructing converted photons. 
+
+
 \subsection{Large Radius Tracking}
 
+\ac{LRT} is required to reconstuct tracks with a impact parameters larger than what is allowed by the seed requirements in the \ac{ST} algorithm. These requirements are implemented during seed selection and extrapolation and are designed around the maximum displacement of a b hadron decay (a few mm) and no more.
+
+\ac{LRT} is an optional third step of the tracking algorithm described above. It uses the same \emph{inside-out} tracking algorithm, but relaxes various requirements that allow for a much more inclusive track collection. The major changes are summarized in \ref{tab:LRT}. These cuts are applied during both the seeding and extension steps. Additionally, \ac{LRT} uses a sequential Kalman filter as opposed to the combintorial Kalman filter uses in \ac{ST}.
+
+\editnote{What is sequential vs combinatorial Kalman filter}
+
+\ac{LRT} is required for this analysis, but cannot be applied to all events in the Run 2 dataset. The full event reconstruction with \ac{LRT} takes about 2.5 times longer than with \ac{ST}. So events are filtered based on the triggers that selected them, such that this algorithm is only run on about 10\% of the dataset.
 
 
+\begin{table}
+\centering
+\begin{tabular}{lcc}
+\hline
+Cut & \ac{ST} & \ac{LRT}  \\
+\hline
+$d_{0}^{\textrm{max}}$ (mm)   & 10   & 300 \\
+$z_{0}^{\textrm{max}}$ (mm)   & 250   & 1500 \\
+$ |\eta^{\textrm{max}}|$        & 2.7   & 5 \\
+Max shared silicon modules    & 1     & 2 \\
+Min unshared silicon clusters   & 6     & 5 \\
+Min number of silicon hits   & 7     & 7 \\
+\hline
+\end{tabular}
+\caption{Most important cuts that differ between \ac{ST} and \ac{LRT}}
+\label{tab:LRT}
+\end{table}
+
+\editnote{Add in some efficiency plots}
 
 %-----------------------------
 % Muon Reconstruction
