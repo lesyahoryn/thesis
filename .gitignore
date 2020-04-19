@@ -1,4 +1,5 @@
-**/*.aux
-**/*.log
-**/*.out
-**/*.toc
+*.aux
+*.log
+*.out
+*.toc
+/*.pdf 
