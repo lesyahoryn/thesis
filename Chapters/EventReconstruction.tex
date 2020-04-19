@@ -42,13 +42,13 @@ Hits from segments in various layers are fit to form track candidates. This fitt
 Next, the \ac{MS} tracks are combined with \ac{ID} tracks to form \ac{CB} muons, a track fit over the two tracks. \ac{CB} muon tracks are generally seeded from the \ac{MS}, then extrapolated inward and matched to an \ac{ID} track, but the inverse is also allowed. Hits from the \ac{MS} may be added or removed to improve the fit between the two tracks.
 
 
-%TO DO: what are "trigger hits"
+\editnote{what are "trigger hits"}
 
 \subsubsection{Muon Identification}
 
 This analysis uses the default muon working point for ATLAS analyses, called a \emph{medium} muon. This working point places a requirement on the number of \ac{ID} and \ac{MS} hits that comprise the track to ensure a robust momentum measurement. At least 1 pixel hit, at least 5 \ac{SCT} hits, and at least 10\% of the \ac{TRT} hits associated to the object are included in the final fit are required. It also requires there to be fewer than 3 holes in the silicon tracking layers, where holes are defined as a missing hit from a sensor traversed by the track. Furthermore, \ac{MS} track must have at least 3 hits in at least 2 \ac{MDT} layers. In the crack region $|\eta| < 0.1$, \ac{MS} tracks with at least three hits in only one \ac{MDT} layer are allowed provided there are no holes in the track. Finally, a loose requirement is placed on the consistency between the \ac{MS} and \ac{ID} tracks. Namely, the \emph{q/p significance}, the difference between the charge and momentum ratio in the \ac{ID} and \ac{MS} divided by their uncertainties summed in quadrature, is required to be less than 7. 
 
-%TODO: insert plot about muon performance
+\editnote{insert plot about muon performance}
 
 
 \subsection{Modifications}
@@ -56,13 +56,12 @@ This analysis uses the default muon working point for ATLAS analyses, called a \
 For this analysis, muons are reconstructed after \ac{LRT} is performed and the reconstruction and identification efficiency is quite high. Furthermore, we remove the requirement that the \ac{ID} track has at least one pixel hit, further improving the efficiency at high $d_{0}$. The effect of these improvements is show in fig %TODO
 
 
-This modification of the muon identification increases the fake rate of muons, so again we impose quality requirements that are independent of displacement. Primarily, we require the muon to have at least two precision hits and require the $\chi^{2}_{CB}/N_{DoF} < 3$. The $\chi^{2}_{CB}$ requirement is, in effect, a requirement on the consistency of the $p_{T}$ of the two tracks. 
+This modification of the muon identification increases the fake rate of muons, so again we impose quality requirements that are independent of displacement. Primarily, we require the muon to have at least two \ac{MS} layers with at least three precision hits, that the muon have at least one $\phi$ measurement (otherwise the \ac{MS} $\phi$ measurement is taken as the center of the \ac{MDT}, with an uncertainity of 0.2) and require the $\chi^{2}_{CB}/N_{DoF} < 3$. The $\chi^{2}_{CB}$ requirement is, in effect, a requirement on the consistency of the $p_{T}$ of the two tracks. 
 
 
-%TODO: plots of quality vars
+\editnote{plots of quality vars}
 
-%TODO make muon reco, ID, signal efficiences with higher stats
-%TODO: why isn't the precision hit cut redundant?
+\editnote{make muon reco, ID, signal efficiences with higher stats -- grab from INT when available}
 
 
 
@@ -77,7 +76,7 @@ Electrons are reconstructed using clusters from the \ac{EM} calorimeter as well 
 
 \subsection{Standard Reconstruction and Identification}
 
-%TODO: schematic from page 10 of atlas-electron-reco
+\editnote{schematic from page 10 of atlas-electron-reco}
 
 \subsubsection{Cluster Reconstruction}
 
@@ -92,18 +91,22 @@ This loosened track fitting requirements allow for increased efficiency, but the
 
 This procedure is performed on tracks with $>4$ silicon hits and roughly match to an \ac{EM} cluster. In general, this matching is done based on the angles of the track and the cluster, which creates a problem for tracks with high $d_{0}$. This needed to be altered in order to efficiently reconstruct electrons with high \dzero. 
 
-%TODO: replicate anthony doodle
 
 The \ac{GSF} procedure is based on a series of Kalman filters running in parallel. Six Gaussian filters are used to describe energy loss in material, and up to twelve are used to model the track parameters. This procedure also accounts for the increase in curvature caused by the decrease in momentum due to energy loss in material, improving the calculation of track parameters. An example of this is show in the figure below. The reconstruction efficiency for this step is around 98\% for electrons with $\et > 30 \GeV$. 
 
-%TODO: add qxd0 figure from p15 of atlas-electron-reco
+\editnote{add qxd0 figure from p15 of atlas-electron-reco}
 
 
 \subsubsection{Combined Reconstruction}
+To put it all together, \ac{GSF} tracks are then matched to seed calorimeter clusters then the final cluster size is determined. Tracks and clusters are matched with stricter requirements, requiring that their $\phi$ measurement is within $+0.05$ or $-0.10$. It is possible that several tracks might match to the same cluster, but a primary track is assigned based on its proximity and quality. If the track can be associated to a vertex, it is classified as a potential photon conversion, not an electron. Electrons are further distinguised from photon conversions using their $E/p, p_{T}$, number of pixel hits, and relationship to a secondary vertex. 
 
-%TODO: add figure from p 12 of atlas-electron-reco
+Final clusters are formed by looking in a window around the seed cluster. Offline calibration of the reconstructed cluster is required. The reconstructed electron's energy measurment is taken from its full cluster, and directional information taken from its track. At $\et > 15 \GeV$, there is a 99\% efficiency to reconstruct an electron (provided it has at least one pixel hit and at least seven total silicon hits on track). 
+
+\editnote{add figure from p 12 of atlas-electron-reco}
 
 \subsubsection{Identification}
+
+Electrons are identified using a likelihood that further distinguishes them from photons and converted photons. Many factors enter the electron identification likelihood, listed in table \editnote{TABLE}. The likelihood is more flexible than a simple cut-based method, allowing for electrons to fail one selection criterion. It also allows for the use of discriminating critera which have relatively similar shapes in signal and background.
 
 
 \subsection{Modifications}
@@ -115,15 +118,24 @@ At the identification stage, we remove variables concerned with $d_{0}$ from the
 
 After these modifications, we introduce many fake electrons, primarily resulting from a fake \ac{LRT} track being associated to an \ac{EM} cluster from a photon. The most powerful discriminator is the consistency in the $p_{T}$ as measured by the track and the cluster, defined as $\Delta p_{T} = p_{T}^{track}/p_{T}^{e}$. Furthermore, we require the primary track to be good quality, with $\chi^{2} < 2$ and at maximum one missing hit on track after the innermost hit. 
 
-%TODO: plots of quality vars
+\editnote{plots of quality vars}
 
-%TODO make electron reco, ID, signal efficiences with higher stats
+\editnote{make electron reco, ID, signal efficiences with higher stats -- grab from INT}
 
 
 
 
 \section{Isolation}
-In this analysis, both muons and electrons are required to be isolated to reduce background from heavy flavor decays. 
+
+In this analysis, both muons and electrons are required to be isolated to reduce background from heavy flavor decays. That is, they are not expected to be surrounded by much other activity from the hard scatter in either the Inner Detector or Calorimeters. Isolation is generally measured in terms as the scalar sum of energy in a radius $\Delta R = \sqrt{(\Delta \eta)^2 + (\Delta \phi)^2}$ divided by the lepton's $p_{T}$. Track based isolations are called $p_{T}^{\textrm{varcone}}$ and calorimeter based isolations called $E_{T}^{\textrm{topocone}}$. 
+
+For example, the track-based isolation called $p_{T}^{\textrm{varcone30}}$ is the scalar sum of the transverse momenta of tracks with $p_{T} > 1 \GeV$ in a cone of $\Delta R = \textrm{min}(10 \GeV/p_{T}^{\ell}, 0.3)$, then a value is selected to determine what should be considered ``isolated''. Whereas the calorimeter-based isolation just counts the energy in a specified \dR, not as a funtion of the energy of the particle. Isolation working points are then centrally defined as a combination of cuts on the track-based and calorimeter-based isolation. 
+
+These definitions are much simpler for muons than for electrons. Electrons are very likley to emit bremsstrahlung radiation as they traverse the inner detector and those photons can then convert back into electrons. The tracks from these secondary particles are considered part of the electron's \pT. Furthermore, of course the electron leaves its energy deposit in the \ac{EM} calorimeter and this energy must be subtracted from the $E_{T}^{\textrm{topocone}}$ calculation.
+
+
+In this analysis we use the following working points
+\editnote{grab isolation requirements from INT when finalized}
 
 
 
