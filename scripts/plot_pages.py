@@ -3,8 +3,9 @@ import sys
 
 spd = float(60*60*24)
 
-start = "2016-03-07-00h00m00s"
+start = "2019-12-11-11h24m56s"
 start = datetime.datetime.strptime(start, "%Y-%m-%d-%Hh%Mm%Ss")
+print start
 last = ""
 
 dayssince = []
