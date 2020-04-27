@@ -1,4 +1,80 @@
 \chapter{Particle Accelerators}
 
+The world's largest machine is required to study the universe's smallest particles. The \ac{LHC} is circular particle collider located on the French-Swiss border outside of Geneva, Switzerland. A series of accelerators culminate in a $27$ km ring in which beams of hadrons, either protons or ions of heavier elements, are collided. There are four major experiments around the \ac{LHC} ring: \ac{ATLAS} and \ac{CMS}, general purpose detectors designed independently and with different priorities in order to serve as a cross-check for each other; \ac{ALICE}, a tracking-focused detector designed to study collisions of heavy ions; and \ac{LHCb}, an asymmetrical detector designed to study \ac{CP} violation. The \ac{LHC} has been running in its current form since 2008
+
+The dataset used in this analysis comes from proton-proton, $pp$, collisions during Run 2 of the \ac{LHC}, which spanned from 2015-2018 and had a center of mass energy of $\sqrt{s} = 13 \TeV$.
+
 \section{Accelerator Theory}
+
+\todo{describe basics of beam: circle, bunches, IP}
+\todo{describe magnets}
+
+\subsection{Luminosity}
+
+%USED pdg-review.pdf
+If the primary goal of the collider is to study rare physics processes, whether difficult measurements of the \ac{SM} or heretofore unseen \ac{BSM} physics, enough data must be produced to be able to study them. The number of events of a given process in a given data set is given by
+
+\begin{equation}
+N_{\textrm{events}} = \mathcal{L}_{\textrm{int}} \times \sigma_{\textrm{process}}
+\label{eq:nevents_lumi}
+\end{equation}
+
+where $\mathcal{L}$ is the \emph{integrated luminosity} of the dataset, and $\sigma_{\textrm{process}}$ is the cross section for the given process. More data ($\mathcal{L}_{\textrm{int}}$) is required to be able to see rare events (small $\sigma_{\textrm{process}}$), and many events are required in order to have the statistical power in able to make a discovery. The integrated luminosity is the integral of the instantaneous luminosity over data taking time
+
+\begin{equation}
+\mathcal{L}_{\textrm{int}} = \int \mathcal{L} dt
+\end{equation}
+
+and the \emph{instantaneous luminosity} is related to the parameters of the accelerator. For two identical bunches with $N_1$ and $N_2$ protons per bunch colliding with frequency $f$:
+
+\begin{equation}
+\mathcal{L} = \frac{N_1 N_2 f}{4\pi \sigma_x^* \sigma_y^*} \mathcal{F}
+\end{equation}
+
+
+where $\sigma_x^*$ and  $\sigma_y^*$ are the \ac{rms} of the beam width in the $x$ and $y$ directions, and $\mathcal{F}$ is a factor that takes in other geometric effects such as the crossing angle and bunch length, it is generally $\mathcal{O}(1)$. It can be rewritten more specifically for the \ac{LHC} as
+
+\begin{equation}
+\mathcal{L} = \frac{N_b^2 n_b f }{4\pi \sqrt{\epsilon_n \beta^*_x \beta^*_y}}\mathcal{F}
+\end{equation}
+
+Where $N_b$ is the number of protons per bunch (assuming $N_1 = N_2$), $n_b$ is the number of bunches in the beam, $\epsilon_n$ is the \emph{emittance}, which describes the spread of the particles in the bunch, and $\beta^*$ is the value of the $\beta$-function at the \ac{IP}. The $\beta$-function describes the size of the beam as a function of location. A sampling of the values of these parameters in 2018 are shown in \autoref{tab:lumi-vals}.
+
+
+%USED ATLAS-lumi-measurement.pdf
+\begin{table}
+\centering
+\begin{tabular}{lc}
+\hline
+Paramter & value  \\
+\hline
+$N_b$ (protons per bunch)                                           & $1.1 \times 10^{11}$   \\
+$n_b$ (bunches per beam)                                            & $2544$   \\
+$\beta^*$ (beam size)                                               & $.3$ m   \\
+$\epsilon_n$ (beam spread)                                          & $3 \mu$m-radians   \\
+$\mathcal{L}_{\textrm{peak}}$ (peak instantaneous luminosity)       & $21 \times 10^{33} \textrm{cm}^{-2}\textrm{s}^{-1}$   \\
+space between bunches                                               & $25$ ns   \\
+\hline
+\end{tabular}
+\caption{Beam parameters for 2018 for standard running conditions used in the data collection for this analysis. Special runs take place where these parameters are changed.}
+\label{tab:lumi-vals}
+\end{table}
+
+Several of these factors can be manipulated \emph{in situ}, allowing for luminosity increasing or decreasing, depending on the need. Decreasing $\beta^*$ increases the luminosity, so the beams are \emph{squeezed} with focusing quadrupole magnets at the \ac{IP}. Nonzero beam crossing angles and longer bunches decrease $\mathcal{L}$. In fact, during some runs of Run 2 of the \ac{LHC}, the beam angle was changed at the beginning in order to decrease the luminosity to a level more tolerable by the experiments, referred to as \emph{leveling}. 
+
+The instantaneous luminosity can be measured by measuring the components directly, or it can be inferred by measuring the number of events in a process with a well measured cross section, $\sigma_{\textrm{ref}}$ that produces $N_{\textrm{ref}}$ events. By counting $N_{\textrm{exp}}$, the actual number of events produced, one can infer $\sigma_{\textrm{exp}}$. The difference between $\sigma_{\textrm{ref}}$ and $\sigma_{\textrm{exp}}$ gives information about the instantaneous luminosity from an equation similar to \autoref{eq:nevents_lumi}. It is measured in units of $\textrm{cm}^{-2}\textrm{s}^{-1}$ and after integration over time, the integrated luminosity is measured in inverse \emph{barns}. Where $1 b = 10^{-28} \textrm{m}$. This simplifies the $N_{\textrm{events}}$ calculation in \autoref{eq:nevents_lumi} where the cross section is also measured in barns.
+
+
+\todo{is this how it's done in ATLAS? see ATLAS-lumi-measurement.pdf}
+
+
+In Run2, the \ac{LHC} produced an integrated luminosity of $156 \textrm{fb}^{-1}$, \ac{ATLAS} recorded $147 \textrm{fb}^{-1}$, with $139 \textrm{fb}^{-1}$ available to be used for physics analyses.
+
+
+
+
 \section{The Large Hadron Collider}
+\todo{steps of injecting}
+
+\subsection{Pileup}
+

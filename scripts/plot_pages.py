@@ -22,7 +22,7 @@ with open("scripts/pages.md") as file:
         if not line:
             continue
         if not line.count(" ") == 3:
-            sys.exit("what the fuck")
+            sys.exit("error in pages.md")
 
         _, date, pagecount, wordcount = line.split(" ")
         date = date.replace("[", "")
