@@ -104,9 +104,9 @@ The Hough transform is a \emph{pattern finding} algorithm, not a tracking algori
 
 \subsection{Primary Vertex Reconstruction}
 
-After all of the tracks are reconstructed, they must be correctly assigned to a \ac{PV}. A \ac{PV} is the point in space where the $pp$ collision occurred. Generally, there are many \ac{PVs} per event: one is the hard-scatter, high-energy event of interest, and the others are pileup. In the Run 2 dataset, there are an average of 33 \ac{PVs} per event.
+After all of the tracks are reconstructed, they must be correctly assigned to a \ac{PV}. A \ac{PV} is the point in space where the $pp$ collision occurred. Generally, there are many \ac{PV}s per event: one is the hard-scatter, high-energy event of interest, and the others are pileup. In the Run 2 dataset, there are an average of 33 \ac{PV}s per event.
 
-\ac{PVs} are reconstructed using an n iterative vertexing procedure. First, good quality tracks tracks, combined with the beamspot measurement, are used to find an optimal vertex position. Then each track is assigned a weight based on its compatibility with that position, and the vertex position is then recomputed using the weights of the tracks. After the final vertex position is determined, tracks very incompatible with the vertex are removed from it and can be used to create another vertex. Any vertex with at least two tracks are considered \ac{PVs}.
+\ac{PV}s are reconstructed using an n iterative vertexing procedure. First, good quality tracks tracks, combined with the beamspot measurement, are used to find an optimal vertex position. Then each track is assigned a weight based on its compatibility with that position, and the vertex position is then recomputed using the weights of the tracks. After the final vertex position is determined, tracks very incompatible with the vertex are removed from it and can be used to create another vertex. Any vertex with at least two tracks are considered \ac{PV}s.
 
 
 
