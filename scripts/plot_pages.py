@@ -3,7 +3,7 @@ import sys
 
 spd = float(60*60*24)
 
-start = "2019-12-11-11h24m56s"
+start = "2019-12-10-11h24m56s"
 start = datetime.datetime.strptime(start, "%Y-%m-%d-%Hh%Mm%Ss")
 print start
 last = ""
@@ -95,7 +95,7 @@ fig, ax1 = plt.subplots()
 ax1.xaxis.set_label_coords(0.74, -0.07)
 ax1.yaxis.set_label_coords(-0.10, 0.6)
 
-ax1.set_xlabel("Days since start (March 7)")
+ax1.set_xlabel("Days since start")
 ax1.set_ylabel("Pages",color='b')
 ax1.set_title("")
 ax1.text(0.1*maxdayssince, 0.9*max(pages), r"%s pages"   % (lastpages), color='blue')
