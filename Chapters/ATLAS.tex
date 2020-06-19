@@ -1,31 +1,97 @@
 \chapter{The ATLAS Detector}
 
-The \ac{ATLAS} detector is a cylindrical general purpose particle detector designed to measure the products of $\sqrt{s} = 14 \TeV$ proton-proton collisons at the \ac{LHC}. It consists of three major sub-detectors: closest to the beamline is the the \ac{ID}, which measures the tragectories of charge particles, followed by the Calorimeters, which measure the energies of electromagnetic and hadronically interacting particles, and finally the \ac{MS} which measures the trajectories of muons. The \ac{ID} is surrounded by a super conducting solenoidal magnet that provides a uniform $2\textrm{T}$ magnetic field, enabling measurement of particles' charge and momentum, and a torodial magnet surrounds \ac{MS}, allowing for charge and momentum measurements of muons. A schematic of the \ac{ATLAS} detector is shown in \autoref{fig:atlas-schematic}.
+The \ac{ATLAS} detector is a cylindrical general purpose particle detector designed to measure the products of $\sqrt{s} = 14 \TeV$ proton-proton collisions at the \ac{LHC}. It consists of three major sub-detectors: closest to the beamline is the the \ac{ID}, which measures the trajectories of charge particles, followed by the Calorimeters, which measure the energies of electromagnetic and hadronically interacting particles, and finally the \ac{MS} which measures the trajectories of muons. The \ac{ID} is surrounded by a super conducting solenoidal magnet that provides a uniform $2\textrm{T}$ magnetic field, enabling measurement of particles' charge and momentum, and a toroidal magnet surrounds \ac{MS}, allowing for charge and momentum measurements of muons. In general, each subdetector consists of a barrel detector parallel to the beampipe and endcap detectors perpendicular to the beampipe.
+
+A schematic of the \ac{ATLAS} detector is shown in \autoref{fig:atlas-schematic}.
 
 
 %https://atlas.cern/discover/detector
 \begin{figure}[htbp]
 \centering
 \includegraphics[width=.8\textwidth]{figures/Detector/atlas-schematic.jpg}
-\caption{A schematic of the \ac{ATLAS} detector. The dimensions, subdetectors, and magnet systems are labeled. }
+\caption{A diagram of the \ac{ATLAS} detector. The dimensions, subdetectors, and magnet systems are labeled. }
 \label{fig:atlas-schematic}
 \end{figure}
 
 \section{Coordinate System}
-\ac{ATLAS} uses a cartesian right-handed coordinate system, with the origin defined as the $pp$ collision point. The $z$-axis points along the beampipe, where $+z$ points counter-clockwise. The transvers plane, the $y$-axis and $x$-axis, points upward and toward the center of the \ac{LHC} ring, respectively. The detector is built with with symmetry across the origin in in $z$, as well as with rotational symmetry in the transverse plane. The $+z$ side of the detector is referred to as the A-side, and $-z$ as the C-side.
+\ac{ATLAS} uses a Cartesian right-handed coordinate system, with the origin defined as the $pp$ collision point. The $z$-axis points along the beampipe, where $+z$ points counter-clockwise. The transverse plane, the $y$-axis and $x$-axis, points upward and toward the center of the \ac{LHC} ring, respectively. The detector is built with with symmetry across the origin in in $z$, as well as with rotational symmetry in the transverse plane. The $+z$ side of the detector is referred to as the A-side, and $-z$ as the C-side.
 
 Cylindrical coordinates provide a comfortable description of the \ac{ATLAS} detector, where $\phi$ measures the angle in the $x-y$ plane around the beampipe, and $\theta$ the angle from the $z$ axis. $\phi$ is positive for positive $y$. 
 
-A given's particle's momentum in $z$ is not known, but its transverse momentum is known to be $0$, so it is advantageous to define spatial variables independent of $z$ momentum. Thus, instead of $\theta$, $\eta = - \textrm{ln}(\textrm{tan}\frac{\theta}{2})$ is used to describe angle from the $z$ axis. Particles perpindicular to the $z$ axis have $\eta = 0$, while those parallel to the beamline have $\eta \rightarrow \infty$. 
+A given particle's momentum in $z$ is not known, but its transverse momentum is known to be $0$, so it is advantageous to define spatial variables independent of $z$ momentum. Thus, instead of $\theta$, $\eta = - \textrm{ln}(\textrm{tan}\frac{\theta}{2})$ is used to describe angle from the $z$ axis. Particles perpendicular to the $z$ axis have $\eta = 0$, while those parallel to the beamline have $\eta \rightarrow \infty$. 
 
 Angular distances between objects is described using $\Delta R = \sqrt{\Delta \eta ^2 + \Delta \phi ^2}$ and the radial distance from the origin in the $x-y$ plane is denoted $R$. 
 
 A particle's momentum will generally be described in terms of its \pT, its momentum in the transverse direction. A particle's $3$-vector is described by $(\pt, \eta, \phi)$, which are all invariant under boosts in $z$ assuming the particle can be considered massless (which is true in the case of particles in \ac{ATLAS}).
 
+
+
+
 \section{Inner Detector}
+The Inner Detector measures the trajectories of charged particles resulting from \ac{LHC} collisions. The \ac{ID} covers the region with $|\eta| < 2.5$, measuring approximately $1000$ particles per bunch crossing. To achieve the physics goals of the \ac{ATLAS} detector, a \pt resolution of $0.05\%$ is required. In order to achieve this, three subdetectors are used: the Pixel detector, the \ac{SCT}, and the \ac{TRT}. The Pixel and \ac{SCT} detectors are used for high granularity precision tracking and the \ac{TRT} is used to distinguish electrons from converted photons. All of this is immersed in a $2T$ magnetic field, curving charged particles in proportion to its momentum.
+
+\todo{describe conversions somewhere... Maybe in particle descriptions in theory?}
+
+A schematic of the \ac{ID} can be seen in \autoref{fig:atlas-id} and a detailed distribution of the various subdetectors is shown in \autoref{fig:atlas-id-layers}. 
+
+
+%https://cds.cern.ch/images/CERN-GE-0803014-01/file?size=medium
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=.8\textwidth]{figures/Detector/atlas-ID.jpg}
+\caption{A diagram of the \ac{ATLAS} \ac{ID}. The Pixel and \ac{SCT} are of particular importance for this analysis.}
+\end{figure}
+
+%https://www.researchgate.net/publication/325643426/figure/fig8/AS:669532737769482@1536640452588/Segment-of-the-ATLAS-inner-detector-showing-the-tracker-layers-The-silicon-strip.ppm
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=.8\textwidth]{figures/Detector/atlas-id-layers.png}
+\caption{A schematic of the \ac{ATLAS} \ac{ID} shown in the $r-z$ plane. }
+\label{fig:atlas-id-layers}
+\end{figure}
+
+\subsection{The Pixel Detector}
+\subsubsection{Hit Reconstruction}
+\subsection{The Silicon Microstrip Tracker}
+\subsubsection{Hit Reconstruction}
+\subsection{The Transition Radiation Tracker}
+
+
 \section{Calorimeters}
+
+The \ac{ATLAS} calorimeters measure the energy of electromagnetic and hadronic particles. The \ac{LAr} electromagnetic sampling calorimeter is the innermost calorimeter and gives excellent energy and position resolution, with energy resolution of $10\%$ in the region with $|\eta| < 3.2$. The hadronic scintillator-tile calorimeter surrounds the \ac{LAr} and gives $50\%$ energy resolution in the region with $|\eta| < 3.2$. There are additional \ac{EM} and hadronic calorimeters in the forward region, extending coverage to $|\eta| < 4.9$ with worse energy resolution. A schematic of the \ac{ATLAS} calorimeters can be seen in \autoref{fig:atlas-calos}. 
+
+
+%https://arxiv.org/pdf/1603.02934.pdf
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=.8\textwidth]{figures/Detector/atlas-calorimeters.jpg}
+\caption{A diagram of the \ac{ATLAS} calorimeters. The \ac{LAr} is of particular importance for this analysis.}
+\label{fig:atlas-calos}
+\end{figure}
+
+
+\subsection{Electromagnetic Calorimeter}
+
+\subsection{Hadronic Calorimeter}
+
+
 \section{Muon Spectrometer}
+The Muon Spectrometer is the outermost subdetector designed to measure muons, which are too massive to be stopped by the \ac{LAr}. The \ac{MS} relies on a air-core toroidal magnet system which provide a strong bending power without introducing extra material scattering. It includes three layers of high precision tracking, which give a momentum resolution of $10\%$ and separate trigger chambers with timing resolution of $1.5-4 \textrm{ns}$. 
+
+%$https://cds.cern.ch/record/1631701/files/MuonSpectrometer_profile.png
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=.8\textwidth]{figures/Detector/atlas-ms.png}
+\caption{A diagram of the \ac{ATLAS} \ac{MS} in the $r-z$ plane. The barrel \ac{MDT} are shown in green and the \ac{RPC} shown in black. In the endcaps, the \ac{MDT} are shown in blue and the \ac{TGC} shown in purple. }
+\label{fig:atlas-ms}
+\end{figure}
+
+
 \section{Magnet Systems}
+\label{sec:magnets}
+
+
 \section{Particles in ATLAS}
 
 \todo{describe visible/invisible particles}
