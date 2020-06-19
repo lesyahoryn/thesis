@@ -27,10 +27,17 @@ A particle's momentum will generally be described in terms of its \pT, its momen
 
 
 
+
+
 \section{Inner Detector}
-The Inner Detector measures the trajectories of charged particles resulting from \ac{LHC} collisions. The \ac{ID} covers the region with $|\eta| < 2.5$, measuring approximately $1000$ particles per bunch crossing. To achieve the physics goals of the \ac{ATLAS} detector, a \pt resolution of $0.05\%$ is required. In order to achieve this, three subdetectors are used: the Pixel detector, the \ac{SCT}, and the \ac{TRT}. The Pixel and \ac{SCT} detectors are used for high granularity precision tracking and the \ac{TRT} is used to distinguish electrons from converted photons. All of this is immersed in a $2T$ magnetic field, curving charged particles in proportion to its momentum.
+The Inner Detector measures the trajectories of charged particles resulting from \ac{LHC} collisions. The \ac{ID} covers the region with $|\eta| < 2.5$, measuring approximately $1000$ particles per bunch crossing. In order to achieve the momentum and vertex resolution required to achieve \ac{ATLAS}'s physics goals three subdetectors are used: the Pixel detector, the \ac{SCT}, and the \ac{TRT}. The Pixel and \ac{SCT} detectors are used for high granularity precision tracking and the \ac{TRT} is used to distinguish electrons from converted photons. All of this is immersed in a $2T$ magnetic field, curving charged particles in proportion to its momentum.
 
 \todo{describe conversions somewhere... Maybe in particle descriptions in theory?}
+
+
+The \pt resolution of the \ac{ID} scales with track \pt. Higher \pt tracks are less curved, so the measurement resolution is worse. In the \ac{ATLAS} \ac{ID}, the \pt resolution  $0.05\% \times \pt$ with a $1\%$ constant term. The constant term describes measurement uncertainties that do not scale with momentum or energy, such as material imperfections, non-uniform detector response, or other constant measurement issues and is added in quadrature ($\oplus$) with the stochastic term.
+
+
 
 A schematic of the \ac{ID} can be seen in \autoref{fig:atlas-id} and a detailed distribution of the various subdetectors is shown in \autoref{fig:atlas-id-layers}. 
 
@@ -59,7 +66,7 @@ A schematic of the \ac{ID} can be seen in \autoref{fig:atlas-id} and a detailed 
 
 \section{Calorimeters}
 
-The \ac{ATLAS} calorimeters measure the energy of electromagnetic and hadronic particles. The \ac{LAr} electromagnetic sampling calorimeter is the innermost calorimeter and gives excellent energy and position resolution, with energy resolution of $10\%$ in the region with $|\eta| < 3.2$. The hadronic scintillator-tile calorimeter surrounds the \ac{LAr} and gives $50\%$ energy resolution in the region with $|\eta| < 3.2$. There are additional \ac{EM} and hadronic calorimeters in the forward region, extending coverage to $|\eta| < 4.9$ with worse energy resolution. A schematic of the \ac{ATLAS} calorimeters can be seen in \autoref{fig:atlas-calos}. 
+The \ac{ATLAS} calorimeters measure the energy of electromagnetic and hadronic particles. The \ac{LAr} electromagnetic sampling calorimeter is the innermost calorimeter and gives excellent energy and position resolution, with energy resolution of $10\%/\sqrt{E} \oplus $ in the region with $|\eta| < 3.2$. The hadronic scintillator-tile calorimeter surrounds the \ac{LAr} and gives $50\%/\sqrt{E} \oplus 3\%$ energy resolution in the region with $|\eta| < 3.2$. Additional \ac{EM} and hadronic calorimeters in the forward region extend coverage to $|\eta| < 4.9$, but with worse energy resolution ($100\%/\sqrt{E} \oplus 10\%$). Unlike the tracker, the energy resolution of a calorimeter increases with increasing energy due to the increased signal generated. A schematic of the \ac{ATLAS} calorimeters can be seen in \autoref{fig:atlas-calos}. 
 
 
 %https://arxiv.org/pdf/1603.02934.pdf
@@ -77,7 +84,7 @@ The \ac{ATLAS} calorimeters measure the energy of electromagnetic and hadronic p
 
 
 \section{Muon Spectrometer}
-The Muon Spectrometer is the outermost subdetector designed to measure muons, which are too massive to be stopped by the \ac{LAr}. The \ac{MS} relies on a air-core toroidal magnet system which provide a strong bending power without introducing extra material scattering. It includes three layers of high precision tracking, which give a momentum resolution of $10\%$ and separate trigger chambers with timing resolution of $1.5-4 \textrm{ns}$. 
+The Muon Spectrometer is the outermost subdetector designed to measure muons, which are too massive to be stopped by the \ac{LAr}. The \ac{MS} relies on a air-core toroidal magnet system which provide a strong bending power without introducing extra material scattering. It includes three layers of high precision tracking, which give a momentum resolution of $10\%$ at $\pT > 1 \TeV$ \footnote{At high \pt, the \ac{MS} performance is independent of the \ac{ID} resolution.} and separate trigger chambers with timing resolution of $1.5-4 \textrm{ns}$. 
 
 %$https://cds.cern.ch/record/1631701/files/MuonSpectrometer_profile.png
 \begin{figure}[htbp]
@@ -92,15 +99,7 @@ The Muon Spectrometer is the outermost subdetector designed to measure muons, wh
 \label{sec:magnets}
 
 
-\section{Particles in ATLAS}
-The previously described subdetectors are used in combination to identify particles in \ac{ATLAS}.
 
-\begin{figure}[htbp]
-\centering
-\includegraphics[width=.9\textwidth]{figures/Detector/particle-doodle.png}
-\caption{A schematic of the signatures of Standard Model particles in the \ac{ATLAS} detector that illustrates how the subdetectors are used together to identify particles. Dashed lines indicate a particle trajectory that leaves no detector signature. Figure not drawn to scale. }
-\label{fig:particle-doodles}
-\end{figure}
 
 
 
