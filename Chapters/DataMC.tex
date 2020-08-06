@@ -1,0 +1,80 @@
+\chapter{Data and Monte Carlo Samples}
+
+This chapter describes the data and simulated Monte Carlo samples used together to perform this analysis. ATLAS data from Run 2 of the LHC undergoes a special processing in order to make use of the special tracking and object reconstruction required to identify the targetted model. Monte Carlo samples of both the bechmark model and Standard Model backgrounds are generated. All backgrounds are estimated from data, but Monte Carlo is used extensively to optimize signal selection.
+
+\section{Data}
+
+This analysis makes use of $139~\ifb$ of $\sqrt{s}=14\TeV$ $pp$ collision data delivered by the \ac{LHC} and taken by the \ac{ATLAS} detector between $2015$ and $2018$. The data used in this analysis are collected using three different triggers depending of the topology of the event, described in \autoref{tab:triggers}. They are applied in the order listed to ensure consistency inside each event topology
+
+\begin{table}[htb]
+\small
+\begin{center}
+\begin{tabular}{|l|c|}
+\hline
+Topology       & Trigger \\
+\hline\hline
+\texttt{if} $\geq e,~\pt > 160~\gev$      & \texttt{HLT\_g140\_loose}    \\
+\texttt{else if} $\geq 2e,~\pt > 60~\gev$  & \texttt{HLT\_2g50\_loose}\footnote{The L1 seed for this trigger changed in 2017, and an otherwise identical trigger was used, \texttt{HLT\_2g50\_loose\_L12EM20VH}.} \\
+\texttt{else if} $\geq 1 \mu,~\pt > 60~\gev,~|\eta| < 1.07$                            & \texttt{HLT\_mu60\_0eta105\_msonly}   \\
+\hline
+\end{tabular}
+\caption{Summary of trigger selection based on event topology. This serves to have a consistent data stream inside each event topology. The first line is requested, if the event topology is not met, the second line is requested. If the event has the specified topology, but fails the trigger selection, the event is not selected.}
+\label{tab:triggers}
+\end{center}
+\end{table}
+
+The \ac{LRT} and special recontruction used in this analysis are computationally intensive and introduce many more fake tracks and physics objects, so it is only run over a subset (roughly $ 10\% $) of the full \texttt{physics\_Main} dataset. Events are filtered based on fired triggers and loose requirements on reconstruction-level objects. This analysis uses filters based on the triggers described in \autoref{tab:triggers} combined with selections on reconstruction-level muons, \ac{MS}-only muons, electrons, and photons (to account for loss of efficiency reconstructing electrons with standard tracking) listed in \autoref{tab:filters}.
+
+\begin{table}[htb]
+\small
+\begin{center}
+\begin{tabular}{|l|cccc|cccc|}
+\hline
+Filter                            & \multicolumn{4}{c|}{Object 1}       & \multicolumn{4}{c|}{Object 2} \\
+                                  & Object & \pt\ [GeV] & $|\eta|$ & \absdz [mm] & Object &\pt\ [GeV] & $|\eta|$ & \absdz [mm] \\
+\hline\hline
+Single muon                       & $\mu$ & $>60$                   & $<1.07$                 & > 2 & & & & \\%\multirow{4}{*}{-} \\
+\hline
+\multirow{3}{*}{Single photon}    & $\gamma$& \multirow{3}{*}{$>160$} & \multirow{3}{*}{$<2.5$} & \multirow{3}{*}{-} & $\gamma$ & > 10 & < 2.5 & - \\
+                                  & $\gamma$& & & &                                                                     $e$     & > 10 & < 2.5 & > 2 \\
+                                  & $\gamma$& & & &                                                                     $\mu$   & > 10 & < 2.5 & > 2 \\
+\hline
+Single electron                   & $e$ & $>160$                  & $<2.5$                  & $>2$ & & & & \\ %\multirow{4}{*}{-} \\
+\hline
+Di-Photon                         & $\gamma$ & $> 60$                  & $<2.5$                  & -    & $\gamma$ & > 60 & < 2.5 & - \\
+Di-Electron                       & $e$      & $> 60$                  & $<2.5$                  & > 2  & $e$      & > 60 & < 2.5 & > 2 \\
+Di-Electron/Photon                & $e$      & $> 60$                  & $<2.5$                  & > 2  & $\gamma$ & > 60 & < 2.5 & - \\
+
+\hline
+\end{tabular}
+\caption{Offline selection applied to select single $e/\gamma$ or muon event objects for \texttt{DRAW\_RPVLL} processing. For muons, the \absdz > 2 mm requirement is only enforced on combinded muons.}
+\label{tab:filters}
+\end{center}
+\end{table}
+
+If an event is selected by a filter, it is saved in its \texttt{RAW}, or detector-level, format in a \texttt{DRAW\_RPVLL} dataset. This \texttt{DRAW\_RPVLL} dataset then undergoes the full reconstruction chain, this time including \ac{LRT} during track reconstruction, and is saved in the same \texttt{xAOD} format as the standard datasets, now called \texttt{DAOD\_RPVLL}. These datasets are further processed into \texttt{DAOD\_SUSY15} derivations, which reduce the size of the dataset by making additional selections on the physics objects which now have the special reconstruction. Finally, the \texttt{DAOD\_SUSY15} derivations are processed by analysis-specific code into flat n-tuples that can be easily used for studies and background estimates. 
+
+\section{Monte Carlo}
+
+Monte Carlo generation is the process by which a physical model is simulated. It allows analyzers to understand how a specific physical process would appear in the \ac{ATLAS} detector. For this analysis, Monte Carlo samples are generated for various masses and lifetimes of theoretical sleptons, so that event selection can be optimized for the widest sensitivity. This is done by breaking up the process into many steps. 
+
+
+%PDF ref: https://arxiv.org/abs/1207.1303
+%MADgraph: https://arxiv.org/abs/1405.0301
+%pythia: https://cds.cern.ch/record/1966419
+First, the physical process at the collision is modeled. The center of mass energy must be determined, as discussed in \autoref{chap:LHC}, this is not a known quality and is modeled by \ac{PDF}s. There are many different choices of \ac{PDF}, in this analysis \texttt{NNPDF23LO}. Then, the \emph{generator} models the production of the given physical process by calculating its Matrix Elements. Generally, thought not in this analysis, the generator step models the full process from hard scatter to final state particles including all of their kinematic properties. For this analysis, we use \texttt{MadGraph5\_aMC@NLO} to produce $pp \rightarrow \tilde{\ell}\tilde{\ell}$ events with up to two additional radiated partons, using a perturbative \ac{QCD} calculation at leading order accuracy. Then these partons are hadronized and showered into \emph{jets} using \texttt{Pythia8.230} using the \texttt{A14} tuning of the parton showering, hadronization, and modeling of the underlying event. Finally, simulated pileup collisions are overlaid onto the event to mimic the actual conditions at the \ac{LHC}. At the end of this stage, particles are referred to as \emph{truth-level}.
+
+Next, the full event is propagated through a simulation of the detector created in \texttt{GEANT4}. Each particle created in the previous steps passes through the detector and all of its magnetic fields and support structures in order to as accurately as possible simulate particle trajectories, detector signatures, and other interactions with material. Until this point the sleptons have been treated as stable and travel through and interact with the detector. Their decay into a lepton and gravitino is a simple two-body decay, and is performed at this stage. At the end of this stage, particles are referred to as \emph{detector-level}.
+
+Finally, the trajectories of the particles is \emph{digitized}, to emulate the readout of the actual detector, and reconstruction is run on the simulated detector signals in the same way it is run for real data. Monte Carlo is not required to undergo the same filtering as data, but is processed with \ac{LRT} and made into \texttt{DAOD\_SUSY15} and analysis-specific n-tuples. At the end of this stage, particles are referred to as \emph{reconstruction-level}. 
+
+The importance of Monte Carlo simulations to an analyzer's ability to search for new physics and measure the \ac{SM} cannot be overstated and an enormous amount of effort is made to make each step as accurate and precise as possible. However, many corrections must be made to these samples after they are generated (specifically for the pileup modeling), and even so discrepancies between data and \ac{MC} are an important uncertainty in this analysis and many others.
+
+\todo{table of analysis lifetimes and masses, maybe some truth level kinematics.}
+In this analysis 
+
+In addition to the signal \ac{MC} samples, several background \ac{MC} samples are used. However, these have limited use in this analysis since the major backgrounds are not well modeled by \ac{MC}. These include \ttbar sample, simulating the production and semi-leptonic decay of two top quarks $pp\rightarrow \ttbar$; a \bbmm sample, simulating the production and leptonic decay of two bottom quarks $pp\rightarrow \ttbar \rightarrow \mu\mu$; and a sample of photons. 
+
+
+
+
