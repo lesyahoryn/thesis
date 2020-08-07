@@ -1,4 +1,5 @@
-\chapter{The Large Hadron Collider \label{chap:LHC}}
+\chapter{The Large Hadron Collider}
+\label{chap:LHC}
 
 The world's largest machine is required to study the universe's smallest particles. The \ac{LHC} is circular particle collider located on the French-Swiss border outside of Geneva, Switzerland. A series of accelerators culminate in a $27$-km ring in which beams of hadrons, either protons or heavier ions, are collided. The \ac{LHC} is the most powerful hadron accelerator ever built and has been running in its current form since 2008. It is built in the tunnel previously occupied by the \ac{LEP}, the most powerful lepton accelerator ever built, which was used to precisely measure the mass of the W and Z bosons. Collider experiments are based around the idea that $E=mc^2$: the more energetic the reaction, the more massive the particle that can be produced by it, allowing scientists to study physical phenomena not accessible in other experiments. 
 
@@ -9,7 +10,7 @@ The dataset used in this analysis comes from proton-proton ($pp$) collisions dur
 
 \section{Acceleration}
 %USED https://home.cern/science/engineering/accelerating-radiofrequency-cavities
-The basic units of an accelerator are \ac{RF} cavities, used to accelerate particles, and magnets, used to focus and bend the beam. A \ac{RF} cavity is a metallic structure with an electric field that oscillates at a specified frequency. Positively charged particles are repelled from the positive field and pulled by the positive field. Once the particle reaches the required energy, it will not be further accelerated. If the proton has too much or too little energy, it will arrives early or late with respect to the oscillation and it will be decelerated or accelerated by the cavity. This procedure creates a beam made of \emph{bunches} of protons, the size and spacing of which is dictated by the oscillation frequency of the accelerating cavities (at the \ac{LHC} proton bunches are $25$ ns apart)
+The basic units of an accelerator are \ac{RF} cavities, used to accelerate particles, and magnets, used to focus and bend the beam. A \ac{RF} cavity is a metallic structure with an electric field that oscillates at a specified frequency. Positively charged particles are repelled from the positive field and pulled by the positive field. Once the particle reaches the required energy, it will not be further accelerated. If the proton has too much or too little energy, it will arrives early or late with respect to the oscillation and it will be decelerated or accelerated by the cavity. This procedure creates a beam made of \emph{bunches} of protons, the size and spacing of which is dictated by the oscillation frequency of the accelerating cavities (at the \ac{LHC} proton bunches are $25$ ns apart) \cite{cern-cavities}
 
 %USED https://home.cern/science/engineering/pulling-together-superconducting-electromagnets
 %USED LHC-magnets.pdf
@@ -42,7 +43,7 @@ A series of accelerators are needed to accelerate protons beams to $6.5 \TeV$, a
 \centering
 %https://www.researchgate.net/figure/The-CERN-accelerator-network-as-injection-chain-for-the-LHC_fig1_40618836
 \includegraphics[width=.8\textwidth]{figures/Detector/lhc-injectors.png}
-\caption{The chain of accelerators used to collide protons at $\sqrt{s} = 13 \TeV$ in the \ac{ATLAS} detector. }
+\caption{The chain of accelerators used to collide protons at $\sqrt{s} = 13 \TeV$ in the \ac{ATLAS} detector. \cite{accelerator-sketch} }
 \label{fig:lhc-injection}
 \end{figure}
 
@@ -75,7 +76,7 @@ where $\sigma_x^*$ and  $\sigma_y^*$ are the \ac{rms} of the beam width in the $
 \begin{equation}
 \mathcal{L} = \frac{N_b^2 n_b f }{4\pi \sqrt{\epsilon_n \beta^*_x \beta^*_y}}\mathcal{F}
 \end{equation}
-where $N_b$ is the number of protons per bunch (assuming $N_1 = N_2$), $n_b$ is the number of bunches in the beam, $\epsilon_n$ is the \emph{emittance}, which describes the spread of the particles in the bunch, and $\beta^*$ is the value of the $\beta$-function at the \ac{IP}. The $\beta$-function describes the size of the beam as a function of location. A sampling of the values of these parameters in 2018 are shown in \autoref{tab:lumi-vals}.
+where $N_b$ is the number of protons per bunch (assuming $N_1 = N_2$), $n_b$ is the number of bunches in the beam, $\epsilon_n$ is the \emph{emittance}, which describes the spread of the particles in the bunch, and $\beta^*$ is the value of the $\beta$-function at the \ac{IP}. The $\beta$-function describes the size of the beam as a function of location. A sampling of the values of these parameters in 2018 are shown in \autoref{tab:lumi-vals}. \cite{pdg}
 
 
 %USED ATLAS-lumi-measurement.pdf
@@ -105,12 +106,12 @@ Several of these factors can be manipulated \emph{in situ}, increasing or decrea
 
 %USED LHC-vandermeer.pdf
 %USED ALTAS-lumi-measurement.pdf
-In \ac{ATLAS}, luminosity is measured in two steps. First, the rate of $pp$ collisions ($\mu_{\textrm{vis}}$) is measured using detectors close to the beam pipe. This is done both online, so that adjustments to the data collection scheme can be done on the fly, as well as offline, to determine the amount of data collected. Second, the $pp$ collision rate is translated into a luminosity using a \emph{van der Meer} scan. During the scan, the beam is widened and, initially, the beams are separated in both $x$ and $y$. The beams are moved incrementally closer to each other by known amounts such that the separation between the beams is always known as the number of collisions increases. The luminosity per bunch can be expressed as
+In \ac{ATLAS}, luminosity is measured in two steps. First, the rate of $pp$ collisions ($\mu_{\textrm{vis}}$) is measured using detectors close to the beam pipe. This is done both online, so that adjustments to the data collection scheme can be done on the fly, as well as offline, to determine the amount of data collected. Second, the $pp$ collision rate is translated into a luminosity using a \emph{van der Meer} scan. During the scan, the beam is widened and, initially, the beams are separated in both $x$ and $y$. The beams are moved incrementally closer to each other by known amounts such that the separation between the beams is always known as the number of collisions increases. \cite{atlas-vdm} The luminosity per bunch can be expressed as
 
 \begin{equation}
 \mathcal{L}_b = \frac{\mu_{\textrm{vis}}}{\sigma_{\textrm{vis}}} f
 \end{equation}
-where $\mu_{\textrm{vis}}$ is measured by the luminosity detectors. The luminosity, $\mathcal{L}_b$, is known during the van der Meer scan, and so the inelastic cross section, $\sigma_{\textrm{vis}}$ can be determined and used to calculate $\mathcal{L}_b$ from $\mu_{\textrm{vis}}$. Both $\mu_{\textrm{vis}}$ and $\sigma_{\textrm{vis}}$ contain detection efficiency effects. 
+where $\mu_{\textrm{vis}}$ is measured by the luminosity detectors. The luminosity, $\mathcal{L}_b$, is known during the van der Meer scan, and so the inelastic cross section, $\sigma_{\textrm{vis}}$ can be determined and used to calculate $\mathcal{L}_b$ from $\mu_{\textrm{vis}}$. Both $\mu_{\textrm{vis}}$ and $\sigma_{\textrm{vis}}$ contain detection efficiency effects. \cite{atlas-lumi}
 
 %USED luminosity public results
 In Run 2, the \ac{LHC} produced an integrated luminosity of $156 \textrm{fb}^{-1}$, \ac{ATLAS} recorded $147 \textrm{fb}^{-1}$, with $139 \textrm{fb}^{-1}$ available to be used for physics analyses.
@@ -124,7 +125,7 @@ While high instantaneous luminosity enables the fast accumulation of data, it al
 \begin{figure}[htbp]
 \centering
 \includegraphics[width=.8\textwidth]{figures/Detector/lhc-mu.pdf}
-\caption{Average number of interactions per bunch crossing during Run 2. }
+\caption{Average number of interactions per bunch crossing during Run 2.}
 \label{fig:pileup_plot}
 \end{figure}
 

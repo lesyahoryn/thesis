@@ -9,14 +9,12 @@ This analysis makes use of $139~\ifb$ of $\sqrt{s}=14\TeV$ $pp$ collision data d
 \begin{table}[htb]
 \small
 \begin{center}
-\begin{tabular}{|l|c|}
-\hline
+\begin{tabular}{l|c}
 Topology       & Trigger \\
-\hline\hline
-\texttt{if} $\geq e,~\pt > 160~\gev$      & \texttt{HLT\_g140\_loose}    \\
-\texttt{else if} $\geq 2e,~\pt > 60~\gev$  & \texttt{HLT\_2g50\_loose}\footnote{The L1 seed for this trigger changed in 2017, and an otherwise identical trigger was used, \texttt{HLT\_2g50\_loose\_L12EM20VH}.} \\
-\texttt{else if} $\geq 1 \mu,~\pt > 60~\gev,~|\eta| < 1.07$                            & \texttt{HLT\_mu60\_0eta105\_msonly}   \\
 \hline
+\texttt{if} $\geq e,~\pt > 160~\gev$      & \texttt{HLT\_g140\_loose}    \\
+\texttt{else if} $\geq 2e,~\pt > 60~\gev$  & \texttt{HLT\_2g50\_loose} \\
+\texttt{else if} $\geq 1 \mu,~\pt > 60~\gev,~|\eta| < 1.07$                            & \texttt{HLT\_mu60\_0eta105\_msonly}   \\
 \end{tabular}
 \caption{Summary of trigger selection based on event topology. This serves to have a consistent data stream inside each event topology. The first line is requested, if the event topology is not met, the second line is requested. If the event has the specified topology, but fails the trigger selection, the event is not selected.}
 \label{tab:triggers}
@@ -28,26 +26,24 @@ The \ac{LRT} and special recontruction used in this analysis are computationally
 \begin{table}[htb]
 \small
 \begin{center}
-\begin{tabular}{|l|cccc|cccc|}
-\hline
-Filter                            & \multicolumn{4}{c|}{Object 1}       & \multicolumn{4}{c|}{Object 2} \\
+\begin{tabular}{l|cccc|cccc}
+Filter                            & \multicolumn{4}{c|}{Object 1}       & \multicolumn{4}{c}{Object 2} \\
                                   & Object & \pt\ [GeV] & $|\eta|$ & \absdz [mm] & Object &\pt\ [GeV] & $|\eta|$ & \absdz [mm] \\
-\hline\hline
-Single muon                       & $\mu$ & $>60$                   & $<1.07$                 & > 2 & & & & \\%\multirow{4}{*}{-} \\
 \hline
-\multirow{3}{*}{Single photon}    & $\gamma$& \multirow{3}{*}{$>160$} & \multirow{3}{*}{$<2.5$} & \multirow{3}{*}{-} & $\gamma$ & > 10 & < 2.5 & - \\
-                                  & $\gamma$& & & &                                                                     $e$     & > 10 & < 2.5 & > 2 \\
-                                  & $\gamma$& & & &                                                                     $\mu$   & > 10 & < 2.5 & > 2 \\
+Single muon                       & $\mu$ & $>60$                   & $<1.07$                 & $> 2$ & & & & \\%\multirow{4}{*}{-} \\
+\hline
+\multirow{3}{*}{Single photon}    & $\gamma$& \multirow{3}{*}{$>160$} & \multirow{3}{*}{$<2.5$} & \multirow{3}{*}{-} & $\gamma$ & $> 10$ & $< 2.5$ & - \\
+                                  & $\gamma$& & & &                                                                     $e$     & $> 10$ & $< 2.5$ & $> 2$ \\
+                                  & $\gamma$& & & &                                                                     $\mu$   & $> 10$ & $< 2.5$ & $> 2$ \\
 \hline
 Single electron                   & $e$ & $>160$                  & $<2.5$                  & $>2$ & & & & \\ %\multirow{4}{*}{-} \\
 \hline
-Di-Photon                         & $\gamma$ & $> 60$                  & $<2.5$                  & -    & $\gamma$ & > 60 & < 2.5 & - \\
-Di-Electron                       & $e$      & $> 60$                  & $<2.5$                  & > 2  & $e$      & > 60 & < 2.5 & > 2 \\
-Di-Electron/Photon                & $e$      & $> 60$                  & $<2.5$                  & > 2  & $\gamma$ & > 60 & < 2.5 & - \\
+Di-Photon                         & $\gamma$ & $> 60$                  & $<2.5$                  & -    & $\gamma$ & $> 60$ & $< 2.5$ & - \\
+Di-Electron                       & $e$      & $> 60$                  & $<2.5$                  & $> 2$  & $e$      & $> 60$ & $< 2.5$ & $> 2$ \\
+Di-Electron/Photon                & $e$      & $> 60$                  & $<2.5$                  & $> 2$  & $\gamma$ & $> 60$ & $< 2.5$ & - \\
 
-\hline
 \end{tabular}
-\caption{Offline selection applied to select single $e/\gamma$ or muon event objects for \texttt{DRAW\_RPVLL} processing. For muons, the \absdz > 2 mm requirement is only enforced on combinded muons.}
+\caption{Aelection applied to select single $e/\gamma$ or muon event objects for \texttt{DRAW\_RPVLL} processing. For muons, the \absdz $> 2$ mm requirement is only enforced on combinded muons.}
 \label{tab:filters}
 \end{center}
 \end{table}
@@ -59,21 +55,61 @@ If an event is selected by a filter, it is saved in its \texttt{RAW}, or detecto
 Monte Carlo generation is the process by which a physical model is simulated. It allows analyzers to understand how a specific physical process would appear in the \ac{ATLAS} detector. For this analysis, Monte Carlo samples are generated for various masses and lifetimes of theoretical sleptons, so that event selection can be optimized for the widest sensitivity. This is done by breaking up the process into many steps. 
 
 
-%PDF ref: https://arxiv.org/abs/1207.1303
-%MADgraph: https://arxiv.org/abs/1405.0301
-%pythia: https://cds.cern.ch/record/1966419
-First, the physical process at the collision is modeled. The center of mass energy must be determined, as discussed in \autoref{chap:LHC}, this is not a known quality and is modeled by \ac{PDF}s. There are many different choices of \ac{PDF}, in this analysis \texttt{NNPDF23LO}. Then, the \emph{generator} models the production of the given physical process by calculating its Matrix Elements. Generally, thought not in this analysis, the generator step models the full process from hard scatter to final state particles including all of their kinematic properties. For this analysis, we use \texttt{MadGraph5\_aMC@NLO} to produce $pp \rightarrow \tilde{\ell}\tilde{\ell}$ events with up to two additional radiated partons, using a perturbative \ac{QCD} calculation at leading order accuracy. Then these partons are hadronized and showered into \emph{jets} using \texttt{Pythia8.230} using the \texttt{A14} tuning of the parton showering, hadronization, and modeling of the underlying event. Finally, simulated pileup collisions are overlaid onto the event to mimic the actual conditions at the \ac{LHC}. At the end of this stage, particles are referred to as \emph{truth-level}.
+First, the physical process at the collision is modeled. The center of mass energy must be determined, as discussed in \autoref{chap:LHC}, this is not a known quality and is modeled by \ac{PDF}s. There are many different choices of \ac{PDF}, in this analysis \texttt{NNPDF23LO} \cite{pdfs}. Then, the \emph{generator} models the production of the given physical process by calculating its Matrix Elements. Generally, thought not in this analysis, the generator step models the full process from hard scatter to final state particles including all of their kinematic properties. For this analysis, we use \texttt{MadGraph5\_aMC@NLO} \cite{madgraph} to produce $pp \rightarrow \tilde{\ell}\tilde{\ell}$ events with up to two additional radiated partons, using a perturbative \ac{QCD} calculation at leading order accuracy. Then these partons are hadronized and showered into \emph{jets} using \texttt{Pythia8.230} using the \texttt{A14} tuning of the parton showering, hadronization, and modeling of the underlying event \cite{atlas-pythia}. Finally, simulated pileup collisions are overlaid onto the event to mimic the actual conditions at the \ac{LHC}. At the end of this stage, particles are referred to as \emph{truth-level} and are stored in the final \ac{MC} datasets for later study.
 
-Next, the full event is propagated through a simulation of the detector created in \texttt{GEANT4}. Each particle created in the previous steps passes through the detector and all of its magnetic fields and support structures in order to as accurately as possible simulate particle trajectories, detector signatures, and other interactions with material. Until this point the sleptons have been treated as stable and travel through and interact with the detector. Their decay into a lepton and gravitino is a simple two-body decay, and is performed at this stage. At the end of this stage, particles are referred to as \emph{detector-level}.
+Next, the full event is propagated through a simulation of the detector created in \texttt{GEANT4}. Each particle created in the previous steps passes through the detector and all of its magnetic fields and support structures in order to as accurately as possible simulate particle trajectories over time, detector signatures, and other interactions with material. Until this point the sleptons have been treated as stable and travel through and interact with the detector. At this stage, they decay into a lepton and gravitino which are then propagated through the simulated detector. 
 
 Finally, the trajectories of the particles is \emph{digitized}, to emulate the readout of the actual detector, and reconstruction is run on the simulated detector signals in the same way it is run for real data. Monte Carlo is not required to undergo the same filtering as data, but is processed with \ac{LRT} and made into \texttt{DAOD\_SUSY15} and analysis-specific n-tuples. At the end of this stage, particles are referred to as \emph{reconstruction-level}. 
 
 The importance of Monte Carlo simulations to an analyzer's ability to search for new physics and measure the \ac{SM} cannot be overstated and an enormous amount of effort is made to make each step as accurate and precise as possible. However, many corrections must be made to these samples after they are generated (specifically for the pileup modeling), and even so discrepancies between data and \ac{MC} are an important uncertainty in this analysis and many others.
 
-\todo{table of analysis lifetimes and masses, maybe some truth level kinematics.}
-In this analysis 
+In this analysis, \ac{MC} samples are produced for a range of possible mass and lifetime configurations of the slepton for selectrons and muons, masses $50 \GeV$ to $1000 \GeV$, in steps of $100 \GeV$ (after an inital step from $50 \GeV$ to $100 \GeV$) with lifetimes $\tau = 0.01$ns, $0.1$ ns, $1$ns, and $10$ns; and for staus up to $600 \GeV$ and lifetimes up to $10$ ns. The cross sections for each of these mass points is shown in 
 
-In addition to the signal \ac{MC} samples, several background \ac{MC} samples are used. However, these have limited use in this analysis since the major backgrounds are not well modeled by \ac{MC}. These include \ttbar sample, simulating the production and semi-leptonic decay of two top quarks $pp\rightarrow \ttbar$; a \bbmm sample, simulating the production and leptonic decay of two bottom quarks $pp\rightarrow \ttbar \rightarrow \mu\mu$; and a sample of photons. 
+\begin{table}[htb]
+\begin{center}
+\begin{tabular}{ccc}
+ Slepton mass [GeV] & Slepton lifetime [ns] & $\sigma$ [pb] \\
+ \hline
+  50   &  0.01, 0.1, 1, 10   & 10.736  \\
+  100  &  0.01, 0.1, 1, 10   & 0.7314  \\
+  200  &  0.01, 0.1, 1, 10    & 0.06062  \\
+  300  &  0.01, 0.1, 1, 10   & 0.012508  \\
+  400  & 0.01, 0.1, 1, 10    & 0.003718 \\
+  500  &  0.01, 0.1, 1, 10   & 0.0013472  \\
+  600  &  0.01, 0.1, 1, 10   & 0.0005526\\
+  700  &  0.01, 0.1, 1, 10   & 0.000247  \\
+  800  & 0.01, 0.1, 1, 10   & 0.00011726 \\
+ 900   &  0.01, 0.1, 1      & $5.836 \times 10^{-5}$  \\
+ 1000  &  0.1, 1            & $3.008\times 10^{-5}$  \\
+\hline
+\end{tabular}
+\caption{Slepton (selectron + smuon) signal samples and cross sections. The uncertainty on the cross seciton calculation is roughly $4\%$.}
+\label{tab:dsid_slep}
+\end{center}
+\end{table}
+
+\begin{table}[htb]
+\begin{center}
+\begin{tabular}{ccc}
+ Stau mass [GeV] & Stau lifetime [ns] & $\sigma$ [pb] \\
+ \hline
+  50   &  0.01, 0.1, 1   & 5.368  \\
+  100  &  0.01, 0.1, 1   & 0.3657  \\
+  200  &  0.01, 0.1, 1   & 0.03031  \\
+  300  &  0.01, 0.1, 1   & 0.006254  \\
+  400  &  0.01, 0.1, 1   & 0.001859 \\
+  500  &  0.01, 0.1, 1   & 0.0006736  \\
+\hline
+\end{tabular}
+\caption{Stau signal samples and cross sections. The uncertainty on the cross seciton calculation is roughly $4\%$.}
+\label{tab:dsid_stau}
+\end{center}
+\end{table}
+
+
+
+
+In addition to the signal \ac{MC} samples, several background \ac{MC} samples are used. However, these have limited use in this analysis since the major backgrounds are not well modeled by \ac{MC}. These include \ttbar sample, simulating the production and semi-leptonic decay of two top quarks $pp\rightarrow \ttbar$; a \bbmm sample, simulating the production and leptonic decay of two bottom quarks $pp\rightarrow \ttbar \rightarrow \mu\mu$; and a sample of photons produced by the process $pp \rightarrow q \gamma$. 
 
 
 

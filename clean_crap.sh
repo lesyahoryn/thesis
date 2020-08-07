@@ -1,0 +1,11 @@
+rm */*.aux
+rm *.aux
+rm *.bbl
+rm *.bcf
+rm *.blg
+rm *.log
+rm *.lot
+rm *.lof
+rm *.toc
+rm *.out
+rm *.lol

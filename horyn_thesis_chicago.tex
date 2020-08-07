@@ -1,0 +1,138 @@
+% ---- ETD Document Class and Useful Packages ---- %
+\documentclass{ucetd}
+\usepackage{subfigure}
+\usepackage{epsfig}
+\usepackage{amsfonts}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{acronym}
+\usepackage{atlaslatex/latex/atlasmisc}
+\usepackage{atlaslatex/latex/atlasparticle}
+\usepackage{atlaslatex/latex/atlasunit}
+\usepackage{xspace}
+\usepackage{xcolor}
+\usepackage[hidelinks]{hyperref}
+\usepackage{multirow}
+\usepackage[backend=bibtex,sorting=none]{biblatex}
+\usepackage[nottoc,numbib]{tocbibind}
+\renewcommand{\etdChapterHeadFormat}[1]{\uppercase{#1}}
+\newcommand{\todo}[2][TODO]{{\color{red}\em[{\textbf\em {#1}: }{#2}]}}
+\newcommand{\question}[2][Question]{{\color{blue}\em[{\textbf\em {#1}: }{#2}]}}
+\newcommand{\comebackto}[2][come back to this?]{{\color{magenta}\em[{\textbf\em {#1}: }{#2}]}}
+%\PassOptionsToPackage{%
+%backend=biber, % Instead of bibtex
+%backend=bibtex8,bibencoding=ascii,%
+%language=auto,%
+%style=numeric-comp,%
+%style=authoryear-comp, % Author 1999, 2010
+%bibstyle=authoryear,dashed=false, % dashed: substitute rep. author with ---
+%sorting=nyt, % name, year, title
+%maxbibnames=10, % default: 3, et al.
+%backref=true,%
+%natbib=true % natbib compatibility mode (\citep and \citet still work)
+%}{biblatex}
+%\usepackage{biblatex}
+
+%% Use these commands to set biographic information for the title page:
+%for uchicago
+\title{A Search for Displaced Leptons in the ATLAS Detector}
+\author{Lesya Horyn}
+%for uchicago
+\department{Department of Physics}
+\division{Physical Sciences Division}
+\degree{Philosophy Doctorate}
+\date{July 2020}
+
+
+%% Use these commands to set a dedication and epigraph text
+\dedication{Dedication Text}
+\epigraph{Epigraph Text}
+
+\addbibresource{Chapters/horyn_thesis_chicago.bib} 
+
+
+\begin{document}
+%% Basic setup commands
+% If you don't want a title page comment out the next line and uncomment the line after it:
+\maketitle
+%\omittitle
+
+% These lines can be commented out to disable the copyright/dedication/epigraph pages
+\makecopyright
+\makededication
+\makeepigraph
+
+
+%% Make the various tables of contents
+
+\tableofcontents
+\listoffigures
+\listoftables
+\include{FrontBackMatter/Acronyms}
+
+
+\acknowledgments
+% Enter Acknowledgements here
+
+\abstract
+% Enter Abstract here
+
+\mainmatter
+% Main body of text follows
+
+
+%----------------------------------------------------------------------------------------
+%	THESIS CONTENT - CHAPTERS
+%----------------------------------------------------------------------------------------
+
+%----------------------------------------------------------------------------------------
+\part{Introduction}
+\include{Chapters/Introduction}
+
+\cleardoublepage
+
+%----------------------------------------------------------------------------------------
+\part{Theory and Motivation}
+
+\include{Chapters/theory}
+
+\cleardoublepage 
+
+%----------------------------------------------------------------------------------------
+\part{Experiment}
+
+\include{Chapters/Accelerators}
+\include{Chapters/ATLAS}
+\include{Chapters/DAQ}
+\include{Chapters/EventReconstruction}
+\include{Chapters/DataMC}
+
+\cleardoublepage 
+
+%----------------------------------------------------------------------------------------
+\part{Search for Displaced Leptons}
+
+\include{Chapters/LLPs}
+\include{Chapters/AnalysisStrategy}
+\include{Chapters/EventSelection}
+\include{Chapters/Backgrounds}
+\include{Chapters/Systematics}
+\include{Chapters/Results}
+
+\cleardoublepage 
+
+%----------------------------------------------------------------------------------------
+\part{Conclusions}
+
+\cleardoublepage 
+
+
+\printbibliography[heading=bibintoc,title={References}]
+
+% Figures and tables, if you decide to leave them to the end
+%\input{figure}
+%\input{table}
+
+\end{document}
+

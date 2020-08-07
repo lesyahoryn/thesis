@@ -14,7 +14,7 @@ Reconstruction of tracks, including modifications to reconstruct tracks with hig
 \section{Track Reconstruction}
 \label{sec:trackreco}
 
-Track reconstruction is the process by which \ac{ID} data is converted into particle trajectories. This is a complicated process, due to both the density of each event in the detector (in Run 2, there were an average of 40 collisons per bunch crossing, all of which produce hadronic sprays of particles), as well the helical trajectory (in $\phi$) the particles take due to the solenoidal magnetic field. Tracks are described by five parameters with respect to the beamspot position: \dzero (the transverse point of closest approach, or transverse impact parameter), \zzero (the longitudinal point of closest approach, or longitudinal impact parameter), $\phi$ (the azimuthal angle of the track momentum), $\theta$ (the polar angle of the track momentum), and $q/p$ (the ratio of the track's charge to the magnitude of its momentum).
+Track reconstruction is the process by which \ac{ID} data is converted into particle trajectories. This is a complicated process, due to both the density of each event in the detector (in Run 2, there were an average of 40 collisons per bunch crossing, all of which produce hadronic sprays of particles), as well the helical trajectory (in $\phi$) the particles take due to the solenoidal magnetic field. Tracks are described by five parameters with respect to the beamspot position: \dzero (the transverse point of closest approach, or transverse impact parameter), \zzero (the longitudinal point of closest approach, or longitudinal impact parameter), $\phi$ (the azimuthal angle of the track momentum), $\theta$ (the polar angle of the track momentum), and $q/p$ (the ratio of the track's charge to the magnitude of its momentum). \cite{track-algo}
 
 
 %From ATLAS-tracking-algo.pdf
@@ -36,7 +36,7 @@ Step two takes an \emph{outside-in} approach, where track segments are reconstru
 
 \subsection{Large Radius Tracking}
 
-\ac{LRT} is required to reconstruct tracks with impact parameters larger than what is allowed by the \ac{ST} algorithm. These requirements are designed for a maximum displacement a few mm, to enable the identification of heavy flavor hadron decays.
+\ac{LRT} \cite{lrt} is required to reconstruct tracks with impact parameters larger than what is allowed by the \ac{ST} algorithm. These requirements are designed for a maximum displacement a few mm, to enable the identification of heavy flavor hadron decays.
 
 An optional third step of the tracking chain, it uses the same \emph{inside-out} tracking algorithm, but relaxes various requirements that allow for a much more inclusive track collection. The major changes are summarized in \autoref{tab:LRT}. These cuts are applied during both the seeding and extension steps. Additionally, \ac{LRT} uses a sequential Kalman filter as opposed to the combinatorial Kalman filter used in \ac{ST}.
 
@@ -118,7 +118,7 @@ After all of the tracks are reconstructed, they must be correctly assigned to a 
 \label{sec:muonreco}
 \subsection{Standard Reconstruction and Identification}
 
-Muons are reconstructed by combining a \ac{MS} track with an \ac{ID} track. Then, at the identification stage, quality requirements are imposed on the combined tracks to improve the purity of the muon collection. For this analysis, the muon reconstruction algorithm remains unchanged (though \ac{LRT} tracks are used), while changes are made at the identification stage.
+Muons are reconstructed by combining a \ac{MS} track with an \ac{ID} track. Then, at the identification stage, quality requirements are imposed on the combined tracks to improve the purity of the muon collection. For this analysis, the muon reconstruction algorithm remains unchanged (though \ac{LRT} tracks are used), while changes are made at the identification stage. \cite{muon-reco}
 
 \subsubsection{Muon Track Reconstruction}
 To reconstruct \ac{MS} tracks, a Hough transform (described in \autoref{sec:hough}) is used to search for hits in each \ac{MDT} chamber to find hits following a trajectory on the $\eta$ plane of the detector. These hits are fit to a straight line within each chamber to form \emph{segments}. Co-located \ac{RPC} and \ac{TGC} hits are used to measure the $\phi$ coordinate. 
@@ -172,7 +172,7 @@ This modification of the muon identification increases the fake rate of muons, s
 %USED atlas-electron-reco.pdf atlas-electron-reco-sliding-window.pdf
 \label{sec:elecreco}
 
-Electrons are reconstructed using clusters from the \ac{EM} calorimeter as well as tracks from the \ac{ID}. Electron reconstruction brings more complication and ambiguity than muon reconstruction because of the presence of photons, converted photons, and bremsstrahlung radiation from electrons moving through material. These factors make the identification and accurate measurement of electrons quite challenging. More than in muon reconstruction, it relies on displacement-based quality information, posing a problem for this search. We modify these requirements and use \ac{LRT} tracks, but have a resulting lower selection efficiency. 
+Electrons are reconstructed using clusters from the \ac{EM} calorimeter as well as tracks from the \ac{ID}. \cite{electron-reco} Electron reconstruction brings more complication and ambiguity than muon reconstruction because of the presence of photons, converted photons, and bremsstrahlung radiation from electrons moving through material. These factors make the identification and accurate measurement of electrons quite challenging. More than in muon reconstruction, it relies on displacement-based quality information, posing a problem for this search. We modify these requirements and use \ac{LRT} tracks, but have a resulting lower selection efficiency. 
 
 \subsection{Standard Reconstruction and Identification}
 
@@ -181,7 +181,7 @@ Electrons are reconstructed using clusters from the \ac{EM} calorimeter as well 
 
 First, clusters are formed from $\eta \times \phi$ \emph{towers} of size $\Delta \eta \times \Delta \phi = 0.025 \times 0.025$ (roughly granularity of the second layer of the \ac{EM} calorimeter, where about 80\% of the energy in a shower is deposited). In each region, the energy deposited in all layers of the calorimeter is summed and are used as input to a seeding algorithm to form clusters. 
 
-A \emph{sliding window} algorithm is used to form clusters. In this algorithm, an $3 \times 5$ window is slid across each tower, the energy is summed inside of this window. If the sum is a local maximum and is above a threshold of $\et > 2.5 \GeV$, this window is considered a \emph{cluster}. A duplicate removal process is then performed for nearby clusters with similar energy measurements, keeping only the cluster with the largest $E_{T}$. Inefficiency in the cluster reconstruction step is negligible compared to the uncertainty in the next two steps. The efficiency of this step is 65\% at $\et = 4.5 \GeV$ and $> 99\%$ above $\et = 15 \GeV$.
+A \emph{sliding window} algorithm \cite{electron-sliding-window} is used to form clusters. In this algorithm, an $3 \times 5$ window is slid across each tower, the energy is summed inside of this window. If the sum is a local maximum and is above a threshold of $\et > 2.5 \GeV$, this window is considered a \emph{cluster}. A duplicate removal process is then performed for nearby clusters with similar energy measurements, keeping only the cluster with the largest $E_{T}$. Inefficiency in the cluster reconstruction step is negligible compared to the uncertainty in the next two steps. The efficiency of this step is 65\% at $\et = 4.5 \GeV$ and $> 99\%$ above $\et = 15 \GeV$.
 
 \begin{figure}[htbp]
 \centering
