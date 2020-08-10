@@ -46,7 +46,6 @@ An optional third step of the tracking chain, it uses the same \emph{inside-out}
 \begin{table}
 \centering
 \begin{tabular}{lcc}
-\hline
 Cut & \ac{ST} & \ac{LRT}  \\
 \hline
 $d_{0}^{\textrm{max}}$ (mm)   & 10   & 300 \\
@@ -84,7 +83,7 @@ Min number of silicon hits   & 7     & 7 \\
 
 Kalman filters are widely used across LHC experiments for track fitting. It is a recursive algorithm that allows the user to efficiently extrapolate from a track seed. In the sequential, or extended, Kalman filter, uses a linear approximation to the track path. It makes a prediction for the next layer of detector material based on the seed, and then looks for a hit in that region. At each step, it updates the linearization to improve the measurement for the next step, where each measurement is weighted by its certainty. \ac{LRT} uses this approach.
 
-In \ac{ST}, a combinatorial Kalman filter is used. This method employs several Kalman filters running in parallel and allows for the assumption that the measurement in the next layer is not necessarily assumed to be part of the track that formed the seed (as is often the case in the dense environment of the \ac{ATLAS} \ac{ID}). At each successive layer in track finding, several branches are extended if several measurements can be found in the same layer. The update of the linearization is done independently for each branch, and branches are created for missing measurements to account for detector inefficiencies. The branch is extended to the next layer if a measurement is found, and the process is repeated. Branches with no measurement for several layers are removed, and at the end, the branch with the best quality is selected. This process allows for parallelization of a complex combinatorial process. 
+In \ac{ST}, a combinatorial Kalman filter is used. This method employs several Kalman filters running in parallel and allows for the assumption that the measurement in the next layer is not necessarily assumed to be part of the track that formed the seed (as is often the case in the dense environment of the \ac{ATLAS} \ac{ID}). At each successive layer in track finding, several branches are extended if several measurements can be found in the same layer. The update of the linearization is done independently for each branch, and branches are created for missing measurements to account for detector inefficiencies. The branch is extended to the next layer if a measurement is found, and the process is repeated. Branches with no measurement for several layers are removed, and at the end, the branch with the best quality is selected. This process allows for parallelization of a complex combinatorial process. \cite{kalman-filter} 
 
 The Kalman filter works well for tracking in environments such as \ac{ATLAS} because even though it is computationally intensive, it generally gives the best precision.
 
@@ -95,7 +94,7 @@ The Kalman filter works well for tracking in environments such as \ac{ATLAS} bec
 
 A Hough transform is a pattern recognition algorithm that is useful for identifying a particular signature that can be described in a known parametric form. It performs well in noisy environments and is tolerant of holes in the signature. In relies on a transformation from physical to parameter space. Each point in physical space maps to a line in parameter space, and the intersection of the parameter space lines gives the values of constants of the parametric form. 
 
-For example, if the pattern being searched for is a line described by $y = mx + b$, a Hough transform maps from $x-y$ space to $m-b$ space. Each point $(x_i, y_i)$ in the original image maps to a line in parameter space. If all $(x_i, y_i)$ are plotted together, the intersections of the lines in parameter space at $(m_i, b_i)$ define lines in physical space with parameters $m_i$ and $b_i$. 
+For example, if the pattern being searched for is a line described by $y = mx + b$, a Hough transform maps from $x-y$ space to $m-b$ space. Each point $(x_i, y_i)$ in the original image maps to a line in parameter space. If all $(x_i, y_i)$ are plotted together, the intersections of the lines in parameter space at $(m_i, b_i)$ define lines in physical space with parameters $m_i$ and $b_i$. \cite{hough-transform}
 
 The Hough transform is a \emph{pattern finding} algorithm, not a tracking algorithm. Is not ideal for full \ac{ID} tracking, because its complexity grows exponentially with the number of dimensions and the form of the pattern must be known \emph{a priori}.
 

@@ -1,6 +1,6 @@
 \chapter{The ATLAS Detector}
 
-The \ac{ATLAS} detector is a cylindrical general purpose particle detector designed to measure the products of $\sqrt{s} = 14 \TeV$ proton-proton collisions at the \ac{LHC}. It consists of three major sub-detectors: closest to the beamline is the the \ac{ID}, which measures the trajectories of charge particles, followed by the Calorimeters, which measure the energies of electromagnetic and hadronically interacting particles, and finally the \ac{MS} which measures the trajectories of muons. The \ac{ID} is surrounded by a super conducting solenoidal magnet that provides a uniform $2\textrm{T}$ magnetic field, enabling measurement of particles' charge and momentum, and a toroidal magnet surrounds \ac{MS}, allowing for charge and momentum measurements of muons. In general, each subdetector consists of a barrel detector parallel to the beampipe and end-cap detectors perpendicular to the beampipe. \cite{atlas-overview}
+The \ac{ATLAS} detector is a cylindrical general purpose particle detector designed to measure the products of $\sqrt{s} = 14 \TeV$ proton-proton collisions at the \ac{LHC}. It consists of three major sub-detectors: closest to the beamline is the the \ac{ID}, which measures the trajectories of charge particles, followed by the Calorimeters, which measure the energies of electromagnetic and hadronically interacting particles, and finally the \ac{MS} which measures the trajectories of muons. The \ac{ID} is surrounded by a super conducting solenoidal magnet that provides a uniform $2$T magnetic field, enabling measurement of particles' charge and momentum, and a toroidal magnet surrounds \ac{MS}, allowing for charge and momentum measurements of muons. In general, each subdetector consists of a barrel detector parallel to the beampipe and end-cap detectors perpendicular to the beampipe. \cite{atlas-overview}
 
 A schematic of the \ac{ATLAS} detector is shown in \autoref{fig:atlas-schematic}.
 
@@ -30,12 +30,14 @@ A particle's momentum will generally be described in terms of its \pT, its momen
 
 %USED ATLAS-overview.pdf
 \section{Inner Detector}
-The Inner Detector measures the trajectories of charged particles resulting from \ac{LHC} collisions. The \ac{ID} covers the region with $|\eta| < 2.5$, measuring approximately $1000$ particles per bunch crossing. In order to achieve the momentum and vertex resolution required to achieve \ac{ATLAS}'s physics goals three subdetectors are used: the Pixel detector, the \ac{SCT}, and the \ac{TRT}. The Pixel and \ac{SCT} detectors are used for high granularity precision tracking and the \ac{TRT} is used to distinguish electrons from converted photons. All of this is immersed in a $2T$ magnetic field, curving charged particles in proportion to its momentum.
+The Inner Detector measures the trajectories of charged particles resulting from \ac{LHC} collisions. The \ac{ID} covers the region with $|\eta| < 2.5$, measuring approximately $1000$ particles per bunch crossing. In order to achieve the momentum and vertex resolution required to achieve \ac{ATLAS}'s physics goals three subdetectors are used: the Pixel detector, the \ac{SCT}, and the \ac{TRT}. The Pixel and \ac{SCT} detectors are used for high granularity precision tracking and the \ac{TRT} is used to distinguish electrons from converted photons. All of this is immersed in a $2$T magnetic field, curving charged particles in proportion to its momentum in the $\phi$ direction.
 
 \todo{describe conversions somewhere... Maybe in particle descriptions in theory?}
 
 
 The \pt resolution of the \ac{ID} scales with track \pt. Higher \pt tracks are less curved, so the measurement resolution is worse. In the \ac{ATLAS} \ac{ID}, the \pt resolution  $0.05\% \times \pt$ with a $1\%$ constant term. The constant term describes measurement uncertainties that do not scale with momentum or energy, such as material imperfections, non-uniform detector response, or other constant measurement issues and is added in quadrature ($\oplus$) with the stochastic term.
+
+The combination of thre three trackers with radii ranging from 32.33 mm to 1082mm enable robust and precise pattern recognition. The Pixel detector enables secondary vertex measurements, and combined with the \ac{SCT} enables impact parameter measurement and vertexing for heavy-flavor jet and $\tau$-lepton tagging. the The \ac{TRT} has lower precision per point, but measures a longer track and contributes signficantly to the momentum measurement.
 
 
 A schematic of the \ac{ID} can be seen in \autoref{fig:atlas-id} and a detailed distribution of the various subdetectors is shown in \autoref{fig:atlas-id-layers}. 
@@ -53,15 +55,35 @@ A schematic of the \ac{ID} can be seen in \autoref{fig:atlas-id} and a detailed 
 \begin{figure}[htbp]
 \centering
 \includegraphics[width=.8\textwidth]{figures/Detector/atlas-id-layers.png}
-\caption{A schematic of the \ac{ATLAS} \ac{ID} shown in the $r-z$ plane. \cite{id-cutaway}}
+\caption{A schematic of the \ac{ATLAS} \ac{ID} shown in the $R-z$ plane. \cite{id-cutaway}}
 \label{fig:atlas-id-layers}
 \end{figure}
 
+\subsection{Silicon Detectors}
+
+
+
 \subsection{The Pixel Detector}
-\subsubsection{Hit Reconstruction}
+
+The Pixel detector is the closest one to the beam and have the highest granularity. The pixels are arranged parallel to the beam axis in concentric cylindrical layers in the barrel and perpendicular to the beam axis on disks in the endcap regions. The current Pixel detector consists of the Run 1 detector with the \ac{IBL} installed closed to the beam pipe. 
+
+The Run 1 Pixel detector has 3 concentric cylindrical layers in the barrel and 3 disks in the endcap. It is composed of 1744 pixel sensors, each with 47232 pixels. Each pixel is identical has minimum size of $R-\phi \times z = 50 \times 400 \mu \textrm{m}^{2}$ (increasing to $R-\phi \times z = 50 \times 600 \mu \textrm{m}^{2}$ near a front-end chip). In the barrel, they have accuracy of $10 \mu \textrm{m}$ in $R-\phi$ and $115 \mu \textrm{m}$ in $z$, and in the endcaps they have accuracy of $10 \mu \textrm{m}$ in $R-\phi$ and $115 \mu \textrm{m}$ in $R$ and the detector has 80.4 million pixels and readout channels. 
+
+The \ac{IBL} is the inner most Pixel layer installed for Run 2 33.2 mm away from a new, narrower beampipe. A closer detector layer enables better impact parameter resolution as well as providing extra radiation shielding for the former closest Pixel layer (called the B-layer). The \ac{IBL} is composed of 12 million smaller pixels, $R-\phi \times z = 50 \times 250 \mu \textrm{m}^{2}$, assembled on 14 staves, with a resolution of $8 \mu\textrm{m}$ in $R-\phi$ and $40 \mu\textrm{m}$.
+
+The two innermost detectors, the Pixel and \ac{SCT} detectors, are made of silicon, the preferred tracking medium of particle physics detectors. The \ac{ATLAS} pixels are n-type semiconductors (impurities have been added to increase the number of potential electron charge carriers) with a voltage applied (150-600V in the Pixel detector).  When a charged particle interacts with a silicon detector layer, electron-hole pairs are created and these pairs drift toward the readout chips in the magnetic field. If enough of these pairs are created such that the signal becomes greater than a pre-specified noise threshold, the signal is readout as a \emph{hit}. A particle must have 3.6 eV to induce about 80 electron-hole pairs per $\mu$m. Pixels provide a high signal-to-noise ratio, and so are preferred in regions where high occupancy is possible (such as close to the beamline). \cite{silicon} 
+
 \subsection{The Silicon Microstrip Tracker}
-\subsubsection{Hit Reconstruction}
+A particle moving through the \ac{SCT} crosses 4 bilayers of the detector creating 4 hit measurements as it interacts with 8 layers of material. In the barrel, each bilayer is composed of 2 stereostrips, one parallel to the beam axis (measuring $R-\phi$) and the other rotated by 40 mrad. The combination of the stereostrips in the bilayer gives a 3-dimensional measurement. In the end caps, the bilayers are arranged on 9  disks per side such that the second layer is offset 40mrad from a radial strip. The strips are 12cm long and $80 \mu\textrm{m}$ thick.
+
+Less precise than the Pixels, in the barrel region, they have accuracy of $17 \mu \textrm{m}$ in $R-\phi$ and $580 \mu \textrm{m}$ in $z$, and in the endcaps they have resolution of $17 \mu \textrm{m}$ in $R-\phi$ and $580 \mu \textrm{m}$ in $R$. The use of strips instead of pixels reduces the number of readout channels as well as the cost: there are 15192 sensors each with 768 strips with an applied voltage of 150-300V and 6.3 million readout channels 
+ 
+
 \subsection{The Transition Radiation Tracker}
+The \ac{TRT} is straw-tube tracker that extends the tracking volume by almost 500 mm without the cost of that much additional silicon. The tubes have a diameter of 4mm and made of Kapton and carbon fibers. They are filled with a gas mixture (70\% Xe, 27\% CO$_{2}$, and 3\% O$_{2}$) and a 31 $\mu$m diameter gold-plated tungsten wire. The wires are divided into two halves about $\eta = 0$. In the barrel, 52 544 straws are parallel to the beam axis and 144 cm long. In the endcaps, 122 880 37 cm long straws are arranged radially in wheels. The \ac{TRT} has 351,000 readout channels.
+
+When a charged particle passes through the tube, the gas is ionized and the resulting free electrons drift toward the wire where they are amplified then readout. A particle passing through the \ac{TRT} typically leaves 36 hits. The \ac{TRT} only provides $R-\phi$ measurements with an accuracy of $130 \mu\textrm{m}$ per straw. However, its length improves measured momentum resolution and it also can provide ns-level timing information.
+
 
 \subsection{Solenoid Magnet}
 
@@ -111,7 +133,7 @@ The \ac{FCAL} is measures  both \ac{EM} and hadronic energy and extends coverage
 
 
 \section{Muon Spectrometer}
-The Muon Spectrometer is the outermost subdetector designed to measure muons, which are too massive to be stopped by the \ac{LAr}. The \ac{MS} relies on a toroidal magnet system which enables high precision tracking in the three precision layers. Together, these give a constant momentum resolution of $10\%$ at $\pT > 1 \TeV$ \footnote{At high \pt, the \ac{MS} performance is independent of the \ac{ID} resolution.} and separate chambers, with timing resolution of $1.5-4 \textrm{ns}$, are used for triggering.  
+The Muon Spectrometer is the outermost subdetector designed to measure muons, which are too massive to be stopped by the calorimeters. The \ac{MS} relies on a toroidal magnet system which enables high precision tracking in the three precision layers. Together, these give a constant momentum resolution of $10\%$ at $\pT > 1 \TeV$ \footnote{At high \pt, the \ac{MS} performance is independent of the \ac{ID} resolution.} and separate chambers, with timing resolution of $1.5-4 \textrm{ns}$, are used for triggering.  
 
 \ac{MDT}s are used for precision tracking in the $\eta$ coordinate in the range $|\eta| < 2.7$, except in the inner most layer where the \ac{MDT}s extend only to $|\eta| < 2.0$ and \ac{CSC}s cover the region $2.0|\eta| < 2.7$. Triggering and $\phi$ measurements are provided by \ac{RPC}s in the range $|\eta| < 1.05$ and \ac{TGC}s in $1.05 |\eta| < 2.7$. A schematic of the \ac{MS} can be seen in \autoref{fig:atlas-ms}.  
 
@@ -126,6 +148,13 @@ The Muon Spectrometer is the outermost subdetector designed to measure muons, wh
 \label{fig:atlas-ms}
 \end{figure}
 
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=.8\textwidth]{figures/Detector/mdt-t0.png}
+\caption{A distribution of \ac{MDT} time measurements. The $t_{0}$ is the time between 0 and the peak of the distribution, shown by the leftmost red line. The rightmost red line indicates $t_{\textrm{max}}$, the end of the \ac{MDT} signal.}
+\label{fig:particle-doodles}
+\end{figure}
 
 
 
