@@ -137,32 +137,6 @@ The Muon Spectrometer is the outermost subdetector designed to detect muons, whi
 
 The \ac{MS} can measure muons with $|\eta| < 2.4$ and $3 \GeV < {\pt}_{\mu} < 10 \TeV$. The main performance goal is to provide a stand-alone (independent of the \ac{ID}) momentum resolution of $10\%$ at $\pT > 1 \TeV$; a particle moving with $\pt = 1 \TeV$ has a \emph{sagitta} (see \autoref{fig:ms-sagitta}) of $500\mu\textrm{m}$ that needs to be measured with a resolution of $<50\mu\textrm{m}$. Even at 3 \TeV, the \ac{MS} has good momentum resolution and is still able identify the charge of the particle based on its bending direction. Furthermore, the triggering chambers have timing resolution of $1.5-4 \textrm{ns}$.  
 
-\ac{MDT}s are used for precision tracking in the $\eta$ coordinate in the range $|\eta| < 2.7$, except in the inner most layer where the \ac{MDT}s extend only to $|\eta| < 2.0$ and \ac{CSC}s cover the region $2.0|\eta| < 2.7$. Triggering and $\phi$ measurements are provided by \ac{RPC}s in the range $|\eta| < 1.05$ and \ac{TGC}s in $1.05 |\eta| < 2.7$. A schematic of the \ac{MS} can be seen in \autoref{fig:atlas-ms}.  
-
-\todo{Describe MDTs}
-
-While the \ac{MDT}s give extremely precise measurements of muon directions, they cannot be used in isolation for the physics goals of \ac{ATLAS}. First, they are finely segmented in $\eta$, the bending direction of the muons, enabling the high momentum resolution. However, in $\phi$, their resolution is as good as the length of the tube, several meters long. Additionally, being drift tubes, their readout is very slow and cannot be used in the quick response time required for triggering. Thus, \ac{RPC}s (in the barrel) and \ac{TGC}s (in the endcaps) complement the \ac{MDT}s for triggering and \ac{CSC}s complement the \ac{MDT}s in the forward region (where the particle incident rate is the highest) to provide better 2-dimensional position measurements. A comparison of the resolution of the relevant parameters is seen in \autoref{tab:ms-parts}/
-\todo{include description of MS timing}
-
-\begin{table}[htb]
-\begin{center}
-\begin{tabular}{ccccc}
-Detector    & function & z/R resolution & $\phi$ resolution & time resolution \\
- \hline
-  \ac{MDT}  &  tracking   &  35\um (z)  & 2.5-5 m  & $<$ 700 ns \\
-  \ac{CSC}  &  tracking   &  30 \um(R)  & 5 mm     & 7 ns   \\
-  \ac{RPC}  &  triggering &  10 mm (z)  & 10 mm    & 1.5 ns  \\
-  \ac{TGC}  &  triggering &  2-6 mm (R) & 3-7 mm   & 4 ns  \\
-\hline
-\end{tabular}
-\caption{Resolutions of the various parts of the \ac{MS}. The endcap detectors (\ac{CSC}s and \ac{TGC}s) give resolution in R while the barrel detectors (\ac{MDT}s and \ac{RPC}s) give resolution in z. The various pieces of the \ac{MS} enable 2 dimensional precision measurement as well as measurements to be used in the trigger.}
-\label{tab:ms-parts}
-\end{center}
-\end{table}
-
-
-The \ac{CSC}s are multiwire proportional chambers with anode wires oriented radially. One of the  cathodes is segmented with strips perpendicular to the wires giving a precision measurement in the bending plane ($\eta$) of with resolution of 40\um and the other segmented parallel to the wire, giving a transverse ($\phi$) measurement with 5mm resolution.  
-
 \begin{figure}[htbp]
 \centering
 \includegraphics[width=.6\textwidth]{figures/Detector/ms-sagitta.png}
@@ -171,33 +145,80 @@ The \ac{CSC}s are multiwire proportional chambers with anode wires oriented radi
 \end{figure}
 
 
-%$https://cds.cern.ch/record/1631701/files/MuonSpectrometer_profile.png
+\ac{MDT}s are used for precision tracking in the $\eta$ coordinate in the range $|\eta| < 2.7$, except in the inner most layer where the \ac{MDT}s extend only to $|\eta| < 2.0$ and \ac{CSC}s cover the region $2.0|\eta| < 2.7$. Triggering and $\phi$ measurements are provided by \ac{RPC}s in the range $|\eta| < 1.05$ and \ac{TGC}s in $1.05 |\eta| < 2.7$. The detector chambers are arranged in concentric cylindrical shells around the beam axis at radii of about 5m, 7.5m and 10m in the barrel, and on wheels perpendicular to the beam axis at distances of about 7.4m, 10.8m, 14m, and 21.5m from the interaction point. There is a gap in detector coverage around $|\eta| = 0$ for detector access for service work. A schematic of the \ac{MS} can be seen in \autoref{fig:atlas-ms}.  
+
 \begin{figure}[htbp]
 \centering
-\includegraphics[width=.8\textwidth]{figures/Detector/atlas-ms.png}
-\caption{A diagram of the \ac{ATLAS} \ac{MS} in the $r-z$ plane. The barrel \ac{MDT} are shown in green and the \ac{RPC} shown in black. In the end-caps, the \ac{MDT} are shown in blue and the \ac{TGC} shown in purple. \cite{ms-vertices}}
+\includegraphics[width=.6\textwidth]{figures/Detector/atlas-ms.png}
+\includegraphics[width=.3\textwidth]{figures/Detector/mdt-phi.png}
+\caption{A diagram of the \ac{ATLAS} \ac{MS} in the $r-z$ (left) plane and a $\phi$ cross section of the barrel region. On the left, the barrel \ac{MDT} are shown in green and the \ac{RPC} shown in black. In the end-caps, the \ac{MDT} are shown in blue and the \ac{TGC} shown in purple. On the right, the concentric cyclindrical layers of \ac{MDT}s are shown: 8 small chambers and 8 large chambers. The diameter is 20m at its widest. \cite{ms-vertices}}
 \label{fig:atlas-ms}
 \end{figure}
 
 
+While the \ac{MDT}s give extremely precise measurements of muon directions, they cannot be used in isolation for the physics goals of \ac{ATLAS}. First, they are finely segmented in $\eta$, the bending direction of the muons, enabling the high momentum resolution. However, in $\phi$, their resolution is as good as the length of the tube, several meters long. Additionally, being drift tubes, their readout is very slow and cannot be used in the quick response time required for triggering. Thus, \ac{RPC}s (in the barrel) and \ac{TGC}s (in the endcaps) complement the \ac{MDT}s for triggering and \ac{CSC}s complement the \ac{MDT}s in the forward region (where the particle flux is the highest) to provide better 2-dimensional position measurements. A comparison of the resolution of the different detectors of the \ac{MS} can be seen in \autoref{tab:ms-parts}. 
 
+\begin{table}[htb]
+\begin{center}
+\begin{tabular}{ccccc}
+Detector    & function & z/R resolution & $\phi$ resolution & time resolution \\
+ \hline
+  \ac{MDT}  &  tracking   &  35 \um (z)  & 2.5-5 m  & $<$ 700 ns \\
+  \ac{CSC}  &  tracking   &  30 \um (R)  & 5 mm     & 7 ns   \\
+  \ac{RPC}  &  triggering &  10 mm  (z)  & 10 mm    & 1.5 ns  \\
+  \ac{TGC}  &  triggering &  2-6 mm (R) & 3-7 mm   & 4 ns  \\
+\hline
+\end{tabular}
+\caption{Resolutions of the various parts of the \ac{MS}. The endcap detectors (\ac{CSC}s and \ac{TGC}s) give resolution in R while the barrel detectors (\ac{MDT}s and \ac{RPC}s) give resolution in z. The various pieces of the \ac{MS} enable 2 dimensional precision measurement as well as measurements to be used in the trigger.}
+\label{tab:ms-parts}
+\end{center}
+\end{table}
+
+\subsection{Monitored Drift Tubes and Cathode-Strip Chambers}
+
+The fundamental unit of the \ac{MDT} chambers are 30mm diameter pressurized drift tubes. Each drift tube is filled with Ar/CO$_{2}$ gas and a 50 \um diameter tungsten-rhenium wire. When a muon passes through the tube, it ionizes electrons from the atoms in the gas. These electrons travel along the electric field in the tube until they reach the positively charged wire. The location of the electrons along the wire give a position measurement. The time of arrival of the first charges at the wire determine the radius of the drift-circle, seen in \autoref{fig:ms-drift} If the muon itself passes close to the wire during its trajectory it can induce a signal in the wire, so a dead time is specified before the detector readout. The spatial resolution of a single drift tube is 80 \um. 
+
+Each \ac{MDT} chamber consists of two multilayers of drift tubes separated by a mechanical spacer. The inner chambers, where the highest performance is required, a multilayer is composed of four layers of drift tubes (increasing the resolution to 35 \um), while the middle and outer chambers multilayers are composed of three layers (increasing the resolution to 30 \um). The combination of the three chambers gives the required sagitta resolution with about 15 measurements per muon. There are 1150 \ac{MDT} chambers with 354,000 drift tubes. The tubes cannot bend more than 100\um, a significant challenge against gravity. The tubes are held in tension and carefully calibrated and monitored to achieve a maximum bending of 20 \um. 
+
+The \ac{CSC}s are multiwire proportional chambers with anode wires oriented radially. The wires are held between two cathodes: one segmented with strips perpendicular to the wires giving a precision measurement in the bending plane ($\eta$) of with resolution of 40\um and the other segmented parallel to the wire, giving a transverse ($\phi$) measurement with 5mm resolution. The signals from the wires are not readout, rather a position is obtained by measuring the relative charge deposited on neighboring strips. The \ac{CSC}s are segmented into chambers in $\phi$, each consisting of four layers, resulting in four measurements per muon.
+
+
+\subsubsection{MDT Timing}
+\label{sec:mdt-timing}
+The readout of the \ac{MDT}s also gives a profile of the hits that compose the signal in time, seen in \autoref{fig:ms-t0fit}. The peak of the distribution, $t_{0}$, measures the time the signal began with respect to $t=0$, the time of the $pp$ interaction measured by the \ac{ATLAS} clock. The end of the signal, $t_{\text{max}}$, is the maximum drift time. In a perfectly calibrated detector, the $t_{0}$ measurement is Gaussian about $t_{0} = 0$ with a width of about 3ns. 
 
 
 
 \begin{figure}[htbp]
 \centering
-\includegraphics[width=.8\textwidth]{figures/Detector/mdt-t0.png}
-\caption{A distribution of \ac{MDT} time measurements. The $t_{0}$ is the time between 0 and the peak of the distribution, shown by the leftmost red line. The rightmost red line indicates $t_{\textrm{max}}$, the end of the \ac{MDT} signal.}
+\includegraphics[width=.6\textwidth]{figures/Detector/ms-drift.png}
+\caption{A sketch of a muon passing through a cross section of an \ac{MDT}. \cite{atlas-overview}}
+\label{fig:ms-drift}
+\end{figure}
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=.6\textwidth]{figures/Detector/mdt-t0.png}
+\caption{A distribution of \ac{MDT} time measurements. The $t_{0}$ is the time between 0 and the peak of the distribution, shown by the leftmost red line. The rightmost red line indicates $t_{\textrm{max}}$, the end of the \ac{MDT} signal. \cite{muon-public}}
 \label{fig:ms-t0fit}
 \end{figure}
 
 
 
 
+\subsection{Resistive Plate Chambers and Thin Gap Chambers}
+
+The trigger chambers must provide transverse momentum resolution in the barrel and endcaps over the full $\phi$ range, have time resolution such that detector information can be matched to the correct bunch crossing, be robust against photon and neutron backgrounds in the experimental cavern, and provide a $\phi$ measurement to complement the \ac{MDT} $\eta$ measurement.
+
+
+In the barrel, \ac{RPC}s are used to achieve these goals. An \ac{RPC} is a parallel plate detector composed of two phenolic-melaminic plastic laminate plates 2mm apart filled with C$_{2}$H$_{2}$F$_{4}$ gas and with a 4.9 kV/mm field between them. When a muon passes through the detector, it ionizes the atoms in the gas, the ionized electrons further ionize other atoms, creating an avalanche. Both sides of the chamber are readout; they have perpendicular readout strips, giving both $z$ and $\phi$ measurements. The \ac{RPC}s are arranged into chambers of two detector layers each (giving two measurements per chamber) and positioned above or below each \ac{MDT} chamber.
+
+In the endcaps, multiwire proportional chamber \ac{TGC}s are used. They work very similarly to the \ac{CSC}s, with perpendicular anode wires and cathode strips, but the unit is more compact, giving the requisite increase in speed. Multiwire proportional chambers are ideal for the endcaps of the \ac{MS} because have an extremely granular readout, which allows them to deal well with the inhomogeneity of the magnetic field in the transition region.
+
 
 \subsection{Toroid Magnets}
 
-The toroid magnet system, composed of a barrel and two end-caps, provides a toroidal magnetic field of $0.5 \textrm{T}$ and $1 \textrm{T}$ for the barrel ($|\eta| < 1.4$) and end-cap ($1.6 <|\eta| < 2.7$) regions of the \ac{MS} (in the transition region ($1.5 < |\eta| < 1.6$) muons are bent by a combination of the two fields). The toroid is much larger than the solenoid, $25.3 \textrm{m}$ long and $10 \textrm{m}$ in radial width, but also operates at a temperature of $4.5 \textrm{K}$. All three toroid magnets are made of Al-stabilized Nb/Ti/Cu conductor. They have an air-core structure, which gives them a strong bending power over a large volume while minimizing additional material scattering. 
+The toroid magnet system, composed of a barrel and two end-caps, provides a toroidal magnetic field of $0.5 \textrm{T}$ and $1 \textrm{T}$ for the barrel ($|\eta| < 1.4$) and end-cap ($1.6 <|\eta| < 2.7$) regions of the \ac{MS}. In the transition region ($1.5 < |\eta| < 1.6$) muons are bent by a combination of the two fields resulting in an extremely heterogeneous field making accurate measurement challenging. This inhomogeneity results in geometric regions where the muon trajectories are not bent at all, mimicking a high \pt muon, adding challenges for triggering on high \pt muons in this region. The toroid is much larger than the solenoid, $25.3 \textrm{m}$ long and $10 \textrm{m}$ in radial width, but also operates at a temperature of $4.5 \textrm{K}$. All three toroid magnets are made of Al-stabilized Nb/Ti/Cu conductor. They have an air-core structure, which gives them a strong bending power over a large volume while minimizing material that could induce any additional scattering. 
 
 
 
