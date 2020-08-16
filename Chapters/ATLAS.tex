@@ -133,11 +133,42 @@ The \ac{FCAL} is measures  both \ac{EM} and hadronic energy and extends coverage
 
 
 \section{Muon Spectrometer}
-The Muon Spectrometer is the outermost subdetector designed to measure muons, which are too massive to be stopped by the calorimeters. The \ac{MS} relies on a toroidal magnet system which enables high precision tracking in the three precision layers. Together, these give a constant momentum resolution of $10\%$ at $\pT > 1 \TeV$ \footnote{At high \pt, the \ac{MS} performance is independent of the \ac{ID} resolution.} and separate chambers, with timing resolution of $1.5-4 \textrm{ns}$, are used for triggering.  
+The Muon Spectrometer is the outermost subdetector designed to detect muons, which are too massive to be stopped by the calorimeters, and measure their momentum. This is achieved using a toroidal magnet system that deflects muons as they pass through through  high-precision tracking chambers and separate chambers used for triggering. The magnetic field points in the $\eta$ direction, orthogonal to the muon's direction of motion, and the detector as well as the toroid system is symmetric in $\phi$.
+
+The \ac{MS} can measure muons with $|\eta| < 2.4$ and $3 \GeV < {\pt}_{\mu} < 10 \TeV$. The main performance goal is to provide a stand-alone (independent of the \ac{ID}) momentum resolution of $10\%$ at $\pT > 1 \TeV$; a particle moving with $\pt = 1 \TeV$ has a \emph{sagitta} (see \autoref{fig:ms-sagitta}) of $500\mu\textrm{m}$ that needs to be measured with a resolution of $<50\mu\textrm{m}$. Even at 3 \TeV, the \ac{MS} has good momentum resolution and is still able identify the charge of the particle based on its bending direction. Furthermore, the triggering chambers have timing resolution of $1.5-4 \textrm{ns}$.  
 
 \ac{MDT}s are used for precision tracking in the $\eta$ coordinate in the range $|\eta| < 2.7$, except in the inner most layer where the \ac{MDT}s extend only to $|\eta| < 2.0$ and \ac{CSC}s cover the region $2.0|\eta| < 2.7$. Triggering and $\phi$ measurements are provided by \ac{RPC}s in the range $|\eta| < 1.05$ and \ac{TGC}s in $1.05 |\eta| < 2.7$. A schematic of the \ac{MS} can be seen in \autoref{fig:atlas-ms}.  
 
+\todo{Describe MDTs}
 
+While the \ac{MDT}s give extremely precise measurements of muon directions, they cannot be used in isolation for the physics goals of \ac{ATLAS}. First, they are finely segmented in $\eta$, the bending direction of the muons, enabling the high momentum resolution. However, in $\phi$, their resolution is as good as the length of the tube, several meters long. Additionally, being drift tubes, their readout is very slow and cannot be used in the quick response time required for triggering. Thus, \ac{RPC}s (in the barrel) and \ac{TGC}s (in the endcaps) complement the \ac{MDT}s for triggering and \ac{CSC}s complement the \ac{MDT}s in the forward region (where the particle incident rate is the highest) to provide better 2-dimensional position measurements. A comparison of the resolution of the relevant parameters is seen in \autoref{tab:ms-parts}/
+\todo{include description of MS timing}
+
+\begin{table}[htb]
+\begin{center}
+\begin{tabular}{ccccc}
+Detector    & function & z/R resolution & $\phi$ resolution & time resolution \\
+ \hline
+  \ac{MDT}  &  tracking   &  35\um (z)  & 2.5-5 m  & $<$ 700 ns \\
+  \ac{CSC}  &  tracking   &  30 \um(R)  & 5 mm     & 7 ns   \\
+  \ac{RPC}  &  triggering &  10 mm (z)  & 10 mm    & 1.5 ns  \\
+  \ac{TGC}  &  triggering &  2-6 mm (R) & 3-7 mm   & 4 ns  \\
+\hline
+\end{tabular}
+\caption{Resolutions of the various parts of the \ac{MS}. The endcap detectors (\ac{CSC}s and \ac{TGC}s) give resolution in R while the barrel detectors (\ac{MDT}s and \ac{RPC}s) give resolution in z. The various pieces of the \ac{MS} enable 2 dimensional precision measurement as well as measurements to be used in the trigger.}
+\label{tab:ms-parts}
+\end{center}
+\end{table}
+
+
+The \ac{CSC}s are multiwire proportional chambers with anode wires oriented radially. One of the  cathodes is segmented with strips perpendicular to the wires giving a precision measurement in the bending plane ($\eta$) of with resolution of 40\um and the other segmented parallel to the wire, giving a transverse ($\phi$) measurement with 5mm resolution.  
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=.6\textwidth]{figures/Detector/ms-sagitta.png}
+\caption{The trajectory of a particle in a magnetic field (``B''). The particle's sagitta, labeled ``s'' is the bending distance in the direction perpendicular to the magnetic field. The direction of the bending is dictated by the charge of the particle. The higher the momentum of a particle, the smaller the sagitta. \cite{particledetectors-springer}}
+\label{fig:ms-sagitta}
+\end{figure}
 
 
 %$https://cds.cern.ch/record/1631701/files/MuonSpectrometer_profile.png
@@ -149,18 +180,24 @@ The Muon Spectrometer is the outermost subdetector designed to measure muons, wh
 \end{figure}
 
 
+
+
+
+
 \begin{figure}[htbp]
 \centering
 \includegraphics[width=.8\textwidth]{figures/Detector/mdt-t0.png}
 \caption{A distribution of \ac{MDT} time measurements. The $t_{0}$ is the time between 0 and the peak of the distribution, shown by the leftmost red line. The rightmost red line indicates $t_{\textrm{max}}$, the end of the \ac{MDT} signal.}
-\label{fig:particle-doodles}
+\label{fig:ms-t0fit}
 \end{figure}
+
+
 
 
 
 \subsection{Toroid Magnets}
 
-The toroid magnet system, composed of a barrel and two end-caps, provides a toroidal magnetic field of $0.5 \textrm{T}$ and $1 \textrm{T}$ for the barrel ($|\eta| < 1.4$) and end-cap ($1.6 <|\eta| < 2.7$) regions of the \ac{MS} (in the transition region ($1.5 < |\eta| < 1.6$) muons are bent by a combination of the two fields). The toroid is much larger than the solenoid, $25.3 \textrm{m}$ long and $10 \textrm{m}$ in radial width, but also operates at a temperature of $4.5 \textrm{K}$. All three toroid magnets are made of Al-stabilised Nb/Ti/Cu conductor. They have an air-core structure, which gives them a strong bending power over a large volume while minimizing additional material scattering. 
+The toroid magnet system, composed of a barrel and two end-caps, provides a toroidal magnetic field of $0.5 \textrm{T}$ and $1 \textrm{T}$ for the barrel ($|\eta| < 1.4$) and end-cap ($1.6 <|\eta| < 2.7$) regions of the \ac{MS} (in the transition region ($1.5 < |\eta| < 1.6$) muons are bent by a combination of the two fields). The toroid is much larger than the solenoid, $25.3 \textrm{m}$ long and $10 \textrm{m}$ in radial width, but also operates at a temperature of $4.5 \textrm{K}$. All three toroid magnets are made of Al-stabilized Nb/Ti/Cu conductor. They have an air-core structure, which gives them a strong bending power over a large volume while minimizing additional material scattering. 
 
 
 
