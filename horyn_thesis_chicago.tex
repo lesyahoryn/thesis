@@ -46,7 +46,7 @@
 
 
 %% Use these commands to set a dedication and epigraph text
-\dedication{Dedication Text}
+\dedication{To my father, who taught me to look to the stars, and to my mother, who taught me to look in a book.}
 \epigraph{Epigraph Text}
 
 \addbibresource{Chapters/horyn_thesis_chicago.bib} 
@@ -60,8 +60,19 @@
 
 % These lines can be commented out to disable the copyright/dedication/epigraph pages
 \makecopyright
-\makededication
-\makeepigraph
+
+\clearpage
+\begin{center}
+    \thispagestyle{empty}
+    \vspace*{\fill}
+    Dedication text
+%    For my father, who taught me to look to the stars, 
+
+%    and for my mother, who taught me to look in a book.
+    \vspace*{\fill}
+\end{center}
+\clearpage
+
 
 
 %% Make the various tables of contents
