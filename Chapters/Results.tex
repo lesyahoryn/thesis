@@ -2,6 +2,10 @@
 
 \section{Signal Yield}
 
+0 events are observed in each signal region, in full agreement with the background estimate of fewer than 1 event per \ac{SR}. The result of each cut made in each \ac{SR} can be seen in \autoref{tab:data_cutflow_srmm}, \autoref{tab:data_cutflow_sree}, and \autoref{tab:data_cutflow_sremu} for SR-$\mu\mu$, SR-$ee$, and SR-$e\mu$, respectively. Also in agreement with the expectation, most powerful background discriminators are the \dpt cut for electrons and cosmic veto for muons. 
+
+This analysis was designed to be as general as possible, so the results can be applied, with some care, to any new physics signature that results in 2 leptons with high \absdz and high \pt.  
+
 \begin{table}[htb]
 \begin{center}
 %\resizebox{\columnwidth}{!}{
@@ -82,5 +86,21 @@ electron \nmiss $\leq 1$ &0.000 $\pm$ 0.000 \\
 \end{table}
 
 \section{Interpretation}
+
+While these results are designed to be applicable to many \ac{BSM} physics models, we use them to set bounds on the possible parameter space of sleptons in \ac{GMSB} \ac{SUSY} models, discussed in \todo{theory ref}, now further restricted due to the lack of events in any \ac{SR} in this analysis. These limits are computed using HistFitter \cite{histfitter}, an \ac{ATLAS} framework that combines the observed number of events with uncertainties on background predictions and MC modeling and calculates both model dependent and model independent limits using the CL$_{\text{S}}$ technique \cite{CLs-1}. 
+
+Model dependent limits are set in terms of the mass and lifetime of sleptons. Four different limits are set using the results of this analysis: each selectron, smuon, or stau \ac{NSLP}, or the mass degenerate case with all three as co-NSLPs. For the selectron and smuon cases, the results from SR-$ee$ and SR-$\mu\mu$, respectively, are used. While for the stau and co-NSLP cases, all three SRs are combined.
+
+\todo{plots when finished}
+
+This search provides almost an order of magnitude of exclusion over the previous result from OPAL and 90 \GeV. 
+
+
+Additionally, model independent limits are set on generic new physics processes. These limits are based on the visible cross-section of new physics ($\langle \epsilon \sigma^{95}_{\text{obs}}$) and the observed ($S^{95}_{\text{obs}}$) and expected ($S^{95}_{\text{exp}}$) number of signal events. 
+
+\todo{table when finished.}
+\todo{what are toys}
+
+
 
 \section{Future Prospects}
