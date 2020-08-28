@@ -36,11 +36,11 @@ Step two takes an \emph{outside-in} approach, where track segments are reconstru
 
 \subsection{Large Radius Tracking}
 
-\ac{LRT} \cite{lrt} is required to reconstruct tracks with impact parameters larger than what is allowed by the \ac{ST} algorithm. These requirements are designed for a maximum displacement a few mm, to enable the identification of heavy flavor hadron decays.
+\ac{LRT} \cite{lrt} is required to reconstruct tracks with impact parameters larger than what is allowed by the \ac{ST} algorithm. These requirements are designed for a maximum displacement a few mm, to enable the identification of heavy flavor hadron decays. Standard tracking cuts off at $\absdz = 10$ mm, and the range $ 10 \text{mm} < \absdz < 300 \text{mm}$ is covered by \ac{LRT}
 
 An optional third step of the tracking chain, it uses the same \emph{inside-out} tracking algorithm, but relaxes various requirements that allow for a much more inclusive track collection. The major changes are summarized in \autoref{tab:LRT}. These cuts are applied during both the seeding and extension steps. Additionally, \ac{LRT} uses a sequential Kalman filter as opposed to the combinatorial Kalman filter used in \ac{ST}.
 
-\ac{LRT} is required for this analysis, but cannot be applied to all events in the Run 2 dataset. The full event reconstruction with \ac{LRT} takes about 2.5 times longer than with \ac{ST}, so events are filtered based on the triggers that selected them, such that this algorithm is only run on about 10\% of the dataset.
+\ac{LRT} is required for this analysis, but cannot be applied to all events in the Run 2 dataset. The full event reconstruction with \ac{LRT} takes about 2.5 times longer than with \ac{ST}, so events are filtered based on the triggers that selected them, such that this algorithm is only run on about 10\% of the dataset. This filtering is further described in \autoref{sec:data}
 
 
 \begin{table}
@@ -243,6 +243,7 @@ After these modifications, we introduce many fake electrons, primarily resulting
 
 
 \section{Isolation}
+\label{sec:isolation}
 
 In this analysis, both muons and electrons are required to be isolated to reduce background from heavy flavor decays. That is, they are not expected to be surrounded by much other activity from the hard scatter in either the Inner Detector or Calorimeters. Isolation is generally measured in terms as the scalar sum of energy in a radius $\Delta R = \sqrt{(\Delta \eta)^2 + (\Delta \phi)^2}$ around the lepton. Track based isolations are called $p_{T}^{\textrm{varcone}}$ and calorimeter based isolations called $E_{T}^{\textrm{topocone}}$. 
 
@@ -251,7 +252,23 @@ For example, the track-based isolation called $p_{T}^{\textrm{varcone30}}$ is th
 These definitions are much simpler for muons than for electrons. Electrons are very likely to emit bremsstrahlung radiation as they traverse the inner detector and those photons can then convert back into electrons. The tracks from these secondary particles are considered part of the electron's \pT. Furthermore, the electron leaves its own energy deposit in the \ac{EM} calorimeter and this energy must be subtracted from the $E_{T}^{\textrm{topocone}}$ calculation.
 
 
-In this analysis we use the following working points \todo{grab isolation requirements from INT when finalized}
+In this analysis we use the the \texttt{FCTight} isolation definition for both electrons and muons, detailed in \autoref{tab:iso_defs}. In general, the requirements are stricter for electrons. \todo{why}
+
+
+\begin{table}
+\centering
+\begin{tabular}{lcc}
+Variable & Electron Cut & Muon Cut  \\
+\hline
+\texttt{ptvarcone20}   & $< 0.06$   & $ < 0.15$ \\
+\texttt{topoetcone20} &  $< 0.06$   & $ < 0.15$\\
+\hline
+\end{tabular}
+\caption{Isolation cuts for electrons and muons.}
+\label{tab:iso_defs}
+\end{table}
+
+
 
 
 \section{Overlap Removal}
