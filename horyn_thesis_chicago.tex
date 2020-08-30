@@ -1,6 +1,6 @@
 % ---- ETD Document Class and Useful Packages ---- %
 \documentclass{ucetd}
-\usepackage{subfigure}
+%$\usepackage{subfigure}
 \usepackage{epsfig}
 \usepackage{amsfonts}
 \usepackage{amsmath}
@@ -13,10 +13,13 @@
 \usepackage{xspace}
 \usepackage{xcolor}
 \usepackage{rotating}
+%\usepackage{caption}
+\usepackage{subcaption}
 \usepackage[hidelinks]{hyperref}
 \usepackage{multirow}
 \usepackage[backend=bibtex,sorting=none]{biblatex}
 \usepackage[nottoc,numbib]{tocbibind}
+\setcounter{tocdepth}{3}
 \renewcommand{\etdChapterHeadFormat}[1]{\uppercase{#1}}
 \newcommand{\todo}[2][TODO]{{\color{red}\em[{\textbf\em {#1}: }{#2}]}}
 \newcommand{\question}[2][Question]{{\color{blue}\em[{\textbf\em {#1}: }{#2}]}}
@@ -66,10 +69,9 @@
 \begin{center}
     \thispagestyle{empty}
     \vspace*{\fill}
-    Dedication text
-%    For my father, who taught me to look to the stars, 
+    For my father, who taught me to look to the stars, 
 
-%    and for my mother, who taught me to look in a book.
+    and for my mother, who taught me to look in a book.
     \vspace*{\fill}
 \end{center}
 \clearpage
