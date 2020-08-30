@@ -25,7 +25,7 @@ The combination of these variables form a useful variable to describe events wit
 
 The muon reconstruction algorithm described in \autoref{sec:muonreco} uses the momentum direction measured in the \ac{MS} in its extrapolation from \ac{MS} track to \ac{ID} track. In 90\% of cases, a only the  $\phi < 0$ muon on the bottom of the detector, \mb is reconstructed and identified, while the detector signature for \mt, the muon with $\phi > 0$, exists but the fully reconstructed muon does not. Thus it is advantageous to tag a cosmic muon as one which is back to back with activity in the \ac{MS}, not as two muons back to back, illustrated in \autoref{fig:tag_sketch}. A cosmic veto is defined based on the \dphicos and \sigeta between a muon and a \ac{MS} segment. 
 
-\begin{figure}[htbp]
+\begin{figure}[!ht]
 \centering
 \includegraphics[width=.8\textwidth]{figures/cosmics/tag_sketch.png}
 \caption{A sketch of a cosmic passing through the ATLAS detector, illustrating why the tag is designed the way that it is. This image is slightly adapted from Ref.~\cite{ATLAS-CONF-2019-006}}
@@ -34,7 +34,7 @@ The muon reconstruction algorithm described in \autoref{sec:muonreco} uses the m
 
 Since the \ac{MS} is so far from the \ac{PV}, the \z of individual MS segments is not measured, so they point to the origin. This creates a mismatch between the $\eta$ of the segment and the $\eta$ of the reconstructed muon in the determination of the cosmic tag. This is geometrically corrected for by re-calculating the $\Delta\eta$ between the segment and the muon during the cosmic veto. A schematic of this correction is shown in \autoref{fig:cos_eta_recalculation} and its effect on cosmic and signal muons shown in \autoref{fig:cos_eta_phi}. This narrows the distribution of cosmic muons by an order of magnitude in \sigeta. This distribution is isotropic for signal muons, so this definition allows for high cosmic muon rejection with minimal signal rejection. 
 
-\begin{figure}[htbp]
+\begin{figure}[!ht]
 \centering
 \includegraphics[height=4cm]{figures/cosmics/eta_correction_1.png}
 \includegraphics[height=4cm]{figures/cosmics/eta_correction_2.png}
@@ -43,7 +43,7 @@ Since the \ac{MS} is so far from the \ac{PV}, the \z of individual MS segments i
 \label{fig:cos_eta_recalculation}
 \end{figure}
 
-\begin{figure}[htbp]
+\begin{figure}[!ht]
 \centering
 \includegraphics[width=.48\textwidth]{figures/cosmics/v4_widetag_2_sumEta_dPhi_min.pdf}
 \includegraphics[width=.48\textwidth]{figures/cosmics/v4_widetag_2_sumEta_dPhi_min_corr.pdf}
@@ -59,7 +59,7 @@ The distribution the $\dphicos-\sigeta$ distribution is much narrower in \sigeta
 Additionally, there are gaps in the \ac{MS} to allow for detector access, so a muon is conservatively tagged as a cosmic if it is back to back with this gap in detector coverage, as it could not be tagged as a cosmic using the geometric algorithm. A map of the material of the \ac{MS} is used to veto cosmic muons using this \emph{detector coverage veto}. \autoref{fig:cos_material_veto} shows the impact of each step on the muon distribution in VR-$\mu$, which is dominated by muons from cosmic rays.
 
 
-\begin{figure}[htbp]
+\begin{figure}[!ht]
 \centering
 \includegraphics[width=.48\textwidth]{figures/cosmics/v4_widetag_2_eta_phi_baseline.pdf}
 \includegraphics[width=.48\textwidth]{figures/cosmics/v4_widetag_2_eta_phi_costag.pdf}
@@ -70,7 +70,7 @@ Additionally, there are gaps in the \ac{MS} to allow for detector access, so a m
 
 For this analysis, two different definitions of a ``cosmic muon'' are used. The \emph{nominal tag} is used to veto events in the \ac{SR}. If any muon is tagged by the nominal cosmic tag, the entire event is vetoed. A second \emph{narrow tag} is used during the validation of the estimate of background from cosmic muons. Both tags are required to pass the detector coverage veto. \autoref{tab:costag_values} describes the values used for the various cosmic tags used and \autoref{fig:cos_tag} shows the cuts used in the \dphicos-\sigeta distribution. 
 
-\begin{figure}[htbp]
+\begin{figure}[!ht]
 \centering
 \includegraphics[width=.48\textwidth]{figures/cosmics/cosmic_tag.png}
 \caption{The $\Sigma\eta_{\mu,\textrm{seg}} - \Delta\phi_{\mu,\textrm{seg}}$ distribution of signal quality muons in VR-$\mu$. The red line and shadow shows the bounds of the full cosmic tag, while the blue line and shadow shows the boundary of the narrow cosmic tag. Everything inside the respective boxes is tagged as a cosmic. The intermediate tag defines the region included in the full tag, but not included in the narrow tag.}
@@ -92,7 +92,7 @@ Narrow & $<0.02$   & $ <0.013$    & True & 59\% \\
 
 The cosmic tagging efficiency is determined by fitting distributions in VR-$\mu$. A template of the \tavg of cosmic tagged muons and prompt (collision) muons is taken from data \todo{insert figure}. The measurement of \tavg does not change with displacement, as the timing resolution is the dominant effect over the ns-level timing offsets from long lived slepton decays. These are used to determine the fraction of cosmic muons in VR-$\mu$ before and after the cosmic tagged muons are removed from VR-$\mu$, which can then be used to evaluate the fraction of muons vetoed by the various cosmic vetoes. The nominal tag removes 99.5\% of cosmic muons and the narrow tag removes 59\% of cosmic muons. The nominal tag removes 8\% of collision muons, primarily from the detector coverage veto. \autoref{fig:cos_eff} show the cosmic tagging efficiency in VR-$\mu$ compared to signal \ac{MC}. 
 
-\begin{figure}[h]
+\begin{figure}[!ht]
   \centering
   \includegraphics[width=0.38\textwidth]{figures/cosmics/t0_avg_template_comp.pdf}
   \includegraphics[width=0.38\textwidth]{figures/cosmics/t0_avg_prepost_comp.pdf}
@@ -101,7 +101,7 @@ The cosmic tagging efficiency is determined by fitting distributions in VR-$\mu$
 \end{figure}
 
 
-\begin{figure}[h]
+\begin{figure}[!ht]
   \centering
   \begin{subfigure}[b]{0.4\textwidth}
  	\includegraphics[width=\textwidth]{figures/cosmics/wider_tag_ratio_pt.pdf}
@@ -131,7 +131,7 @@ The cosmic tagging efficiency is determined by fitting distributions in VR-$\mu$
   \end{subfigure}
 \end{figure}
 
-\begin{figure}[h]
+\begin{figure}[!ht]
   \ContinuedFloat
   \centering
   \begin{subfigure}[b]{0.4\textwidth}
@@ -193,7 +193,7 @@ Events with two muons reconstructed from one cosmic muon have a very distinct si
 
 \question{talk about the brems rabbit hole? maybe no}
 
-\begin{figure}[htbp]
+\begin{figure}[!ht]
 \centering
 \includegraphics[width=.48\textwidth]{figures/cosmics/v4_widetag_2_2cos_d0_d0.pdf}
 \includegraphics[width=.48\textwidth]{figures/cosmics/v4_widetag_2_2cos_z0_z0.pdf}
@@ -206,7 +206,7 @@ Events with two muons reconstructed from one cosmic muon have a very distinct si
 
 The timing distributions as measured by the MDT segments of muons in 1 and 2 cosmic tagged events can be seen in \autoref{fig:cos_timing}. In the 1 $\mu$ case, \mb has a timing distribution centered around 0, indicating that \mb is responsible for the trigger decision in these events. However, in 1-$\mu$ events in which only \mt passes baseline selections, its timing distribution is shifted negative (early w.r.t the collision), mirroring the distribution for \mt in 2-$\mu$ events. This indicates that, even in cases in which only \mt is reconstructed, the trigger decision is made based on \mb. 
 
-\begin{figure}[htbp]
+\begin{figure}[!ht]
 \centering
 \includegraphics[width=.48\textwidth]{figures/cosmics/t0_plusphi.pdf}
 \includegraphics[width=.48\textwidth]{figures/cosmics/t0_negphi.pdf}
@@ -229,7 +229,7 @@ This estimate and validation makes use of the two cosmic tags described in \auto
 
 
 
-\begin{figure}[htbp]
+\begin{figure}[!ht]
 \centering
 \includegraphics[width=.4\textwidth]{figures/cosmics/1badcos.png}
 \includegraphics[width=.45\textwidth]{figures/cosmics/2badcos.png}
@@ -242,7 +242,7 @@ To estimate the number of events entering SR-$\mu\mu$ from poorly measured 2 cos
 
 \rgood for the SR-$\mu\mu$ estimate is defined using muons tagged with the full cosmic tag. A validation estimate is also defined, using the narrow and intermediate cosmic tags. The signal and validation regions used in this estimate are sketched in \autoref{fig:cosmic_SRVR} and the numbers of events in each region listed in \autoref{tab:estimate_counts}. Aside from Region 2 (CR-$\mu\mu$-topbad), all other regions in the SR and VR estimates are subsets of CR-$M_{\textrm{full}}$. These regions were chosen to maintain orthogonality, while minimizing signal contamination and maximizing statistical power. In all cases, statistical errors on \rgood are computed using the Wilson interval which is recommended for values close to zero with small statistics \cite{ROOTAsymmErrors}. 
 
-\begin{figure}[htbp]
+\begin{figure}[!ht]
 \centering
 \includegraphics[width=.8\textwidth]{figures/cosmics/SR-VR-sketch.png}
 \caption{A visual representation of the CRs and VRs used to estimate and validate the background contribution to SR-$\mu\mu$ due to cosmic muons. Regions 3 and 4 are used to define \rgood. These regions were chosen to maintain orthogonality, while minimizing signal contamination and maximizing statistical power.}
@@ -296,7 +296,7 @@ SR        & 0.11 & 0.20  & 0.10  & --   & --   \\
 \label{tab:estimate_results}
 \end{table}
 
-\begin{figure}[htbp]
+\begin{figure}[!ht]
 \centering
 \includegraphics[width=.48\textwidth]{figures/cosmics/ratio_d0.pdf}
 \includegraphics[width=.48\textwidth]{figures/cosmics/d0_ratio_binned.pdf}
@@ -304,7 +304,7 @@ SR        & 0.11 & 0.20  & 0.10  & --   & --   \\
 \label{fig:cos-nonclosure-plots}
 \end{figure}
 
-\begin{figure}[htbp]
+\begin{figure}[!ht]
 \centering
 \includegraphics[width=.48\textwidth]{figures/cosmics/d0_VR_v4_rgood.pdf}
 \includegraphics[width=.48\textwidth]{figures/cosmics/d0_VR_v4_2mu.pdf}
@@ -312,7 +312,7 @@ SR        & 0.11 & 0.20  & 0.10  & --   & --   \\
 \label{fig:VR-rgood}
 \end{figure}
 
-\begin{figure}[htbp]
+\begin{figure}[!ht]
 \centering
 \includegraphics[width=.48\textwidth]{figures/cosmics/d0_SR_v4_rgood.pdf}
 \includegraphics[width=.48\textwidth]{figures/cosmics/d0_SR_v4_2mu.pdf}
@@ -379,7 +379,6 @@ Variable & central value  & up error & down error & \% diff from nominal\\
 
 This estimate is dominated by statistical uncertainties in the SR estimation regions. All combined $0.11^{+0.20}_{- 0.11}$ ($^{+0.198}_{-0.104}$ stat. and 0.047 syst) events are expected in SR-$\mu\mu$ due to cosmic muons.
 
-
 \section{Background to SR-$ee$}
 
 \subsection{Fakes and Heavy Flavor Decays}
@@ -397,7 +396,7 @@ N_A = \frac{N_B}{N_D}\times N_C
 \end{equation}
 
 
-\begin{figure}[htbp]
+\begin{figure}[!ht]
 \centering
 \includegraphics[width=.5\textwidth]{figures/otherbackgrounds/abcd.png}
 \caption{The regions used for ABCD estimation.}
@@ -436,7 +435,6 @@ Next, a validation is done in a \ac{HF} enhanced region, VR-$ee$-fake-hf, which 
 \subsection{Summary}
 
 This estimate is dominated by statistical uncertainties with additional, conservative, systematic uncertainties taken, giving a final estimate of $0.46 \pm 0.10$ (0.082 stat. and 0.058 syst).
-
 
 \section{Background to SR-$e\mu$}
 
@@ -477,8 +475,6 @@ Then, VR-$e\mu$-fake-hf is defined requiring at least one anti-isolated lepton w
 This region is extremely statistically limited such that a full background estimate is not possible, and so an upper limit is set. Less than 
 $0.007^{+0.019}_{-0.011}$ ($^{+0.018}_{-0.009}$ syst. and 0.006 stat.) background events are expected in SR-$e\mu$.
  
-
-
 \section{Negligible Backgrounds}
 Since this analysis is built on the assumption that there should be 0 background events in all signal regions, it is extremely important to ensure that all possible backgrounds are quantified and accounted for. Three different backgrounds were studied and determined to be negligible, meaning that they contribute $\mathcal{O}10^{-4}$ events to the relevant \ac{SR}. 
 
