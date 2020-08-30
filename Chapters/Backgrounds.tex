@@ -322,7 +322,7 @@ SR        & 0.11 & 0.20  & 0.10  & --   & --   \\
 
 \subsection{\label{sec:cos_syst}Systematic Uncertainties}
 
-\subsubsection{Muon Orientation}
+\paragraph{Muon Orientation}
 
 The estimate is performed using the quality of \mt since muons in the upper hemisphere are expected to be more temporally marginal and mismeasured. However, the strategy can be formed with the quality of \mb. Because poor quality \mb are more rare than poor quality \mt, it is not possible to compare this strategy in the SR estimate, which is already statistically limited. However, the comparison can be made in the VR. As shown in \autoref{tab:syst-orientation}, this change produces an estimate that is consistent with the nominal estimate within statistical uncertainties. Nonetheless, a 13\% systematic uncertainty is applied from the difference between the two predictions.
 
@@ -342,7 +342,7 @@ central value  & up error & down error & actual value & \% diff from actual & \%
 \end{table}
 
 
-\subsubsection{Quality parameter dependence}
+\paragraph{Quality parameter dependence}
 
 Here, a ``bad'' quality muon means one that fails any one of the \nprecision or the \nphi or the \chiCB cut. To evaluate the dependence one each variable, the estimate can be performed using only one of these to define a ``bad'' quality muon, requiring the others to pass the signal requirements. However, \chiCB is dependent on the MS track hit requirements and has a small contribution to the estimate regions on its own. Only inverting only \chiCB leaves 11 events in each Region 6 and Region 8 and 0 in Region 2 and Region 4. Thus, we account for the \chiCB contribution by remaining agnostic to it in performing the estimate with the other two quality variables.  Allowing for the failure of the \chiCB cut increases the \nprecision-only and \nphi-only estimates by 2\% and 1\%, respectively. \autoref{tab:estimate_variables_VR} and \autoref{tab:estimate_variables_SR} show the results of this procedure in the VR and SR, respectively. We take the largest difference from the nominal estimate in the VR (16.5\%) to account for the quality variable dependence. 
 
@@ -350,7 +350,6 @@ Here, a ``bad'' quality muon means one that fails any one of the \nprecision or 
 \centering
 \small
 \begin{tabular}{cccccccc}
-\hline
 Variable & central value  & up error & down error &  actual value & \% diff from actual & \% diff from nominal\\
 \hline
 \nphi          & 783.6 & 69.2 & 68.1 & 1088 & 38.8\% & 0.9\% \\
@@ -365,7 +364,6 @@ Variable & central value  & up error & down error &  actual value & \% diff from
 \begin{table}
 \centering
 \begin{tabular}{cccccc}
-\hline
 Variable & central value  & up error & down error & \% diff from nominal\\
 \hline
 \nphi          & 0 & -- & -- & 100\% \\
@@ -385,7 +383,11 @@ This estimate is dominated by statistical uncertainties in the SR estimation reg
 \section{Background to SR-$ee$}
 
 \subsection{Fakes and Heavy Flavor Decays}
-\todo{need to decide how to do the explanation here}
+
+The primary background to SR-$ee$ is algorithmic fakes from the misassociation of a fake \ac{LRT} track with a real energy deposit in the \ac{EM} calorimeter (such as a photon); there is a secondary contribution from electrons from \ac{HF} decays. \ac{MC} samples of \ttbar along with photon dominated sample (described in \autoref{sec:mc}) were used to study the relative contributions. The \ttbar provides a good sample of \ac{HF} decays (though not the dominant source of \ac{HF} decays at the \ac{LHC}), yet after all of the signal requirements, the remaining high \absdz electron was the result of a photon combined with an \ac{ID} track. That this sample has many more b-jet decays than photons, yet the photons contribute a larger background even in this narrow region of phase space, indicates that algorithmic fakes will be the larger contributer of background events to SR-$ee$. Additionally, in direct studies in background \ac{MC}, such as \bbmm (at truth level, the electron and muon kinematics are the same), $Z\rightarrow \tau\tau$ (where the Z bosons decay to electrons), and \ttbar, all show exponentially falling distributions with no two lepton events that pass the \pt and \absdz cuts in the \ac{SR}, as designed. 
+
+Further studies were performed in data, with one baseline electron passing the filter requirements and another anti-isolated lepton with no \absdz cut made. A lepton is \emph{anti-isolated} if it fails the isolation requirement made on signal leptons, meaning that there is substantial energy surrounding the lepton in the calorimeter and/or the tracker, likely inside of a jet. It was shown that while the \dpt cut is designed to remove algorithmic fakes, it is a very effective remover of anti-isolated electrons as well. Clusters associated to electrons reconstructed inside of jets are likely to have additional energy added to their clusters, increasing the cluster \pt and decreasing the \dpt. Thus, it is not possible to disentangle heavy flavor electrons from fake electrons, and the fake electrons make the dominant contribution to the background to SR-$ee$.
+
 
 \subsection{Background Estimate}
 Fake electrons are the dominant background to SR-$ee$ and since they are a failure of an algorithm, the two fake electrons should be uncorrelated. This assumption is used to estimate the background using an \emph{ABCD method}. The ABCD method relies divides events into four regions, shown in \autoref{fig:abcd}. The number of events in regions B, C, and D are combined to estimate the number of events in region A, the signal region:
@@ -465,7 +467,7 @@ A Estimate 								& $< 0.012 \pm 0.017$ 	& $< 0.007 \pm 0.010$ 	& $0.007^{+0.01
 \end{center}
 \end{table}
 
-\subsubsection{Validation and Systematic Uncertainties}
+\subsection{Validation and Systematic Uncertainties}
 
 As in the case of SR-$ee$, validations are performed enhancing the fake or \ac{HF} contributions. VR-$e\mu$-fake again inverts the most powerful fake discriminators, \dpt for electrons and \chiCB for muons with the loosened \pt and \absdz cuts. In this region, 2 events are observed in the A region compared to $1.9^{+1.8}_{-1.0}$. While these agree within the very large uncertainties, a 7.8\% nonclosure systematic uncertainty is taken from the difference in central values. 
 
@@ -482,7 +484,7 @@ Since this analysis is built on the assumption that there should be 0 background
 
 \subsection{Material Interactions}
 
-Material interactions define events with dilepton pairs that come from interaction with the material of the \ac{ATLAS} detector. In several other searches for long lived particles in \ac{ATLAS}, displaced vertices (\acp{DV}) are required. \ac{DV}s are reconstructed by extrapolating their tracks to their intersection, and in these analyses vertices in the detector material can be vetoed. In this analysis, there is no vertex so such a veto cannot be used. In order to study material interactions, events with leptons associated to displaced vertices from material were studied. It was found that in the cases of both electrons and muons, events with an \ac{DV}, where one track is associated to a lepton, the \dR between the lepton and the other track in the \ac{DV} was less than 0.2. After making the requirement that $\dR_{\ell, \text{track}} < 0.2$, no \acp{DV} with signal leptons were found. In the case of the background to one of the \acp{SR}, the second track in the \ac{DV} would be associated to a lepton. After this cut is made, this background is negligible to all 3 \ac{SR}.
+Material interactions define events with dilepton pairs that come from interaction with the material of the \ac{ATLAS} detector. In other searches for long lived particles in \ac{ATLAS} where displaced vertices (\acp{DV}) are required, \ac{DV}s are reconstructed by extrapolating their tracks to their intersection, and it can be determined if verticies originate from material. In this analysis, there is no vertex so such a veto cannot be used. In order to study material interactions, events with leptons associated to displaced vertices from material were studied. It was found that in the cases of both electrons and muons, events with an \ac{DV}, where one track is associated to a lepton, the \dR between the lepton and the other track in the \ac{DV} was less than 0.2. After making the requirement that $\dR_{\ell, \text{track}} < 0.2$, no \acp{DV} with signal leptons were found. In the case of the background to one of the \acp{SR}, the second track in the \ac{DV} would be associated to a lepton. After this cut is made, this background is negligible to all 3 \ac{SR}.
 
 \subsection{Fake Muons}
 Fake muons were estimated using an ABCD method similar to SR-$ee$ and SR-$e\mu$. Muons were selected using the baseline requirements, plus asking that be isolated, and not cosmic tagged. All remaining cuts used for defining signal muons were used to define ``passing'' muons. Using this strategy, only 6 events were seen in the D region, and 0 in either B or C. In the SR-$e\mu $fake estimate, the ratio of passing to failing muons is less than 1\%. Given this, the probability for two fake muons to pass our selections should be less than 0.01\%, making this background negligible ($<0.0006$ events) and we consider it to be negligible relative to cosmic muons.

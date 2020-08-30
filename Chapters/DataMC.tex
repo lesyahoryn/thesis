@@ -51,7 +51,7 @@ Di-Electron/Photon                & $e$      & $> 60$                  & $<2.5$ 
 
 If an event is selected by a filter, it is saved in its \texttt{RAW}, or detector-level, format in a \texttt{DRAW\_RPVLL} dataset. This \texttt{DRAW\_RPVLL} dataset then undergoes the full reconstruction chain, this time including \ac{LRT} during track reconstruction, and is saved in the same \texttt{xAOD} format as the standard \ac{ATLAS} datasets, now called \texttt{DAOD\_RPVLL}. These datasets are further processed into \texttt{DAOD\_SUSY15} derivations, which reduce the size of the dataset by making additional selections on the physics objects which now have the special reconstruction. Finally, the \texttt{DAOD\_SUSY15} derivations are processed by analysis-specific code into flat n-tuples that can be easily used for studies and background estimates. 
 
-\section{Monte Carlo}
+\section{\label{sec:mc}Monte Carlo}
 
 \ac{MC} generation is the process by which a physical model is simulated. It allows analyzers to understand how a specific physical process would appear in the \ac{ATLAS} detector. For this analysis, Monte Carlo samples are generated for various masses and lifetimes of theoretical sleptons, so that event selection can be optimized for the widest sensitivity. MC generation is done by breaking up the process of particle production, decay, and interaction with the detector into many steps. 
 
@@ -108,8 +108,6 @@ In this analysis, \ac{MC} samples are produced for a range of possible mass and 
 \label{tab:dsid_stau}
 \end{center}
 \end{table}
-
-
 
 
 In addition to the signal \ac{MC} samples, several background \ac{MC} samples are used. However, these have limited use in this analysis since the major backgrounds are not well modeled by \ac{MC}. These include \ttbar sample, simulating the production and semi-leptonic decay of two top quarks $pp\rightarrow \ttbar$; a \bbmm sample, simulating the production and leptonic decay of two bottom quarks $pp\rightarrow \ttbar \rightarrow \mu\mu$; and a sample of photons produced by the process $pp \rightarrow q \gamma$. 

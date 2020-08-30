@@ -239,7 +239,10 @@ After these modifications, we introduce many fake electrons, primarily resulting
 \label{fig:cust_elec_eff}
 \end{figure}
 
+\section{Overlap Removal}
+Each of the reconstruction chains described above, as well as those to reconstruction $\tau$ leptons, jets, and other physics objects used in \ac{ATLAS}, are run simultaneously. This means that the same track or cluster can be used to reconstruct two different types of physics objects. An iterative process of \ac{OR} is used to remove such artifacts. Overlap removal is performed on baseline objects, further described in \autoref{chap:event-selection}, which only pass identification and a loose \pt cut. 
 
+Electrons $\dR < 0.01$ from a muon are removed to suppress contributions from muon bremsstrahlung radiation. Then, any baseline jet residing within $\Delta R < 0.2$ of a baseline electron is removed.  Baseline electrons with $E_{T}<50$~\GeV\ ($E_{T}>50$~\GeV) within $\Delta R < 0.4$ ($\Delta R < \mathrm{min}(0.4,0.04+10$~\GeV$/\pt)$) of any remaining jet are removed. The overlap removal procedure between muon and jet candidates is designed to remove muons that may originate from the decay of hadrons, with the overlapping jet being retained. Nearby jets may also occur as a result of high-\pt\ bremsstrahlung, in which case the jet should be removed and the muon retained. Such jets are removed if they reside within $\Delta R < 0.2$ of a baseline muon and have less than three matched inner detector tracks. Muons are removed if they reside within either $\Delta R < 0.4$ or $\Delta R < \mathrm{min}(0.4,0.04+10$~\GeV$/\pt)$ of any remaining jet, following the same \pt-dependent criteria as outlined for electrons above.
 
 
 \section{Isolation}
@@ -271,9 +274,6 @@ Variable & Electron Cut & Muon Cut  \\
 
 
 
-\section{Overlap Removal}
-Each of the reconstruction chains described above, as well as those to reconstruction $\tau$ leptons, jets, and other physics objects used in \ac{ATLAS}, are run simultaneously. This means that the same track or cluster can be used to reconstruct two different types of physics objects. An iterative process of \ac{OR} is used to remove such artifacts. Overlap removal is performed on baseline objects, further described in \autoref{chap:event-selection}, which only pass identification and a loose \pt cut. 
 
-Electrons $\dR < 0.01$ from a muon are removed to suppress contributions from muon bremsstrahlung radiation. Then, any baseline jet residing within $\Delta R < 0.2$ of a baseline electron is removed.  Baseline electrons with $E_{T}<50$~\GeV\ ($E_{T}>50$~\GeV) within $\Delta R < 0.4$ ($\Delta R < \mathrm{min}(0.4,0.04+10$~\GeV$/\pt)$) of any remaining jet are removed. The overlap removal procedure between muon and jet candidates is designed to remove muons that may originate from the decay of hadrons, with the overlapping jet being retained. Nearby jets may also occur as a result of high-\pt\ bremsstrahlung, in which case the jet should be removed and the muon retained. Such jets are removed if they reside within $\Delta R < 0.2$ of a baseline muon and have less than three matched inner detector tracks. Muons are removed if they reside within either $\Delta R < 0.4$ or $\Delta R < \mathrm{min}(0.4,0.04+10$~\GeV$/\pt)$ of any remaining jet, following the same \pt-dependent criteria as outlined for electrons above.
 
 
