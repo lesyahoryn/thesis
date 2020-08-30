@@ -2,18 +2,9 @@
 
 In this analysis, backgrounds are estimated per signal region. In SR-$ee$ and SR-$e\mu$, algorithmic fakes are the dominant source of background. In SR-$\mu\mu$, the background contribution from algorithmic fake muons and muons from heavy flavor decays is negligible ($\mathcal{O}(10^{-4})$), and the dominant background is from cosmic muons coincident with \ac{LHC} collisions. While the signal lepton selection and event selection described in the previous chapter very efficiently remove these backgrounds, background estimates are calculated to estimate any residual contribution. 
 
-
-\section{Background to SR-$ee$}
-\subsection{Fake Background}
-\subsubsection{Systematic Uncertainties}
-
-\section{Background to SR-$e\mu$}
-\subsection{Fake Background}
-\subsubsection{Systematic Uncertainties}
-
 \section{Background to SR-$\mu\mu$}
 
-\subsection{Cosmics}
+\subsection{Cosmic Muon Identification}
 \label{sec:cosmics}
 Muons from cosmic rays constantly pass through the earth and thus the \ac{ATLAS} detector, particularly through the service shaft above the detector where there is no layer of earth above the detector\footnote{The cosmic muon flux at sea level is about 1 $\mu$ per cm$^2$ per minute at sea level. ATLAS is approximately 46 m long and 50 m wide and a single data-taking run lasts 8 hours. That's $10^{10}$ cosmic muons per run! Of course, most of \ac{ATLAS} is more than 50 m underground, which absorbs most of the cosmic muons. A muon from a cosmic ray must also be exactly coincident with a bunch crossing to be triggered and well reconstructed. \todo{Do this better with the flux under ground}}. If a cosmic ray muon were coincident with a bunch crossing, the event could be triggered, reconstructed, and enter the dataset used for this analysis. The cosmic ray muon could pass through the entire detector at any distance from the \ac{PV}, interacting with the \ac{ID} and \ac{MS}, and be reconstructed as two muons with high \absdz, passing all quality variables (because the signature comes from a real muon) exactly mimicking the signature of SR-$\mu\mu$. 
 
@@ -32,8 +23,6 @@ The combination of these variables form a useful variable to describe events wit
 \Delta R_{\text{cos}} = \sqrt{ (\phi_{\mu_{0}} - \phi_{\mu_{1}})^{2} + (\eta_{\mu_{0}} + \eta_{\mu_{1}})^2}
 \end{equation}
 
-\subsubsection{Cosmic Tag}
-\label{sec:cosmictag}
 The muon reconstruction algorithm described in \autoref{sec:muonreco} uses the momentum direction measured in the \ac{MS} in its extrapolation from \ac{MS} track to \ac{ID} track. In 90\% of cases, a only the  $\phi < 0$ muon on the bottom of the detector, \mb is reconstructed and identified, while the detector signature for \mt, the muon with $\phi > 0$, exists but the fully reconstructed muon does not. Thus it is advantageous to tag a cosmic muon as one which is back to back with activity in the \ac{MS}, not as two muons back to back, illustrated in \autoref{fig:tag_sketch}. A cosmic veto is defined based on the \dphicos and \sigeta between a muon and a \ac{MS} segment. 
 
 \begin{figure}[htbp]
@@ -112,92 +101,92 @@ The cosmic tagging efficiency is determined by fitting distributions in VR-$\mu$
 \end{figure}
 
 
-%\begin{figure}[h]
-%  \centering
-%  \begin{subfigure}[b]{0.4\textwidth}
-% 	\includegraphics[width=\textwidth]{figures/cosmics/wider_tag_ratio_pt.pdf}
-%  	\caption{VR-$\mu$ data with respect to \pt}
-%  \end{subfigure}
-%  \begin{subfigure}[b]{0.4\textwidth}
-% 	\includegraphics[width=\textwidth]{figures/cosmics/mc_300_ratio_pt.pdf}
-%  	\caption{Signal \ac{MC} with respect to \pt}
-
-%  \end{subfigure}
-%    \begin{subfigure}[b]{0.4\textwidth}
-%  	\includegraphics[width=\textwidth]{figures/cosmics/wider_tag_ratio_d0.pdf}
-%  	\caption{VR-$\mu$ data with respect to \dz}
-%  \end{subfigure}
-%  \begin{subfigure}[b]{0.4\textwidth}
-%  	\includegraphics[width=\textwidth]{figures/cosmics/mc_300_ratio_d0.pdf}
-%  	\caption{Signal \ac{MC} with respect to \dz}
-%  \end{subfigure}
-
-%  \begin{subfigure}[b]{0.4\textwidth}
-%  	\includegraphics[width=\textwidth]{figures/cosmics/wider_tag_ratio_z0.pdf}
-%  	\caption{VR-$\mu$ data with respect to \z}
-%  \end{subfigure}
-%  \begin{subfigure}[b]{0.4\textwidth}
-%  	\includegraphics[width=\textwidth]{figures/cosmics/mc_300_ratio_z0.pdf}
-%  	\caption{Signal \ac{MC} with respect to \z}
-%  \end{subfigure}
-
-%\end{figure}
-
-%\begin{figure}[h]
-%  \ContinuedFloat
-%  \centering
-%  \begin{subfigure}[b]{0.4\textwidth}
-%  	\includegraphics[width=\textwidth]{figures/cosmics/wider_tag_ratio_phi.pdf}
-%  	\caption{VR-$\mu$ data with respect to $\phi$}
-%  \end{subfigure}
-%  \begin{subfigure}[b]{0.4\textwidth}
-% 	\includegraphics[width=\textwidth]{figures/cosmics/mc_300_ratio_phi.pdf}
-%  	\caption{Signal \ac{MC} with respect to $\phi$}
-%  \end{subfigure
-% \begin{subfigure}[b]{0.4\textwidth}
-%  	\includegraphics[width=\textwidth]{figures/cosmics/wider_tag_ratio_eta.pdf}
-%  	\caption{VR-$\mu$ data with respect to $\eta$}
-%  \end{subfigure}
-%  \begin{subfigure}[b]{0.4\textwidth}
-%  	\includegraphics[width=\textwidth]{figures/cosmics/mc_300_ratio_eta.pdf}
-%  	\caption{Signal \ac{MC} with respect to $\eta$}
-%  \end{subfigure}
-%    \caption{Cosmic tagging efficiency with respect to kinematic variables in VR-$\mu$ data and signal \ac{MC}}
-%  \label{fig:cos_eff}
-%\end{figure}
-
-
-
 \begin{figure}[h]
   \centering
-  \begin{subfigure}[b]{\textwidth}
-  	\centering
-  	\includegraphics[width=.3\textwidth]{figures/cosmics/wider_tag_ratio_pt.pdf}
-  	\includegraphics[width=.3\textwidth]{figures/cosmics/wider_tag_ratio_d0.pdf}
-  	\includegraphics[width=.3\textwidth]{figures/cosmics/wider_tag_ratio_z0.pdf}
-  	\includegraphics[width=.3\textwidth]{figures/cosmics/wider_tag_ratio_phi.pdf}
-  	\includegraphics[width=.3\textwidth]{figures/cosmics/wider_tag_ratio_eta.pdf}
-  	\caption{Cosmic tagging efficiency in VR-$\mu$ data}
+  \begin{subfigure}[b]{0.4\textwidth}
+ 	\includegraphics[width=\textwidth]{figures/cosmics/wider_tag_ratio_pt.pdf}
+  	\caption{VR-$\mu$ data with respect to \pt}
+  \end{subfigure}
+  \begin{subfigure}[b]{0.4\textwidth}
+ 	\includegraphics[width=\textwidth]{figures/cosmics/mc_300_ratio_pt.pdf}
+  	\caption{Signal \ac{MC} with respect to \pt}
   \end{subfigure}
 
-  \begin{subfigure}[b]{\textwidth}
-  	\centering
-  	\includegraphics[width=.3\textwidth]{figures/cosmics/mc_300_ratio_pt.pdf}
-  	\includegraphics[width=.3\textwidth]{figures/cosmics/mc_300_ratio_d0.pdf}
-  	\includegraphics[width=.3\textwidth]{figures/cosmics/mc_300_ratio_z0.pdf}
-  	\includegraphics[width=.3\textwidth]{figures/cosmics/mc_300_ratio_phi.pdf}
-  	\includegraphics[width=.3\textwidth]{figures/cosmics/mc_300_ratio_eta.pdf}
-  	\caption{Cosmic tagging efficiency in signal \ac{MC}.}
+  \begin{subfigure}[b]{0.4\textwidth}
+  	\includegraphics[width=\textwidth]{figures/cosmics/wider_tag_ratio_d0.pdf}
+  	\caption{VR-$\mu$ data with respect to \dz}
   \end{subfigure}
-    \caption{Cosmic tagging efficiency with respect to \pt, \dz, \z, $\phi$, $\eta$ in VR-$\mu$ data (top) and signal \ac{MC}. The green shows the distribution of all muons, while the black line shows the subset of all muons that are cosmic tagged. A ratio of the two is shown below each plot.}
+  \begin{subfigure}[b]{0.4\textwidth}
+  	\includegraphics[width=\textwidth]{figures/cosmics/mc_300_ratio_d0.pdf}
+  	\caption{Signal \ac{MC} with respect to \dz}
+  \end{subfigure}
+
+  \begin{subfigure}[b]{0.4\textwidth}
+  	\includegraphics[width=\textwidth]{figures/cosmics/wider_tag_ratio_z0.pdf}
+  	\caption{VR-$\mu$ data with respect to \z}
+  \end{subfigure}
+  \begin{subfigure}[b]{0.4\textwidth}
+  	\includegraphics[width=\textwidth]{figures/cosmics/mc_300_ratio_z0.pdf}
+  	\caption{Signal \ac{MC} with respect to \z}
+  \end{subfigure}
+\end{figure}
+
+\begin{figure}[h]
+  \ContinuedFloat
+  \centering
+  \begin{subfigure}[b]{0.4\textwidth}
+  	\includegraphics[width=\textwidth]{figures/cosmics/wider_tag_ratio_phi.pdf}
+  	\caption{VR-$\mu$ data with respect to $\phi$}
+  \end{subfigure}
+  \begin{subfigure}[b]{0.4\textwidth}
+ 	\includegraphics[width=\textwidth]{figures/cosmics/mc_300_ratio_phi.pdf}
+  	\caption{Signal \ac{MC} with respect to $\phi$}
+  \end{subfigure}
+
+ \begin{subfigure}[b]{0.4\textwidth}
+  	\includegraphics[width=\textwidth]{figures/cosmics/wider_tag_ratio_eta.pdf}
+  	\caption{VR-$\mu$ data with respect to $\eta$}
+  \end{subfigure}
+  \begin{subfigure}[b]{0.4\textwidth}
+  	\includegraphics[width=\textwidth]{figures/cosmics/mc_300_ratio_eta.pdf}
+  	\caption{Signal \ac{MC} with respect to $\eta$}
+  \end{subfigure}
+    \caption{Cosmic tagging efficiency with respect to kinematic variables in VR-$\mu$ data and signal \ac{MC}}
   \label{fig:cos_eff}
 \end{figure}
 
 
 
+%\begin{sidewaysfigure}[h]
+%  \centering
+%  \begin{subfigure}[b]{\textwidth}
+%  	\centering
+%  	\includegraphics[width=.18\textwidth]{figures/cosmics/wider_tag_ratio_pt.pdf}
+%  	\includegraphics[width=.18\textwidth]{figures/cosmics/wider_tag_ratio_d0.pdf}
+% 	\includegraphics[width=.18\textwidth]{figures/cosmics/wider_tag_ratio_z0.pdf}
+% 	\includegraphics[width=.18\textwidth]{figures/cosmics/wider_tag_ratio_phi.pdf}
+% 	\includegraphics[width=.18\textwidth]{figures/cosmics/wider_tag_ratio_eta.pdf}
+% 	\caption{Cosmic tagging efficiency in VR-$\mu$ data}
+%  \end{subfigure}
+
+%  \begin{subfigure}[b]{\textwidth}
+%  	\centering
+%  	\includegraphics[width=.18\textwidth]{figures/cosmics/mc_300_ratio_pt.pdf}
+%  	\includegraphics[width=.18\textwidth]{figures/cosmics/mc_300_ratio_d0.pdf}
+%  	\includegraphics[width=.18\textwidth]{figures/cosmics/mc_300_ratio_z0.pdf}
+%  	\includegraphics[width=.18\textwidth]{figures/cosmics/mc_300_ratio_phi.pdf}
+%  	\includegraphics[width=.18\textwidth]{figures/cosmics/mc_300_ratio_eta.pdf}
+%  	\caption{Cosmic tagging efficiency in signal \ac{MC}.}
+%  \end{subfigure}
+%    \caption{Cosmic tagging efficiency with respect to \pt, \dz, \z, $\phi$, $\eta$ in VR-$\mu$ data %(top) and signal \ac{MC}. The green shows the distribution of all muons, while the black line shows the subset of all muons that are cosmic tagged. A ratio of the two is shown below each plot.}
+%  \label{fig:cos_eff}
+%\end{sidewaysfigure}
 
 
-\subsubsection{Properties of Events with Cosmic Tagged Muons}
+
+
+
+\subsection{Properties of Events with Cosmic Tagged Muons}
 Because all all events with a cosmic tagged muon are vetoed, a \ac{CR} with at least one cosmic tagged muon, CR-$M_{\textrm{full}}$, is defined to study cosmic events. 90\% of events in CR-$M_{\textrm{full}}$ have only one muon, and that muon is cosmic tagged. 90\% of those events find the cosmic muon on the bottom of the detector, \mb. The other 10\% of events have two reconstructed muons and they are both cosmic tagged. One event was seen that had four cosmic tagged muons, two on either side of the detector, indicating a cosmic shower. In CR-$M_{\textrm{full}}$ events, some jets are seen from pileup collisions, but additional leptons are coincident with cosmic muons. Interesting \ac{LHC} collisions are rare and so are cosmic muons, so the odds of having the two coincident in the same bunch crossing is minuscule. Generally, the cosmic muon is the most notable feature of the event and is the reason the event was triggered.
 
 Events with two muons reconstructed from one cosmic muon have a very distinct signature. They have exactly correlated $z_{0}$, exactly anti-correlated $d_{0}$, equal and opposite $\phi$ measurement, and their $\eta$ measurements sum to 0. This can be seen in \autoref{fig:2cos}.
@@ -232,7 +221,7 @@ Each of the combined muons will pass signal selections, because high quality inf
 
 
 
-\subsubsection{Cosmic Muon Background}
+\subsection{Background Estimate}
 
 Events with this measurement scheme were seen in a preliminary definition of the cosmic tag, which used the same \sigeta cut, but the \dphicos cut was reduced to $\dphicos = 0.18$. If a muon is reconstructed without direct $\phi$ measurements from \ac{RPC} or \ac{TGC} hits, its $\phi$ measurement is taken as the center of the \ac{MDT}, which has resolution of $\Delta \phi = 0.2$ (the final nominal tag value of $\dphicos = 0.25$ was expanded to include these cases). With this preliminary version of the cosmic tag, about 40 events were observed with one cosmic tagged muon, and another untagged muon. In these events, \mt was missing direct \ac{MS} $\phi$ measurements, so its segments were not back-to-back with \mb and \mb was not tagged as a cosmic. \mb however, was well measured, so \mt was cosmic tagged. An event can enter the signal region if both \mb and \mt are sufficiently mis-measured that neither can be tagged. This is sketched in \autoref{fig:cosmic_mismeasure}. A muon's cosmic tag is dependent on the opposite muon's quality, so the muon's cosmic tag status and its quality are assumed to be uncorrelated in order to make an estimate of the background.
 
@@ -262,7 +251,7 @@ To estimate the number of events entering SR-$\mu\mu$ from poorly measured 2 cos
 
 \begin{table}
 \centering
-\begin{tabular}{l|c|c}
+\begin{tabular}{ccc}
 Region & $\phi < 0$ muon & $\phi > 0$ muon \\
 \hline
 1 & signal & signal\\ 
@@ -282,7 +271,7 @@ Region & $\phi < 0$ muon & $\phi > 0$ muon \\
 
 \begin{table}
 \centering
-\begin{tabular}{lccccccccc}
+\begin{tabular}{cccccccccc}
 Region & 1    & 2 & 3 & 4 & 5 & 6 & 7 & 8\\
 \hline
 Event Yield & --  & 2 & 1 & 18 & 1088 & 1000 & 1947 & 2465 \\
@@ -296,7 +285,7 @@ Results of the estimate and validation are shown in \autoref{tab:estimate_result
 
 \begin{table}
 \centering{}
-\begin{tabular}{lcccccc}
+\begin{tabular}{ccccccc}
 Region & central value & up error & down error & actual value & \% diff from actual \\
 \hline
 VR        & 789.9  & 34.85 & 34.4 & 1088 & 37.7\%  \\
@@ -331,9 +320,9 @@ SR        & 0.11 & 0.20  & 0.10  & --   & --   \\
 \label{fig:SR-rgood}
 \end{figure}
 
-\subsubsection{\label{sec:cos_syst}Systematic Uncertainties}
+\subsection{\label{sec:cos_syst}Systematic Uncertainties}
 
-\paragraph{Muon Orientation}
+\subsubsection{Muon Orientation}
 
 The estimate is performed using the quality of \mt since muons in the upper hemisphere are expected to be more temporally marginal and mismeasured. However, the strategy can be formed with the quality of \mb. Because poor quality \mb are more rare than poor quality \mt, it is not possible to compare this strategy in the SR estimate, which is already statistically limited. However, the comparison can be made in the VR. As shown in \autoref{tab:syst-orientation}, this change produces an estimate that is consistent with the nominal estimate within statistical uncertainties. Nonetheless, a 13\% systematic uncertainty is applied from the difference between the two predictions.
 
@@ -341,7 +330,8 @@ The estimate described above relies on the assumption that if two muons are reco
 
 \begin{table}
 \centering
-\begin{tabular}{lcccccc}
+\small
+\begin{tabular}{ccccccc}
 central value  & up error & down error & actual value & \% diff from actual & \% diff from nominal\\
 \hline
 689.0  & 115.1 & 108.8 & 1088 & 62.3 \% & 13\% \\
@@ -352,13 +342,14 @@ central value  & up error & down error & actual value & \% diff from actual & \%
 \end{table}
 
 
-\paragraph{Quality parameter dependence}
+\subsubsection{Quality parameter dependence}
 
 Here, a ``bad'' quality muon means one that fails any one of the \nprecision or the \nphi or the \chiCB cut. To evaluate the dependence one each variable, the estimate can be performed using only one of these to define a ``bad'' quality muon, requiring the others to pass the signal requirements. However, \chiCB is dependent on the MS track hit requirements and has a small contribution to the estimate regions on its own. Only inverting only \chiCB leaves 11 events in each Region 6 and Region 8 and 0 in Region 2 and Region 4. Thus, we account for the \chiCB contribution by remaining agnostic to it in performing the estimate with the other two quality variables.  Allowing for the failure of the \chiCB cut increases the \nprecision-only and \nphi-only estimates by 2\% and 1\%, respectively. \autoref{tab:estimate_variables_VR} and \autoref{tab:estimate_variables_SR} show the results of this procedure in the VR and SR, respectively. We take the largest difference from the nominal estimate in the VR (16.5\%) to account for the quality variable dependence. 
 
 \begin{table}
 \centering
-\begin{tabular}{lccccccc}
+\small
+\begin{tabular}{cccccccc}
 \hline
 Variable & central value  & up error & down error &  actual value & \% diff from actual & \% diff from nominal\\
 \hline
@@ -373,7 +364,7 @@ Variable & central value  & up error & down error &  actual value & \% diff from
 
 \begin{table}
 \centering
-\begin{tabular}{lccccc}
+\begin{tabular}{cccccc}
 \hline
 Variable & central value  & up error & down error & \% diff from nominal\\
 \hline
@@ -386,16 +377,124 @@ Variable & central value  & up error & down error & \% diff from nominal\\
 \end{table}
 
 
-\subsubsection{Estimate Summary}
+\subsection{Summary}
 
-This estimate is dominated by statistical uncertainties in the SR estimation regions. All combined we expect $0.11^{+0.20}_{- 0.11}$ events in SR-$\mu\mu$ due to cosmic muons.
-
-
+This estimate is dominated by statistical uncertainties in the SR estimation regions. All combined $0.11^{+0.20}_{- 0.11}$ ($^{+0.198}_{-0.104}$ stat. and 0.047 syst) events are expected in SR-$\mu\mu$ due to cosmic muons.
 
 
-\subsection{Fakes and Heavy Flavor}
+\section{Background to SR-$ee$}
 
-\section{Background Summary}
+\subsection{Fakes and Heavy Flavor Decays}
+\todo{need to decide how to do the explanation here}
+
+\subsection{Background Estimate}
+Fake electrons are the dominant background to SR-$ee$ and since they are a failure of an algorithm, the two fake electrons should be uncorrelated. This assumption is used to estimate the background using an \emph{ABCD method}. The ABCD method relies divides events into four regions, shown in \autoref{fig:abcd}. The number of events in regions B, C, and D are combined to estimate the number of events in region A, the signal region:
+
+\begin{equation}
+N_A = \frac{N_B}{N_D}\times N_C
+\end{equation}
+
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=.5\textwidth]{figures/otherbackgrounds/abcd.png}
+\caption{The regions used for ABCD estimation.}
+\label{fig:abcd}
+\end{figure}
+
+
+In the nominal estimate, region A is the signal region, with two electrons passing all signal cuts, region D has both electrons failing at least one signal cut, and regions C and D have only one electron passing all signal cuts while the other fails at least one (regions B, C, and D compose CR-$ee$-fake). For this estimate, a ``failing'' electron fails either \dpt, \chiID, or \nmiss, while a ``passing'' electron is a signal electron, passing all three cuts. The number of events in each region and the estimated number of events in SR-$ee$ is shown in \autoref{tab:abcd_ee}.
+
+\subsection{Validation and Systematic Uncertainties}
+The definitions of the ABCD regions can be changed to perform validations of the estimate and quantify systematic uncertainties. There are two ways to do this: first, the estimate can be done in slightly different ways, and the difference from the nominal estimate taken as an uncertainity; second, an estimate can be done in a validation region, where one or more signal cuts are inverted, and the estimated number of events can be compared to the actual number of events in region A. In the second scenario, one looks for \emph{closure}, that the estimate correctly estimates the number of events (within statistical uncertainties), giving evidence that the method and its assumption are sound. If this is not the case, the \emph{nonclosure}, the extent to which the estimate disagrees with the correct number of events, is evaluated and an uncertainty can be taken to cover this.
+
+\begin{table}[htb]
+\small
+\begin{center}
+\begin{tabular}{lcc}
+Region     & Nominal            & Only \dpt   \\
+\hline
+D Observed & 9068 				& 1440 			\\
+C Observed & 77   				& 28   		\\
+B Observed & 54   				& 19   		\\
+A Estimate & $0.459 \pm 0.082$	& $0.37 \pm 0.11$ 	\\
+\hline
+\end{tabular}
+\caption{Results of the ABCD estimate for the nominal SR-$ee$ estimate, the number of events in each region are shown as well as the estimate for A. The uncertainties are statistical only and using Poisson statistics.}
+\label{tab:abcd_ee}
+\end{center}
+\end{table}
+
+Validations are performed by estimating the number of events in SR-$ee$ in different ways. For example, only the \dpt, the most effective fake discriminator, is used as the ``passing''/``failing'' variable. The results of this estimate are also shown in \autoref{tab:abcd_ee}, the results are consistent within statistical uncertainties but the nominal estimate is more precise.
+
+The second kind of validations are performed in two regions: one that enhances the fake contribution, and a second that enhances the \ac{HF} contribution. First, in a fake enhanced region, VR-$ee$-fake, where the \dpt cut is inverted and the estimate is performed with \chiID and \nmiss together as the ``passing''/``failing'' variables. This changes the estimate to predicting the number of fake electrons (failing \dpt) from regions with electrons that are more fake (failing \dpt and one or both of \chiID and \nmiss). In this region, 1440 events are observed, and 1356 $\pm$ 49 are predicted. Even though this result is correct within the statistical uncertainties, the difference between the central values (6.2\%) is taken as a nonclosure and applied as a systematic uncertainty on the \ac{SR} estimate.
+
+Next, a validation is done in a \ac{HF} enhanced region, VR-$ee$-fake-hf, which is identical to CR-$ee$-fake with the additional requirement that at least one electron is \emph{anti-isolated} (fails the isolation cut). This additional requirement reduces the statistics in the region quite a bit, so the electron cuts are loosened to $\pt>50\gev$, $\absdz > 2$ mm, and instead of the usual \dpt cut at -0.5, they must satisfy $\dpt>-0.9$. Electrons in dense environments are more likely to have extra energy added to their clusters or have the wrong track associated, so the \dpt cut must be loosened to probe the subdominant \ac{HF} contribution to the SR-$ee$ background. In this region, $23.5\pm1.9$ events were predicted, and 26 were seen. Again, the results are consistent within uncertainties, with only a 11\% difference in central values. This difference is taken as a systematic uncertainty.
+
+\subsection{Summary}
+
+This estimate is dominated by statistical uncertainties with additional, conservative, systematic uncertainties taken, giving a final estimate of $0.46 \pm 0.10$ (0.082 stat. and 0.058 syst).
+
+
+\section{Background to SR-$e\mu$}
+
+\subsection{Fake Background}
+The background to SR-$e\mu$ is very similar to the background in SR-$ee$ and is estimated in a similar way. By tagging a lepton that fails either isolation or quality requirements and studying the properties of the other, probe lepton, the main contributing background (either fake or \ac{HF}) is determined. Of the probe leptons, 100 pairs failed some signal requirements, but none only failed isolation, indicating that as in the case of SR-$ee$, algorithmic fakes are the dominant background to SR-$e\mu$. 
+
+\subsection{Background Estimate}
+As in SR-$ee$, the two fake leptons in the event should be uncorrelated and so an ABCD method is used to estimate the background. A ``failing'' electron (as in SR-$ee$) is one that fails any one of the \dpt, \chiID, or \nmiss requirements, a ``failing'' muon fails any one of the  \chiID, \chiCB, \nmiss, \nprecision, or \nphi requirements, and in both cases ``passing'' indicates a signal electron or muon.
+
+However, when performing this estimate, the B region (electron passes, muon fails) has only 1 event, and the C region (muon passes, electron fails) has 0 events. This result cannot be used to calculate a background estimate, but it can be used to place an upper bound by setting the number of events in the C region to 1 event: the total number of events in A must be less than $0.012 \pm 0.017$, where the uncertainty is statistical only. In order to increase the statistical power, different combinations of ``passing'' and ``failing'' leptons were required to only pass the baseline kinematic cuts of $\pt > 50 \GeV$ and $\absdz > 2$ mm. Allowing both passing and failing leptons to only meet the signal requirements allowed 1 event in the C region, enabling a background estimate of $0.007^{+0.018}_{-0.009}$. Statistical uncertainties are quoted using the Wilson interval for the C/D ratio summed in quadrature with the Poisson uncertainty on the number of events in the B region. This is taken as the nominal upper bound and the full result of this loosening can be seen in \autoref{tab:abcd_loose_em}.
+
+\begin{table}[htb]
+\small
+\begin{center}
+\begin{tabular}{lccc}
+Estimate Region     & signal \pt, \absdz cuts on all $\ell$ & signal \pt, \absdz cuts on passing $\ell$ & no signal \pt, \absdz cuts \\
+\hline
+D Observed 								& 81 					& 139 					& 138 		\\
+C Observed 								& 0   					& 0   					& 1  		\\
+B Observed 								& 1   					& 1   					& 1   		\\
+A Estimate 								& $< 0.012 \pm 0.017$ 	& $< 0.007 \pm 0.010$ 	& $0.007^{+0.018}_{-0.009}$ \\
+%TH NOTE: Numbers are updated with v5.1 ntuples
+%Which must pass signal \dz and \pt? 	& fail and pass  		& pass only 			& neither \\
+\hline
+\end{tabular}
+\caption{Results of the ABCD method in the $e\mu$ channel in which the \dz and \pt requirements are selectively loosened from 65 to 50 \gev, and 3 to 2 mm. The first column shows the results without any loosening, the second shows the results with the loosening applied only to the failing leptons, and the final column shows the results with the loosening applied in all regions. Uncertainties are statistical only. For the upper bound results, the value is obtained by setting the C region to 1 event, and the uncertainties are calculated using Poisson statistics. In the final case, the full calculation can be done.}
+\label{tab:abcd_loose_em}
+\end{center}
+\end{table}
+
+\subsubsection{Validation and Systematic Uncertainties}
+
+As in the case of SR-$ee$, validations are performed enhancing the fake or \ac{HF} contributions. VR-$e\mu$-fake again inverts the most powerful fake discriminators, \dpt for electrons and \chiCB for muons with the loosened \pt and \absdz cuts. In this region, 2 events are observed in the A region compared to $1.9^{+1.8}_{-1.0}$. While these agree within the very large uncertainties, a 7.8\% nonclosure systematic uncertainty is taken from the difference in central values. 
+
+Then, VR-$e\mu$-fake-hf is defined requiring at least one anti-isolated lepton with loosened \pt and \absdz cuts. To increase statistics, the \dpt cut is again loosened to -0.9 and the cuts on \nprecision and \nphi are removed. Here, one event is observed in the A region, and $0.38^{+0.37}_{-0.32}$ events are predicted. To attempt this estimate another way with more statistical power, the estimate is performed again in this region, this time remaining agnostic to whether or not the lepton is isolated. This results in an estimate of $2.6^{+2.0}_{-1.4}$, while 5 events are observed. These numbers are again consistent within their substantial statistical uncertainties, but a conservative 92\% nonclosure uncertainty is taken to account for the difference between the central values.
+
+\subsection{Summary}
+This region is extremely statistically limited such that a full background estimate is not possible, and so an upper limit is set. Less than 
+$0.007^{+0.019}_{-0.011}$ ($^{+0.018}_{-0.009}$ syst. and 0.006 stat.) background events are expected in SR-$e\mu$.
+ 
+
+
+\section{Negligible Backgrounds}
+Since this analysis is built on the assumption that there should be 0 background events in all signal regions, it is extremely important to ensure that all possible backgrounds are quantified and accounted for. Three different backgrounds were studied and determined to be negligible, meaning that they contribute $\mathcal{O}10^{-4}$ events to the relevant \ac{SR}. 
+
+\subsection{Material Interactions}
+
+Material interactions define events with dilepton pairs that come from interaction with the material of the \ac{ATLAS} detector. In several other searches for long lived particles in \ac{ATLAS}, displaced vertices (\acp{DV}) are required. \ac{DV}s are reconstructed by extrapolating their tracks to their intersection, and in these analyses vertices in the detector material can be vetoed. In this analysis, there is no vertex so such a veto cannot be used. In order to study material interactions, events with leptons associated to displaced vertices from material were studied. It was found that in the cases of both electrons and muons, events with an \ac{DV}, where one track is associated to a lepton, the \dR between the lepton and the other track in the \ac{DV} was less than 0.2. After making the requirement that $\dR_{\ell, \text{track}} < 0.2$, no \acp{DV} with signal leptons were found. In the case of the background to one of the \acp{SR}, the second track in the \ac{DV} would be associated to a lepton. After this cut is made, this background is negligible to all 3 \ac{SR}.
+
+\subsection{Fake Muons}
+Fake muons were estimated using an ABCD method similar to SR-$ee$ and SR-$e\mu$. Muons were selected using the baseline requirements, plus asking that be isolated, and not cosmic tagged. All remaining cuts used for defining signal muons were used to define ``passing'' muons. Using this strategy, only 6 events were seen in the D region, and 0 in either B or C. In the SR-$e\mu $fake estimate, the ratio of passing to failing muons is less than 1\%. Given this, the probability for two fake muons to pass our selections should be less than 0.01\%, making this background negligible ($<0.0006$ events) and we consider it to be negligible relative to cosmic muons.
+
+\subsection{Heavy Flavor Muons}
+
+Heavy flavor electrons and muons cannot be disentangled from algorithmic fakes in SR-$ee$ and SR-$e\mu$ and are estimated n conjunction with fakes. Fakes are negligible in SR-$\mu\mu$, so a fake estimate must be performed separately. \ttbar \ac{MC} sees very few single muons from decays of b-jets that have \pt and \absdz cuts that enter the \ac{SR}, so this background is expected to be small. An ABCD method cannot be used for this estimate because it cannot be assumed that the probability to find an isolated muon is not uncorrelated in a 2 muon event.
+
+First, data was checked for anti-isolated muon events in CR-$\mu\mu$-hf, a region with two signal muons but allowing for one of the muons to be anti-isolated. No events were observed. Loosening the kinematic cuts to $\pt > 50 \GeV$ and $\absdz > 2$ mm also found zero events. Finally, since the muon trigger and thus muon \texttt{DRAW\_RPVLL} filter only requires one muon, it was possible to study events with one baseline muon and one muon with $\absdz > 0.5$ mm. One event was observed in this region. Then, extrapolation factors into the \ac{SR} were defined from the same dataset. The extrapolation factor  from the extremely loosened region into SR-$\mu\mu$ for both the \absdz and \pt of both muons was calculated to be $0.00013 \pm 0.00013$. This means that $1.3 \times 10^{-4}$ are expected in SR-$\mu\mu$ from muons from \ac{HF}, a negligible contribution.
+
+
+\section{Summary}
 
 In all, $<1$ events are expected in each \ac{SR}. \autoref{tab:bkg-summary} summarizes the background estimates and their uncertainties.
 
