@@ -1,4 +1,5 @@
 \chapter{Backgrounds}
+\label{chap:backgrounds}
 
 In this analysis, backgrounds are estimated per signal region. In SR-$ee$ and SR-$e\mu$, algorithmic fakes are the dominant source of background. In SR-$\mu\mu$, the background contribution from algorithmic fake muons and muons from heavy flavor decays is negligible ($\mathcal{O}(10^{-4})$), and the dominant background is from cosmic muons coincident with \ac{LHC} collisions. While the signal lepton selection and event selection described in the previous chapter very efficiently remove these backgrounds, background estimates are calculated to estimate any residual contribution. 
 
@@ -54,7 +55,7 @@ Since the \ac{MS} is so far from the \ac{PV}, the \z of individual MS segments i
 \end{figure}
 
 
-The distribution the $\dphicos-\sigeta$ distribution is much narrower in \sigeta than in \dphicos. This is because the \ac{MS} measures $\eta$ with an extremely high precision in the \acp{MDT} ($\mathcal{O}(10~\um)$), since it is the bending direction of the toroid and thus gives the momentum measurement, while the $\phi$ is measured by the \acp{RPC} with an order of magnitude less precision (($\mathcal{O}(10~\text{mm})$)). A high precision $\phi$ measurement of the combined muon comes from the \ac{ID}, but the cosmic tag must contend with these resolution issues to find a muon segment.
+The distribution the $\dphicos-\sigeta$ distribution is much narrower in \sigeta than in \dphicos. This is because the \ac{MS} measures $\eta$ with an extremely high precision in the \acp{MDT} ($\mathcal{O}(10~\um)$), since it is the bending direction of the toroid and thus gives the momentum measurement, while the $\phi$ is measured by the \acp{RPC} with an order of magnitude less precision ($\mathcal{O}(10~\text{mm})$). A high precision $\phi$ measurement of the combined muon comes from the \ac{ID}, but the cosmic tag must contend with these resolution issues to find a muon segment.
 
 Additionally, there are gaps in the \ac{MS} to allow for detector access, so a muon is conservatively tagged as a cosmic if it is back to back with this gap in detector coverage, as it could not be tagged as a cosmic using the geometric algorithm. A map of the material of the \ac{MS} is used to veto cosmic muons using this \emph{detector coverage veto}. \autoref{fig:cos_material_veto} shows the impact of each step on the muon distribution in VR-$\mu$, which is dominated by muons from cosmic rays.
 
@@ -238,7 +239,14 @@ This estimate and validation makes use of the two cosmic tags described in \auto
 \end{figure}
 
 
-To estimate the number of events entering SR-$\mu\mu$ from poorly measured 2 cosmic muon events, a scaling factor from good quality to bad quality muons, \rgood, is defined and applied to events which have one good quality and one bad quality muon, CR-$\mu\mu$-topbad. ``Good'' quality defines a muon that passes signal cuts on \nprecision, \nphi, and \chiCB, while a ``bad'' quality muon fails at least one of these cuts. For the nominal version of the estimate, it is assumed that there is one $\phi > 0$ muon (\mt) and one $\phi < 0$ muon (\mb), and \mt is the muon is scaled from poor to good quality. This is illustrated in \autoref{fig:cosmic_est}.
+To estimate the number of events entering SR-$\mu\mu$ from poorly measured 2 cosmic muon events, a scaling factor from good quality to bad quality muons, \rgood, is defined and applied to events which have one good quality and one bad quality muon, CR-$\mu\mu$-topbad. ``Good'' quality defines a muon that passes signal cuts on \nprecision, \nphi, and \chiCB, while a ``bad'' quality muon fails at least one of these cuts. For the nominal version of the estimate, it is assumed that there is one $\phi > 0$ muon (\mt) and one $\phi < 0$ muon (\mb), and \mt is the muon is scaled from poor to good quality. This is  in \autoref{fig:cosmic_est}.
+
+\begin{figure}[!ht]
+\centering
+\includegraphics[width=.8\textwidth]{figures/cosmics/background_sketch.png}
+\caption{A visual representation of the background estimation strategy}
+\label{fig:cosmic_est}
+\end{figure}
 
 \rgood for the SR-$\mu\mu$ estimate is defined using muons tagged with the full cosmic tag. A validation estimate is also defined, using the narrow and intermediate cosmic tags. The signal and validation regions used in this estimate are sketched in \autoref{fig:cosmic_SRVR} and the numbers of events in each region listed in \autoref{tab:estimate_counts}. Aside from Region 2 (CR-$\mu\mu$-topbad), all other regions in the SR and VR estimates are subsets of CR-$M_{\textrm{full}}$. These regions were chosen to maintain orthogonality, while minimizing signal contamination and maximizing statistical power. In all cases, statistical errors on \rgood are computed using the Wilson interval which is recommended for values close to zero with small statistics \cite{ROOTAsymmErrors}. 
 
