@@ -13,6 +13,7 @@
 \usepackage{xspace}
 \usepackage{xcolor}
 \usepackage{rotating}
+\usepackage{placeins}
 %\usepackage{caption}
 \usepackage{subcaption}
 \usepackage[hidelinks]{hyperref}
@@ -108,7 +109,7 @@
 \cleardoublepage
 
 %----------------------------------------------------------------------------------------
-\part{Theory and Motivation}
+\part{Motivation}
 
 \include{Chapters/theory}
 
@@ -126,9 +127,13 @@
 \cleardoublepage 
 
 %----------------------------------------------------------------------------------------
-\part{Search for Displaced Leptons}
+\part{Long Lived Particle Context}
 
 \include{Chapters/LLPs}
+\include{Chapters/context}
+\cleardoublepage
+%----------------------------------------------------------------------------------------
+\part{Search for Displaced Leptons}
 \include{Chapters/EventSelection}
 \include{Chapters/Backgrounds}
 \include{Chapters/Systematics}
@@ -141,7 +146,6 @@
 \include{Chapters/Conclusions}
 
 \cleardoublepage 
-
 
 \printbibliography[heading=bibintoc,title={References}]
 

@@ -3,9 +3,9 @@
 
 \section{Signal Yield}
 
-0 events are observed in each signal region, in full agreement with the background estimate of fewer than 1 event per \ac{SR}. The result of each cut made in each \ac{SR} can be seen in \autoref{tab:data_cutflow_srmm}, \autoref{tab:data_cutflow_sree}, and \autoref{tab:data_cutflow_sremu} for SR-$\mu\mu$, SR-$ee$, and SR-$e\mu$, respectively. Also in agreement with the expectation, most powerful background discriminators are the \dpt cut for electrons and cosmic veto for muons. 
+0 events are observed in each signal region, in full agreement with the background estimate. The result of each cut made in each \ac{SR} can be seen in \autoref{tab:data_cutflow_srmm}, \autoref{tab:data_cutflow_sree}, and \autoref{tab:data_cutflow_sremu} for SR-$\mu\mu$, SR-$ee$, and SR-$e\mu$, respectively. The most powerful background discriminators are the \dpt cut for electrons and cosmic veto for muons, also in agreement with expectations. 
 
-This analysis was designed to be as general as possible, so the results can be applied, with some care, to any new physics signature that results in 2 leptons with high \absdz and high \pt.  
+This analysis was designed to be as general as possible, so the results can be applied to any new physics signature that results in 2 leptons with high \absdz and high \pt.  
 
 \begin{table}[htb]
 \begin{center}
@@ -83,24 +83,58 @@ electron \nmiss $\leq 1$ &0 \\
 \end{center}
 \end{table}
 
+\FloatBarrier
 \section{Interpretation}
 
-While these results are designed to be applicable to many \ac{BSM} physics models, we use them to set bounds on the possible parameter space of sleptons in \ac{GMSB} \ac{SUSY} models, discussed in \todo{theory ref}, now further restricted due to the lack of events in any \ac{SR} in this analysis. These limits are computed using HistFitter \cite{histfitter}, an \ac{ATLAS} framework that combines the observed number of events with uncertainties on background predictions and MC modeling and calculates both model dependent and model independent limits using the CL$_{\text{s}}$ technique \cite{CLs-1}. 
+Since no events are observed, limits are set on the parameter space of \ac{GMSB} \ac{SUSY} mdoels. Limits are computed using HistFitter \cite{histfitter}, an \ac{ATLAS} framework that combines the observed number of events with uncertainties on background predictions and signal systematics and calculates both model dependent and model independent limits using the CL$_{\text{s}}$ technique \cite{CLs-1}. CL$_{\text{s}}$ is a useful tool for particle physics analyses. Somewhere between a purely frequentist and purlely basian method of deriving a confidence interval, the CL$_{\text{s}}$ describes the confidence in a signal-only hypothesis. The limit curve is drawn where CL$_{\text{s}}(m_{\tilde{\ell}}) \leq 5\%$, meaning that the probability of having falsely excluded a \slep of a given mass is less than or equal to 5\%. The smaller the value of CL$_{\text{s}}$, the lower the probability that a \slep with a given mass exists.  
 
-CL$_{\text{s}}$ is a useful tool for particle physics analyses, somewhere between a purely frequentist and purlely basian method of deriving a confidence interval, the CL$_{\text{s}}$ describes the confidence in a signal-only hypothesis. A CL$_{\text{s}}(m_{\tilde{\ell}}) \leq 5\%$ indicates that at any given point in the exclusion region, the probability of having falsely excluded a slepton of that mass is less than or equal to 5\%. The smaller the value of CL$_{\text{s}}$, the more lower the probability that a slepton with a given mass has been exluded.  
+\subsection{Slepton Limits}
+Limits are set on the possible masses and lifetimes of long-lived \slep. Four different limits are set using the results of this analysis: each \selec, \smu, or \stau \ac{NLSP}, or the mass degenerate case with all three as co-\ac{NLSP}s. Results for all four scenarios combined are shown in \autoref{fig:excl_limit}, and the individual limit for each of the four scenarios along with their observed CL$_{\text{s}}$ value is shown in \autoref{fig:plot_cls}.
 
-Model dependent limits are set in terms of the mass and lifetime of sleptons. Four different limits are set using the results of this analysis: each selectron, smuon, or stau \ac{NSLP}, or the mass degenerate case with all three as co-NSLPs. For the selectron and smuon cases, the results from SR-$ee$ and SR-$\mu\mu$, respectively, are used. While for the stau and co-NSLP cases, all three SRs are combined.
-
-\todo{plots when finished}
-
-This search provides almost an order of magnitude of exclusion over the previous result from OPAL and 90 \GeV. 
+For the \selec \ac{NLSP} and \smu \ac{NLSP} cases, the results from SR-$ee$ and SR-$\mu\mu$, respectively, are used. While for the \stau and co-\ac{NLSP} cases, all three SRs are combined. For a lifetime of 0.1 ns, \selec NLSP, \smu \ac{NLSP}, \stau \ac{NLSP}, and co-NLSP scenarios are excluded for \slep masses up to 720~\GeV, 680~\GeV, 340~\GeV, and 820~\GeV, respectively. Co-NSLP events are also excluded up to 10 ns for masses below 330~\GeV. The previous from OPAL~\cite{opal} is surpassed by nearly an order of magnitude for \selec-, \smu-, and co-NSLP scenarios.
 
 
-Additionally, model independent limits are set on generic new physics processes. These limits are based on the visible cross-section of new physics ($\langle \epsilon \sigma^{95}_{\text{obs}} \rangle$) and the observed ($S^{95}_{\text{obs}}$) and expected ($S^{95}_{\text{exp}}$) number of signal events. 
+ \begin{figure}[!ht]
+    \centering
+        \includegraphics[width=0.6\textwidth]{figures/limits/displaced_lepton_summary.pdf}
+    \caption{
+    Expected (dashed) and observed (solid) exclusion contours for $\tilde{e}$ \ac{NLSP}, $\tilde{\mu}$ \ac{NLSP}, $\tilde{\tau}$ \ac{NLSP}, and co-NLSP production as a function of the lifetime at 95\% CL.
+    }
+    \label{fig:excl_limit}
+\end{figure}
 
-\todo{table when finished.}
-\todo{what are toys}
+\begin{figure}[!ht]
+    \centering
+        \includegraphics[width=0.45\textwidth]{figures/limits/SlepSlep_SRee_clsobs_ps-eps-converted-to.pdf}
+        \includegraphics[width=0.45\textwidth]{figures/limits/SlepSlep_SRmm_clsobs_ps-eps-converted-to.pdf}
+        \includegraphics[width=0.45\textwidth]{figures/limits/Stau_clsobs_ps-eps-converted-to.pdf}
+        \includegraphics[width=0.45\textwidth]{figures/limits/Comb_clsobs_ps-eps-converted-to.pdf}
+    \caption{Individual exclusion curves for four different \ac{NLSP} scenarios: \selec (top left), \smu (top right), \stau (bottom left), co-\ac{NLSP} (bottom right). Overlaid numbers represent the observed CLs values.}
+    \label{fig:plot_cls}
+\end{figure}
+\FloatBarrier
 
+\subsection{Model-Indpendent Limits}
+Additionally, model independent limits are set on generic new physics processes in the \acp{SR}. These limits are based on the visible cross-section of new physics ($\langle \epsilon \sigma^{95}_{\text{obs}} \rangle$) and the observed ($S^{95}_{\text{obs}}$) and expected ($S^{95}_{\text{exp}}$) number of signal events that would be measured. Visible \ac{BSM} cross sections above 0.02 fb are excluded in each \ac{SR} These values are shown in \autoref{table.results.exclxsec.pval.upperlimit.SR}
 
-
-\section{Future Prospects}
+\begin{table}
+\centering
+\begin{tabular*}{\textwidth}{@{\extracolsep{\fill}}lccccccc}
+\noalign{\smallskip}\noalign{\smallskip}
+{ Signal channel} & $\langle\epsilon{ \sigma}\rangle_\text{obs}^{95}$[fb]  &  $S_\text{ obs}^{95}$  & $S_\text{ exp}^{95}$  & $p(s=0)$ 
+\\
+\noalign{\smallskip}\hline\noalign{\smallskip}
+%%
+ SR-$ee$   & $0.02$ &  $3.0$ & $ { 3.1 }^{ +1.1 }_{ -0.1 }$ &  $ 0.47$ \\%                                                                                 
+ SR-$\mu\mu$   &$0.02$ &  $3.0$ & $ { 3.0 }^{ +0.1 }_{ -0.0 }$ & $ 0.72$ \\%                                                                               
+SR-$e\mu$   &$0.02$ &  $2.7$ & $ { 3.0 }^{ +0.0 }_{ -0.0 }$ & $ 0.10$ \\%
+\noalign{\smallskip}\hline\noalign{\smallskip}
+\end{tabular*}
+\caption[Breakdown of upper limits.]{
+Left to right: 95\% CL upper limits on the visible cross section
+($\langle\epsilon\sigma\rangle_\text{ obs}^{95}$) and on the number of
+signal events ($S_\text{ obs}^{95}$ ).  The third column
+($S_\text{ exp}^{95}$) shows the 95\% CL upper limit on the number of
+signal events, given the expected number of background events. The last column shows the p-value of the no-signal hypothesis.
+\label{table.results.exclxsec.pval.upperlimit.SR}}
+\end{table}

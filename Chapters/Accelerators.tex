@@ -19,7 +19,14 @@ First, accelerators can be linear or circular. In a linear accelerator, a partic
 
 Specifically, \ac{LHC} is a \emph{synchrotron}, composed of many \ac{RF} cavities used to accelerate particles, and many magnets used to focus and bend the beam arranged in a ring. A \ac{RF} cavity is a metallic structure with an electric field that oscillates at a specified frequency. Positively charged particles are repelled through the positive field and pulled by the positive field. Once the particle reaches the required energy, it will not be further accelerated. If the proton has too much or too little energy, it will arrives early or late with respect to the oscillation and it will be decelerated or accelerated by the cavity. This procedure creates a beam made of \emph{bunches} of protons, the size and spacing of which is dictated by the oscillation frequency of the accelerating cavities. At the \ac{LHC} proton bunches are $25$ ns apart \cite{cern-cavities}. Strong electromagnets are used to focus and bend the beam into its circular path. Superconducting \footnote{If the magnets were not superconducting, the \ac{LHC} would need to be an order of magnitude larger, $127 \textrm{km}$, in order to reach the same energy}, $14$ m long, $8.4$ T dipole magnets are required to bend the beam into its circular shape. Additional sextupole, octupole and decapole magnets accompany the dipole magnets to  correct for edge effects at their extremities. Quadrupole magnets are used to \emph{focus} the beams and squeeze them horizontally and vertically at the collision points \cite{cern-magnets}. Careful control of the beam is extremely important to avoid radiation damage of the \ac{LHC} and the detectors. 
 
-In a synchrotron, the magnetic field magnitude and RF frequency are cycled over time, allowing the particles to remain at a constant radius during acceleration. It uses a series of magnets to bend particles in a ring, unlike its precursors, which use a single magnet and could not reach the same beam energies. Cyclotrons have constant magnetic field magnitudes and RF frequencies and can only be used to accelerate ions due to the effect of relativistic effects on the synchronization between the the particle orbit and RF oscillation. Synchrocyclotrons have a cycled RF frequency with a constant magnetic field and could be used to accelerate protons up to about 1 GeV, but higher energies required larger magnets, creating technological and economic limitations. \cite{synchrotrons}. 
+In a synchrotron, the magnetic field magnitude and RF frequency are cycled over time, allowing the particles to remain at a constant radius during acceleration. It uses a series of magnets to bend particles in a ring, unlike its precursors, which use a single magnet and could not reach the same beam energies. Cyclotrons have constant magnetic field magnitudes and RF frequencies and can only be used to accelerate ions due to the effect of relativistic effects on the synchronization between the the particle orbit and RF oscillation. Synchrocyclotrons have a cycled RF frequency with a constant magnetic field and could be used to accelerate protons up to about 1 GeV, but higher energies required larger magnets, creating technological and economic limitations. \cite{synchrotrons} 
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=.3\textwidth]{figures/Detector/cyclo-schematic.png}
+\includegraphics[width=.3\textwidth]{figures/Detector/synchro-schematic.png}
+\caption{A comparison of schematics for a cyclotron (left) \cite{cyclo-pic} and a synchrotron \cite{synchro-pic}. The \ac{LHC} is a synchrotron.}
+\end{figure}
 
 
 
@@ -142,7 +149,7 @@ While high instantaneous luminosity enables the fast accumulation of data, it al
 \begin{figure}[h!]
 \centering
 \includegraphics[width=.6\textwidth]{figures/Detector/lhc-mu.pdf}
-\caption{Average number of interactions per bunch crossing during Run 2.}
+\caption{Average number of interactions per bunch crossing during Run 2 \cite{lumi-public}.}
 \label{fig:pileup_plot}
 \end{figure}
 
@@ -152,7 +159,7 @@ In practice, pileup collisions are generally lower energy, \ac{QCD}-only interac
 \begin{figure}[htbp]
 \centering
 \includegraphics[width=.6\textwidth]{figures/Detector/lhc-pileup-eventdisplay.png}
-\caption{An event display with 25 simultaneous interactions. The primary interaction is in yellow, but the pileup-dense environment makes it hard to see that event among all of the other activity.}
+\caption{An event display with 25 simultaneous interactions. The primary interaction is in yellow, but the pileup-dense environment makes it hard to see that event among all of the other activity. \cite{eventdisplays-public}}
 \label{fig:pileup_eventdisplay}
 \end{figure}
 
