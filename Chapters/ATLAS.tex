@@ -30,16 +30,9 @@ Angular distances between objects is described using $\Delta R = \sqrt{\Delta \e
 A particle's momentum will generally be described in terms of its \pT, its momentum in the transverse direction. A particle's $3$-vector is described by $(\pt, \eta, \phi)$, which are all invariant under boosts in $z$ assuming the particle can be considered massless.
 
 
-\todo{maybe a section about the physics goals atlas was designed for?}
-
-
-
 %USED ATLAS-overview.pdf
 \section{Inner Detector}
 The Inner Detector measures the trajectories of charged particles resulting from \ac{LHC} collisions. The \ac{ID} covers the region with $|\eta| < 2.5$, measuring approximately $1000$ particles per bunch crossing. In order to achieve the momentum and vertex resolution required to achieve \ac{ATLAS}'s physics goals three subdetectors are used: the Pixel detector, the \ac{SCT}, and the \ac{TRT}. The Pixel and \ac{SCT} detectors are used for high granularity precision tracking and the \ac{TRT} is used to distinguish electrons from low-mass hadrons like pions. All of this is immersed in a $2$T magnetic field, bending the trajectories of charged particles in proportion to their momentum in the $\phi$ direction.
-
-\todo{describe conversions somewhere... Maybe in particle descriptions in theory?}
-
 
 The \pt resolution of the \ac{ID} scales with track \pt. Higher \pt tracks are less curved, so the measurement resolution is worse. In the \ac{ATLAS} \ac{ID}, the \pt resolution  $0.05\% \times \pt$ with a $1\%$ constant term. The constant term describes measurement uncertainties that do not scale with momentum or energy, such as material imperfections, non-uniform detector response, or other constant measurement issues and is added in quadrature ($\oplus$) with the stochastic term.
 
@@ -148,7 +141,7 @@ The \ac{MS} can measure muons with $|\eta| < 2.4$ and $3 \GeV < {\pt}_{\mu} < 10
 \end{figure}
 
 
-Monitored Drift Tubes (MDTs) are used for precision tracking in the $\eta$ coordinate (the bending direction of the toroids) in the range $|\eta| < 2.7$, except in the inner most layer where the \ac{MDT}s extend only to $|\eta| < 2.0$ and Cathode-Strip Chambers (CSCs) cover the region $2.0 < |\eta| < 2.7$. Triggering and $\phi$ measurements are provided by Resistive Plate Chambers (RPCs) in the range $|\eta| < 1.05$ and Thin Gap Chambers (TGCs) in $1.05 |\eta| < 2.7$. The detector chambers are arranged in concentric cylindrical shells around the beam axis at radii of about 5 m, 7.5 m and 10 m in the barrel, and on wheels perpendicular to the beam axis at distances of about 7.4 m, 10.8 m, 14 m, and 21.5 m from the interaction point. There is a gap in detector coverage around $|\eta| = 0$ for detector access for service work. Schematics of the \ac{MS} can be seen in \autoref{fig:atlas-ms}.  
+Monitored Drift Tubes (MDTs) are used for precision tracking in the $\eta$ coordinate (the bending direction of the toroids) in the range $|\eta| < 2.7$, except in the inner most layer where the \ac{MDT}s extend only to $|\eta| < 2.0$ and Cathode-Strip Chambers (CSCs) cover the region $2.0 < |\eta| < 2.7$. Triggering and $\phi$ measurements are provided by Resistive Plate Chambers (RPCs) in the range $|\eta| < 1.05$ and Thin Gap Chambers (TGCs) in $1.05 |\eta| < 2.7$. The detector chambers are arranged in concentric cylindrical shells around the beam axis at radii of about 5 m, 7.5 m and 10 m in the barrel, and on wheels perpendicular to the beam axis at distances of about 7.4 m, 10.8 m, 14 m, and 21.5 m from the interaction point. There is a gap in detector coverage around $|\eta| < 0.1$ for detector access for service work. Schematics of the \ac{MS} can be seen in \autoref{fig:atlas-ms}.  
 
 \begin{figure}[!h]
 \centering
@@ -179,7 +172,7 @@ detector    & function & z/R resolution & $\phi$ resolution & time resolution \\
 
 \subsection{Monitored Drift Tubes and Cathode-Strip Chambers}
 
-The fundamental unit of the \ac{MDT} chambers are 30 mm diameter pressurized drift tubes. Each drift tube is filled with Ar/CO$_{2}$ gas and a 50 \um~ diameter tungsten-rhenium wire. When a muon passes through the tube, it ionizes the atoms in the gas. Ionized electrons travel along the electric field in the tube until they reach the positively charged wire. The location of the electrons along the wire give a position measurement. The time of arrival of the first charges at the wire determine the radius of the drift-circle, seen in \autoref{fig:ms-drift}. If the muon itself passes close to the wire during its trajectory it can induce a signal in the wire, so a dead time is specified before the detector readout. The spatial resolution of a single drift tube is 80 \um. 
+The fundamental unit of the \ac{MDT} chambers are 30 mm diameter pressurized drift tubes. Each drift tube is filled with Ar/CO$_{2}$ gas and a 50 \um~ diameter tungsten-rhenium wire. When a muon passes through the tube, it ionizes the atoms in the gas. Ionized electrons travel along the electric field in the tube until they reach the positively charged wire. The location of the electrons along the wire give a position measurement. \ac{MDT} hits are referred to as \emph{precision hits}. The time of arrival of the first charges at the wire determine the radius of the drift-circle, seen in \autoref{fig:ms-drift}. If the muon itself passes close to the wire during its trajectory it can induce a signal in the wire, so a dead time is specified before the detector readout. The spatial resolution of a single drift tube is 80 \um. 
 
 Each \ac{MDT} chamber consists of two multilayers of drift tubes separated by a mechanical spacer. The inner chambers, where the highest performance is required, a multilayer is composed of four layers of drift tubes (increasing the resolution to 30 \um), while in the middle and outer chambers multilayers are composed of three layers (increasing the resolution to 35 \um). The combination of the three chambers gives the required sagitta resolution with about 15 measurements per muon. There are 1150 \ac{MDT} chambers with 354,000 drift tubes. To achieve the required momentum resolution, the tubes must not bend more than 100 \um, a significant challenge against gravity. The tubes are held in tension and carefully calibrated and monitored to achieve a maximum bending of 20 \um. 
 
@@ -225,7 +218,7 @@ The toroid magnet system, composed of a barrel and two end-caps, provides a toro
 
 
 \section{Particles in ATLAS}
-All of the \ac{ATLAS} subdetectors are used in combination to identify particles. Charged particles interact with the \ac{ID} resulting in hits to be reconstructed into tracks. A track that points to a cluster in one of the calorimeters indicates the kind of charged particle that made the track, and a cluster without an associated track indicates a neutral particle. The calorimeters are designed such that they absorb all of the energy of a particle and particles measured by the \ac{EM} caloriemter should not enter the hadronic calorimeter, and hadronic particles should not enter the \ac{MS}. Muons have minimal interactions with the calorimeters, but do leave a track in both the \ac{ID} and \ac{MS}. The only \ac{SM} particle that escapes the detector entirely is a neutrino. An undetected particle, like an \ac{SM} $\nu$ or some \ac{BSM} particle, could be seen as an imbalance in transverse momentum. The transverse momenta of all particles should sum to zero in order to conserve momentum, so any non-zero sum indicates an undetected particle.
+All of the \ac{ATLAS} subdetectors are used in combination to identify particles. Charged particles interact with the \ac{ID} resulting in hits to be reconstructed into tracks. A track that points to a cluster in one of the calorimeters indicates the kind of charged particle that made the track, and a cluster without an associated track indicates a neutral particle. The calorimeters are designed such that they absorb all of the energy of a particle and particles measured by the \ac{EM} caloriemter should not enter the hadronic calorimeter, and hadronic particles should not enter the \ac{MS}. Muons have minimal interactions with the calorimeters, but do leave a track in both the \ac{ID} and \ac{MS}. The only \ac{SM} particle that escapes the detector entirely is a neutrino. An undetected particle, like an \ac{SM} $\nu$ or some \ac{BSM} particle, could be seen as an imbalance in transverse momentum referred to as \ac{MET}. The transverse momenta of all particles should sum to zero in order to conserve momentum, so any non-zero sum indicates an undetected particle.
 
 
 \begin{figure}[htbp]
