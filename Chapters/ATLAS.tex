@@ -9,7 +9,7 @@ A schematic of the \ac{ATLAS} detector is shown in \autoref{fig:atlas-schematic}
 %https://atlas.cern/discover/detector
 \begin{figure}[!h]
 \centering
-\includegraphics[width=.8\textwidth]{figures/Detector/atlas-schematic.jpg}
+\includegraphics[width=.7\textwidth]{figures/Detector/atlas-schematic.jpg}
 \caption{A diagram of the \ac{ATLAS} detector. The dimensions, subdetectors, and magnet systems are labeled. }
 \label{fig:atlas-schematic}
 \end{figure}
@@ -45,7 +45,7 @@ A sketch of the \ac{ID} can be seen in \autoref{fig:atlas-id} and a detailed sch
 %https://cds.cern.ch/images/CERN-GE-0803014-01/file?size=medium
 \begin{figure}[!h]
 \centering
-\includegraphics[width=.8\textwidth]{figures/Detector/atlas-ID.jpg}
+\includegraphics[width=.7\textwidth]{figures/Detector/atlas-ID.jpg}
 \caption{A diagram of the \ac{ATLAS} \ac{ID} with the major subsystems labeled. The Pixel and \ac{SCT} are of particular importance for this analysis.}
 \label{fig:atlas-id}
 \end{figure}
@@ -53,7 +53,7 @@ A sketch of the \ac{ID} can be seen in \autoref{fig:atlas-id} and a detailed sch
 %https://www.researchgate.net/publication/325643426/figure/fig8/AS:669532737769482@1536640452588/Segment-of-the-ATLAS-inner-detector-showing-the-tracker-layers-The-silicon-strip.ppm
 \begin{figure}[!h]
 \centering
-\includegraphics[width=.8\textwidth]{figures/Detector/atlas-id-layers.png}
+\includegraphics[width=.7\textwidth]{figures/Detector/atlas-id-layers.png}
 \caption{A schematic of the \ac{ATLAS} \ac{ID} shown in the $R-z$ plane. \cite{id-cutaway}}
 \label{fig:atlas-id-layers}
 \end{figure}
@@ -98,7 +98,7 @@ The \ac{ATLAS} calorimeters measure the energy of particles which interact via e
 %https://arxiv.org/pdf/1603.02934.pdf
 \begin{figure}[!h]
 \centering
-\includegraphics[width=.8\textwidth]{figures/Detector/atlas-calorimeters.jpg}
+\includegraphics[width=.7\textwidth]{figures/Detector/atlas-calorimeters.jpg}
 \caption{A diagram of the \ac{ATLAS} calorimeters with the major subsystems labeled. The \ac{EM} calorimeter is of particular importance for this analysis. \cite{calorimeters}}
 \label{fig:atlas-calos}
 \end{figure}
@@ -228,8 +228,69 @@ All of the \ac{ATLAS} subdetectors are used in combination to identify particles
 \label{fig:particle-doodles}
 \end{figure}
 
-\todo{hadrons have a EM component}
 
+\section{Trigger and Data Acquisition}
+
+The \ac{LHC} provides bunch crossings every 25 ns in which an average of 33 collisions occur. Each bunch crossing, or \emph{event}, contains about 25 MB of detector-level data. This can be reduced to about 1 MB of reconstructed data, but this would still result in 40 TB/s, an impossible amount of data to process and store. Furthermore, many of these events are not useful for physics analyses; most events contain low energy \ac{QCD} process from marginal interactions between partons. A great deal of effort goes into the optimization of the algorithms used to select the events with the highest probability to be interesting for physics because if an event with some new \ac{BSM} particle occurs in a collision, but is not recorded, it is lost forever.
+
+
+\subsection{Trigger architecture}
+
+\ac{ATLAS} uses multi-level trigger system to record 1000 events per second from the 40,000,000 per second delivered by the \ac{LHC}. First, the hardware-based \ac{L1} trigger uses isolated detector information to make a decision in 2.5 $\mu$s and reduce the event rate from 40 MHz to 100 kHz. Then, the CPU-based \ac{HLT} uses higher level detector information from various subdetectors to make a final decision in 200 ms and further reduce the rate to 1 kHz. A schematic of the main components of the trigger system can be seen in \autoref{fig:tdaq-schematic}.
+
+
+\begin{figure}[!h]
+\centering
+\includegraphics[width=.6\textwidth]{figures/Detector/tdaq-schematic.png}
+\caption{A detailed schematic of the trigger and data acquisition infrastructure for Run 2. FTK was not a part of the Run 2 trigger system. \cite{TRIG-2016-01}}
+\label{fig:tdaq-schematic}
+\end{figure}
+
+
+The \ac{L1} trigger has access to information from the calorimeters and the \ac{MS} \cite{TRIG-2016-01}. The \ac{ID} is not used at this stage due to the large number of readout channels as well as the computational intensity of track reconstruction. \ac{L1Calo} uses information from both calorimeters to identify electrons, photons, $\tau$ leptons, jets, and \ac{MET}. It divides the calorimeters into coarse-grained, $\Delta \eta \times \Delta \phi = 0.1 \times 0.1$ towers. Its algorithms look for towers with large deposits to define an \ac{RoI}. Based on the shape and size of the summed energy deposits around the tower, the cluster is classified. It then correlates these clusters across the event, to identify the number of candidates of a given physics object, and calculates \ac{MET}. \ac{L1Muon} looks for coincidences between different layers of the \ac{RPC} and \ac{TGC} detectors to identify hight \pt muons consistent with the interaction point. 
+
+The decision to accept or reject an event at \ac{L1} is made by the \ac{CTP}, which uses a \emph{trigger menu} that describes which event topologies with which energies should be passed to the \ac{HLT}. If the event is accepted by the \ac{L1} trigger, full information from the whole detector is read out and passed to the \ac{HLT}. The \ac{HLT} also receives the location of the \acp{RoI}. An example of the \ac{L1} trigger rates in one run in September 2018 is shown in \autoref{fig:l1-rates}. About a third of events are selected as each an \ac{EM}, muon, or hadronic signature.
+
+\begin{figure}[!h]
+\centering
+\includegraphics[width=.6\textwidth]{figures/Detector/l1-rates.pdf}
+\caption{\ac{L1} trigger rates as a function of time in a fill taken in September 2018 with a peak luminosity of $L = 2.0 \times 10^{34}~\text{cm}^{-2}\text{s}^{-1}$ and a peak average number of interactions per crossing 56. Trigger items are based on electromagnetic clusters (EM), muon candidates (MU), jet candidates (J), missing transverse energy (XE) and tau candidates (TAU). Dips in the rate are due to dead-time and spikes are caused by detector noise. The rates increase periodically due to LHC luminosity re-optimizations \cite{trigger-public}}
+\label{fig:l1-rates}
+\end{figure}
+
+The \ac{HLT} receives much less data and therefore has more time to make a decision. The \ac{HLT} has its own trigger menu with more complex topologies. Full event reconstruction cannot be performed in 200 ms, so each \ac{HLT} algorithm is seeded by an \ac{L1} trigger and tracking is performed in \acp{RoI} to refine the particle identification. Events selected by any of the \ac{HLT} algorithms are saved to disk for offline reconstruction, described in the next chapter. An example of the \ac{HLT} rates grouped by physical process in one run in September 2018 is shown in \autoref{fig:hlt-rates}. The trigger rates represent collaboration priorities. Most events include jets, but the jet triggers do not take the largest fraction of the trigger rate. In fact, jets must be very high \pt or in events with other physics objects in order to be selected. Large proportions of the \ac{HLT} rate is allocated to electrons and muons so that electroweak physics can be studied via events with leptonic W andZ boson decays. In general, single object triggers have very high \pt thresholds because they are more common, whereas multi-object triggers can select lower energy events while keeping the rate low.
+
+\begin{figure}[!h]
+\centering
+\includegraphics[width=.6\textwidth]{figures/Detector/hlt-rates.png}
+\caption{\ac{HLT} trigger rates grouped by physics process as a function of time in a fill taken in September 2018 with a peak luminosity of $L = 2.0 \times 10^{34}~\text{cm}^{-2}\text{s}^{-1}$ and a peak average number of interactions per crossing 56. Each physics group contains single-object and multi-object triggers. The ``combined''combined represents triggers with multiple kinds of physics objects, like combinations of electrons, muons, taus, jets and \ac{MET}. All rates decrease exponentially with decreasing luminosity over the course of the fill.  Dips in the rate are due to dead-time and spikes are caused by detector noise. The rates increase periodically due to LHC luminosity re-optimizations  \cite{trigger-public}}
+\label{fig:hlt-rates}
+\end{figure}
+
+Triggers are generally described by the physics object type and \pt threshold. Trigger rates can be limited by increasing the \pt threshold, or by making other selections on the object like limiting the $\eta$ range or requiring isolation. Triggers have some \emph{turn on} before they reach their peak efficiency, an example trigger is shown in \autoref{fig:hlt-electron}. \ac{HLT} triggers have higher energy thresholds than the \ac{L1} triggers to ensure the algorithms are being run where the previous trigger is fully efficient. Offline selections are similarly made above the energy thresholds of the \ac{HLT}.
+
+\begin{figure}[!h]
+\centering
+\includegraphics[width=.6\textwidth]{figures/Detector/hlt-electron.png}
+\caption{An example of trigger efficiency as a function of transverse energy, \et, for a electron trigger. The \ac{L1} trigger is shown in black and the \ac{HLT} algorithm it seeded is shown in blue.  \cite{egamma-trigger-public}}
+\label{fig:hlt-electron}
+\end{figure}
+
+
+\subsection{Triggers Used For This Analysis}
+
+Nearly all searches for unconventional triggers face challenges finding a trigger. Tracking is only done in the \ac{HLT} near the \ac{L1} \acp{RoI}, so directly targeting peculiar tracks is challenging. Furthermore, the tracking done in the trigger assumes particles originate from the collision point and so electron and muon triggers veto displaced leptons whose tracks would not be reconstructed.
+
+In order to avoid the dependence on tracking, \ac{MS}-signature-only triggers are used to identify displaced muons, and photon triggers (\ac{EM}-signature-only triggers) are used to identify displaced electrons. However, removing the tracking information removes an important discriminator from the \ac{HLT} algorithm, so these triggers suffer very high fake rates. Thus, they are otherwise limited. The muon trigger can only select muons with $|\eta| < 1.05$ and the single photon trigger has a high \pt threshold. The triggers used for this analysis are listed below and the requirements made on them in the analysis will be described in \autoref{sec:data}.
+
+\begin{itemize}
+	\item \texttt{HLT\_mu60\_0eta105\_msonly}
+	\item \texttt{HLT\_g140\_loose}
+	\item \texttt{HLT\_2g50\_loose}
+\end{itemize}
+
+
+These restrictions have particular effects on displaced leptons from \stau, particularly when the signature is one electron and one muon. The electron or muon result from a $\tau$ decay, not directly from the \stau decay, and thus have lower \pt. In order for an event to be selected, it must either have a muon in the narrow $\eta$ region, or a very high \pt electron, both of which are very unlikely. An \ac{HLT} algorithm has been designed for Run 3 that selects events with a photon and a \ac{MS} signature. The requirement of the two objects decreases the rate and allows for the $\eta$ and \pt thresholds to be relaxed. 
 
 
 
