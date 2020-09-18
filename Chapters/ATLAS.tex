@@ -281,12 +281,12 @@ Triggers are generally described by the physics object type and \pt threshold. T
 
 Nearly all searches for unconventional triggers face challenges finding a trigger. Tracking is only done in the \ac{HLT} near the \ac{L1} \acp{RoI}, so directly targeting peculiar tracks is challenging. Furthermore, the tracking done in the trigger assumes particles originate from the collision point and so electron and muon triggers veto displaced leptons whose tracks would not be reconstructed.
 
-In order to avoid the dependence on tracking, \ac{MS}-signature-only triggers are used to identify displaced muons, and photon triggers (\ac{EM}-signature-only triggers) are used to identify displaced electrons. However, removing the tracking information removes an important discriminator from the \ac{HLT} algorithm, so these triggers suffer very high fake rates. Thus, they are otherwise limited. The muon trigger can only select muons with $|\eta| < 1.05$ and the single photon trigger has a high \pt threshold. The triggers used for this analysis are listed below and the requirements made on them in the analysis will be described in \autoref{sec:data}.
+In order to avoid the dependence on tracking, \ac{MS}-signature-only triggers are used to identify displaced muons, and photon triggers (\ac{EM}-signature-only triggers) are used to identify displaced electrons. However, removing the tracking information removes an important discriminator from the \ac{HLT} algorithm, so these triggers suffer very high fake rates. Thus, they are otherwise limited. The muon trigger can only select muons with $|\eta| < 1.05$ and the single photon trigger has a high \pt threshold. Each of these triggers was determined to have a constant efficiency with respect to the displacement of the lepton. The triggers used for this analysis are listed below and the requirements made on them in the analysis will be described in \autoref{sec:data}.
 
 \begin{itemize}
-	\item \texttt{HLT\_mu60\_0eta105\_msonly}
-	\item \texttt{HLT\_g140\_loose}
-	\item \texttt{HLT\_2g50\_loose}
+	\item \texttt{HLT\_mu60\_0eta105\_msonly} selects single \ac{MS}-only muon signatures with $\pt > 60$ GeV. The $\eta$ range is restricted to $|\eta| < 1.05$ to reduce the fake rate.
+	\item \texttt{HLT\_g140\_loose} selects single photons, in this analysis used as \ac{EM}-only signatures. The fake rate for this trigger is quite high, so the photons must have $\et > 140$ GeV. ``loose'' refers to the fact that very few additional requirements are made to identify this cluster specifically as a photon.
+	\item \texttt{HLT\_2g50\_loose} selects di-photon events where each photon has $\et > 50$ GeV. It uses the same ``loose'' definition that enables this trigger to be used for displaced electrons.
 \end{itemize}
 
 
