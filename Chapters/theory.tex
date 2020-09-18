@@ -130,25 +130,31 @@ Should \ac{SUSY} exist, we already know that it must be broken. If the selectron
 \todo{R-parity}
 \todo{susy breaking}
 
-\subsection{Simplified Models}
+\subsubsection{Simplifed Models}
+
 
 \subsection{GMSB}
+\label{sec:gmsb}
 
-There are various mechanisms by which \ac{SUSY} can be broken. In \acf{GMSB} models, the symmetry breaking occurs via ordinary gauge interactions by heavy messengers carrying $SU(3) \times SU(2) \times U(1)$ quantum numbers \cite{gmsb-lep,Dimopoulos_1996,Ambrosanio_1997}.
+There are various mechanisms by which \ac{SUSY} can be broken. In \acf{GMSB} models, the symmetry breaking occurs via ordinary gauge interactions by heavy messengers carrying $SU(3) \times SU(2) \times U(1)$ quantum numbers \cite{gmsb-lep,Dimopoulos_1996,Ambrosanio_1997}. 
+
+
 
 Phenomenologically, \ac{GMSB} models have several notable features. 
 \begin{itemize}
-	\item The \ac{LSP} is always the gravitino $\tilde{G}$ because it does not get its mass through the gauge interactions. $m_{\tilde{G}}$ is related to $F/M_P$, where $\sqrt{F}$ is the \ac{SUSY} breaking scale ($\tilde{} 10^4 - 10^{11}$ GeV) and $M_P$ is the Planck scale ($\tilde{} 10^{19}$ GeV), making the mass extremely small and can be approximated as massless.
+	\item The \ac{LSP} is always the gravitino $\tilde{G}$ because it does not get its mass through the gauge interactions. $m_{\tilde{G}}$ is related to $F/M_P$, where $\sqrt{F}$ is the \ac{SUSY} breaking scale ($\sim 10^4 - 10^{11}$ GeV) and $M_P$ is the Planck scale ($\sim 10^{19}$ GeV), making the mass extremely small and can be approximated as massless.
 
 	\item The \ac{NLSP} is either the lightest neutralino $\chi$ or the slepton \slep. In the slepton case, the \ac{NLSP} is either the stau \stau or all three flavors \selec, \smu, \stau are mass degenerate co-\acp{NLSP}s. The \ac{NLSP} decay modes are $\chi \rightarrow \gamma \tilde{G}$ or $\tilde{\ell} \rightarrow \ell \tilde{G}$. This thesis presents a search for the  \slep. 
 
 	\item Due to the small gravitational coupling, the decay is suppressed and the \ac{NLSP} becomes \emph{long lived}. 
 \end{itemize}
 
+This search, like other \ac{SUSY} searches at the \ac{LHC} makes use of a \emph{simplified model}.
+Full \ac{SUSY} models are incredibly complex and have an enormous number of free parameters (120 in the \ac{MSSM}). Simplified models ignore most particles and parameters and focus only on a subset of particles and their interactions. The simplified model used in this search describes the interaction shown in \autoref{fig:feynman}. The \slep are pair-produced in $pp$ collisions and decay to the $\tilde{G}$ and $\ell$. The \slep can be right- or left-handed, and the two chiral states are assumed to be mass degenerate.
 
-\begin{figure}[htbp]
+\begin{figure}[!h]
 \centering
-\includegraphics[width=.8\textwidth]{figures/theory/slsl-llGG-GMSB.pdf}
+\includegraphics[width=.4\textwidth]{figures/theory/slsl-llGG-GMSB.pdf}
 \caption{\ac{GMSB} \slep decay to \ac{SM} $\ell$ and $\tilde{G}$. This is the Feynman diagram targeted by the search presented in this thesis.}
 \label{fig:feynman}
 \end{figure}
@@ -160,6 +166,7 @@ The lifetime of a slepton \ac{NLSP} can be expressed as
 \end{equation}
 Even at the low end of possible \ac{SUSY} breaking scales, the \slep will travel a substantial distance relative to \ac{SM} particles \cite{jesseshelton}. Particle lifetimes will be further discussed in \autoref{chap:llps}. In the intermediate breaking scale regime, the \slep can travel a small distance before decaying resulting in \ac{SM} $\ell$ are \emph{displaced} meaning they originate a macroscopic distance from the \slep production point. Most \ac{SUSY} searches at colliders assume that leptons are \emph{prompt} and point back to the \slep production point and have no sensitivity to \slep with long lifetimes. Long lived \slep production was last explored by the OPAL experiment at \ac{LEP} which excluded models with \slep masses less than 90 GeV. Experimental context for this search will be further discussed in \autoref{chap:context}.
 
+
 The search presented in this thesis provides unique sensitivity to \ac{GMSB} \slep decays. The signature of the decay is a displaced \ac{SM} $\ell$, either two electrons, two muons, or an electron and a muon. The range of possible $\ell$ masses and lifetimes to which this search is sensitive is dictated by:
 \begin{itemize}
 	\item The \emph{cross section} of \slep production, or the probability that it will occur in a $pp$ collision. The cross section decreases with increasing \slep mass. This signature is not expected to have backgrounds from \ac{SM} processes, so only 3 events must be observed to make a discovery. This sets an upper bound on the mass sensitivity.
@@ -169,14 +176,24 @@ The search presented in this thesis provides unique sensitivity to \ac{GMSB} \sl
 \end{itemize}
 
 
-\begin{figure}[htbp]
+
+This search is sensitive to \selec and \smu with masses 50--800 GeV and lifetimes 0.001--10 ns, and \stau with masses 100--400 GeV and lifetimes 0.01--1 ns.
+
+\begin{figure}[!h]
 \centering
-\includegraphics[width=.8\textwidth]{figures/theory/tau-pt.png}
+\includegraphics[width=.7\textwidth]{figures/theory/tau-pt.png}
 \caption{Distribution of $\tau$ energies from left- and right-handed \stau decays. A \ac{GMSB} \stau is expected to be right-handed, resulting in lower $\tau$ energies.}
 \label{fig:taupt}
 \end{figure}
 
-This search is sensitive to \selec and \smu with masses 50--800 GeV and lifetimes 0.001--10 ns, and \stau with masses 100--400 GeV and lifetimes 0.01--1 ns.
+\subsection{Other Theoretical Models Producing Displaced Leptons}
+
+\ac{GMSB} \slep is the main theoretical motivation for this search. The displaced dilepton signature provides unique sensitivity to this model which is otherwise not covered by any other \ac{ATLAS} search. However, there are other theoretical \ac{BSM} models which produce displaced leptons \cite{jesseshelton}.
+
+\ac{SUSY} models with R-parity violation (RPV) can result in signatures with displaced leptons \cite{Barbier_2005}. RPV models have an unstable \ac{LSP} that decays into \ac{SM} particles, and if the RPV coupling is small, the decay is suppressed and the \ac{LSP} becomes long lived. One such scenario has a stop $\tilde{t}$ \ac{LSP} that decays to a muon and quark, and simplified models with pair-produced $\tilde{t}$ result in displaced muons. This signature has been directly in \ac{ATLAS} by Ref. ~\cite{dvplusmu}. Additionally, the extra couplings introduced by RPV allow for long lived \stau. The \stau (N)LSP can decay to a muon and neutrino, and if the RPV couplings are small, the \stau can be long lived.
+
+Displaced leptonic signatures can also result from models where dark matter is charged under the quark or lepton flavor symmetries \cite{Agrawal_2012}. In these models, a heavy particle is introduced to mediate interactions between dark matter and leptons that, if pair produced at the \ac{LHC} would leave a leptonic signature. The lifetime of this particle is related to the cosmological abundance of dark matter. The mediator can be long lived by the standards of a collider search if relic density of dark matter can be explained by \emph{freeze-in}, where the dark matter particles are produced decoupled from the cosmic thermal bath until some cooling time when their production is no longer possible \cite{Hall_2010}.
+
 
 
 
