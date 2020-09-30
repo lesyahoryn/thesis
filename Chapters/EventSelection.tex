@@ -5,7 +5,7 @@
 
 This analysis aims to select events that would have small cross sections producing only a handful of events from the entire 139 \ifb collected by \ac{ATLAS}. The signature of two displaced leptons, is rather simple in principle, but this analysis had not been done before in the conditions of the \ac{LHC}, so extensive optimization of the signal regions and lepton selection criteria needed to be done. A cut in the event selection should decrease or eliminate some background, but have little to no impact on the signal. For example, quality criteria ensure that leptons are well measured in the detector, and leptons from slepton decays will pass these quality criteria, but fake leptons from reconstruction failures generally will not. Every effort was made to remain as signal-agnostic as possible, so cuts on the specific topology of the \ac{GMSB} \ac{SUSY} decay were avoided. 
 
-This analysis is split into three signal regions, defined by the flavor of the two highest \pt leptons in the event: SR-$ee$ with two electrons, SR-$\mu\mu$ with two muons, and SR-$e\mu$ with an electron and a muon.
+This analysis is split into three signal regions, defined by the flavor of the two highest \pt leptons in the event: SR-$ee$ with two electrons, SR-$\mu\mu$ with two muons, and SR-$e\mu$ with an electron and a muon. No requirement is placed on the charge of the leptons.
 There are two definitions of leptons used: \emph{baseline} and \emph{signal}. Baseline leptons are required to pass the reconstruction and identification criteria described in \autoref{sec:el_reco_mods} and \autoref{sec:mu_reco_mods} and have $\pt > 50 \GeV$ and $\absdz > 2$ mm. Signal muons are required to further pass bespoke quality requirements, an isolation cut, and have $\pt > 65 \GeV$ and $\absdz > 3$ mm. Displacement-independent quality variables, described in the rest of this chapter, were defined specifically for this analysis as many standard quality criteria place requirements on the \absdz, \absz, or the number of hits in the Pixel detector, all of which would limit the ability to target displaced leptons.
 
 \subsection{Background Overview}
@@ -164,7 +164,7 @@ The acceptance is highest for lifetimes around 0.1 ns, around 30\% for \smu and 
 \begin{figure}[htbp]
 \centering
 \includegraphics[width=.48\textwidth]{figures/event_selection/mm_slep_acc.pdf}
-\includegraphics[width=.48\textwidth]{figures/event_selection/mm_slep_acc.pdf}
+\includegraphics[width=.48\textwidth]{figures/event_selection/mm_slep_eff.pdf}
 \caption{Acceptance (left) and efficiency for \stau s decaying to taus in SR-$\mu\mu$, SR-$ee$, and SR-$e\mu$ combined. The x-axis shows the possible masses of the stau and the y-axis its possible lifetime.}
 \label{fig:acc-eff-em}
 \end{figure}
