@@ -109,14 +109,14 @@ In addition to the gauge symmetry that necessitates the existence of the W and Z
 \subsection{Shortcomings}
 There are many reasons to believe the Standard Model does not give a full picture of fundamental physics, despite its robustness against experimental examination. Perhaps the most obvious hole is the lack of a description of gravity. General Relativity provides an extremely effective description of gravity at large scales, but no such description exists at quantum scales. Gravitational interactions become important at $M_P$, well beyond the reach of current experiments. Additionally, dark matter and neutrino masses have been observed experimentally, but have no explanation in the Standard Model. 
 
-There are also several aesthetic features of the Standard Model that indicate something might be missing, but are not real problems with the theory. The hierarchy problem suggests that there should be another mass scale below the Planck scale to control the Higgs boson mass. The experimentally measured mass is the sum of the bare mass that appears in the Lagrangian and any quantum corrections from interactions with other particles. Should there be no lower mass scale, those quantum corrections would need to be $10^{35}$ times larger than the Higgs mass. While this is possible, the idea of combining two very large numbers to result in exact, small number makes physicists very uncomfortable and indicates that there might be something that is not understood.
+There are also several aesthetic features of the Standard Model that indicate something might be missing, but are not real problems with the theory. The hierarchy problem suggests that there should be another mass scale below the Planck scale to control the Higgs boson mass. The experimentally measured mass is the sum of the bare mass that appears in the Lagrangian and any quantum corrections from interactions with other particles. Should there be no lower mass scale, those quantum corrections would need to be $10^{35}$ times larger than the Higgs mass. While this is possible, the idea of combining two very large numbers to result in exact small number makes physicists uncomfortable and indicates that there might be something that is not understood, and many \emph{natural} theories that avoid this fine tuning have been proposed.
 
 \todo{force unification}
 
 
 \section{Supersymmetry}
 
-\acf{SUSY} is a theory proposed and developed in the 1970s \cite{susy-found-1,susy-found-2,susy-found-3} that provides solutions to many of the problems with the \ac{SM}. \ac{SUSY} adds a symmetry in addition to the ones already discussed: a symmetry between fermions and bosons whereby fermions can be changed to bosons and vice versa. 
+\acf{SUSY} is a theory proposed and developed in the 1970s \cite{susy-found-1,susy-found-2,susy-found-3} that provides solutions to many of the problems with the \ac{SM}. \ac{SUSY} adds a symmetry in addition to the ones already discussed: a symmetry between fermions and bosons. An additional dimension is added and rotations in this dimension change the spin of a particle by $\frac{1}{2}$, changing a fermion to a boson and vice versa. 
 
 In \ac{SUSY}, each \ac{SM} particle gets a \emph{superpartner} with all of the same quantum numbers except for spin. The bosonic superpartners of fermions are \emph{sfermions} and the fermionic partners of the \ac{SM} bosons have ``-ino'' appended to their names. For example, the superpartner of a tau $\tau$ lepton is a stau $\stau$ and the superpartner of a gluon $g$ is the gluino $\tilde{g}$. A \emph{supermultiplet} refers to the pair of the \ac{SM} particle and its superpartner.
 
@@ -124,10 +124,32 @@ Should \ac{SUSY} exist, we already know that it must be broken. If the selectron
 
 \subsection{Minimal Supersymmetric Standard Model}
 
-\todo{particle content}
-\todo{define LSP, NSLP}
-\todo{R-parity}
-\todo{susy breaking}
+The \acf{MSSM} is the simplest self-consistent Supersymmetric extension to the Standard Model. Each \ac{SM} particle gets a \ac{SUSY} partner, except for the Higgs which gets two partners to account for the different masses of the sparticles. One of the Higgs doublets couples to up-type quarks, and the other to down-type quarks and charged leptons. 
+
+After electroweak symmetry breaking, there are Higgs states: $A, H, H^{+}, H^{-}, h$. The lightest state $h$, is assumed to be the already-discovered \ac{SM} Higgs. The others are called \emph{higgsinos}: $A$ and $H$ are neutral and $H^{+}$ and $H^{-}$ are charged. The higgsinos mix with the electroweakinos (the superpartners of the electroweak gauge bosons). This results in the electrically charged mass-eigenstates called \emph{charginos} and the neutral ones \emph{neutralinos}. The \ac{MSSM} contains four neutralinos ordered by mass $\tilde{\chi}^{0}_{1}, \tilde{\chi}^{0}_{2}, \tilde{\chi}^{0}_{3}, \tilde{\chi}^{0}_{4}$ and two charginos ordered by mass $\tilde{\chi}^{\pm}_{1}, \tilde{\chi}^{\pm}_{1}$. 
+
+Each \ac{SM} fermion gets two spin-0 partners called \emph{sleptons}, one right-handed $\tilde{\ell}_{R}$ and one left-handed $\tilde{\ell}_{L}$. The left- and right-handed states mix to form mass eigenstates $\tilde{\ell}_{1}$ and $\tilde{\ell}_{2}$, ordered by mass. \emph{Squarks}, the super partners of quarks, follow the same pattern as the sleptons, where $\tilde{q}_{R}$ and $\tilde{q}_{L}$ mix to form $\tilde{q}_{1}$ and $\tilde{q}_{2}$. Each left-handed neutrino has a \emph{sneutrino} superpartner with spin-0 $\tilde{\nu}_{L}$.
+
+There are many new interactions between particles and sparticles introduced by the \ac{MSSM}. The general rule is that for any \ac{SM} interaction, two of the particles can be replaced by their sparticles. In addition, there are several interactions that are introduced in the \ac{MSSM} that violate the $B$ and $L$ conservation in the \ac{SM}. Specifically, they violate $B-L$ symmetry, which is never violated in the \ac{SM}. To remain consistent with the observed behavior of the \ac{SM}, a new conserved quantity is introduced from a $U(1)$ symmetry: $R$-parity. It is defined as
+\begin{equation}
+\text{R-parity} = (-1)^{2s+ 3B+L}
+\end{equation}
+where $s$ is spin, $B$ is baryon number, and $L$ is lepton number. All \ac{SM} particles have R-parity = +1 and \ac{SUSY} particles have -1. This results in a symmetry of the number of sparticles minus the number of anti-sparticles. Consequently, sparticles must be produced in pairs, and massive sparticles decay through a chain of lighter sparticles and \ac{SM} particles. A given sparticle must always decay to an odd number of sparticles.
+
+
+\subsubsection{Relationship to Standard Model Problems}
+
+The \ac{MSSM} has 120 free parameters that dictate the masses and interaction strengths of the sparticles. Different assumptions about the \ac{SUSY} breaking mechanism and the allowed couplings change the values of these parameters. The LSP is the lightest Supersymmetric particle in a model, and the NLSP is the next-to-lightest Supersymmetric particle. If R-parity is conserved, the \ac{LSP} is stable because it cannot decay to \ac{SM} particles. If this particle is also electrically neutral, it is an excellent dark matter candidate.
+
+\ac{SUSY} solves other problems with the \ac{SM} as well. Many physicists believe that the electromagnetic, strong, and weak forces are low energy manifestations of a unified force at high energy, just like the unification of the electromagnetic and weak forces at the GeV scale. When one scales \ac{SM} couplings to high energies, there is no point where all three forces have the same coupling, seen in \todo{figure}. Should \ac{SUSY} exist at the TeV scale, the couplings would converge. Additionally, the sparticles' interactions with the Higgs cancel out those of the \ac{SM} particles and naturally cancel the large corrections to the Higgs mass. This relies on the assumption that the mass of the stop quark is similar to that of the top quark to leave a small remaining correction, and requires stop masses at the TeV scale.
+
+\todo{maybe feynman diagram of Higgs w susy}
+
+the difference in the masses of the \ac{SUSY} particles 
+
+
+\todo{learn more about slepton mixing} 
+
 
 
 \subsection{GMSB}
