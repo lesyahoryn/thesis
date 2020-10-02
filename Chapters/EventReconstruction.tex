@@ -122,7 +122,7 @@ After all of the tracks are reconstructed, they must be correctly assigned to a 
 
 \acp{PV} are reconstructed using an iterative vertexing procedure. First, good quality tracks tracks, combined with the beamspot measurement, are used to find an optimal vertex position. Then each track is assigned a weight based on its compatibility with that position, and the vertex position is then recomputed using the weights of the tracks. After the final vertex position is determined, tracks very incompatible with the vertex are removed from it and can be used to create another vertex. Any vertex with at least two tracks are considered \acp{PV}.
 
-\todo{Track to vertex association?}
+%\todo{Track to vertex association?}
 
 
 
@@ -266,7 +266,7 @@ For example, the track-based isolation called $p_{T}^{\textrm{varcone30}}$ is th
 These definitions are much simpler for muons than for electrons. Electrons are very likely to emit bremsstrahlung radiation as they traverse the inner detector and those photons can then convert back into electrons. The tracks from these secondary particles are considered part of the electron's \pT. Furthermore, the electron leaves its own energy deposit in the \ac{EM} calorimeter and this energy must be subtracted from the $E_{T}^{\textrm{topocone}}$ calculation.
 
 
-In this analysis the \texttt{FCTight} isolation definition is used for both electrons and muons, detailed in \autoref{tab:iso_defs}. In general, the requirements are stricter for electrons. \todo{why}
+In this analysis the \texttt{FCTight} isolation definition is used for both electrons and muons, detailed in \autoref{tab:iso_defs}. In general, the requirements are stricter for electrons due to the identification ambiguity.
 
 
 \begin{table}
@@ -274,7 +274,7 @@ In this analysis the \texttt{FCTight} isolation definition is used for both elec
 \begin{tabular}{lcc}
 Variable & Electron Cut & Muon Cut  \\
 \hline
-\texttt{ptvarcone20/pt}  & $< 0.06$   & $ < 0.15$ \\
+\texttt{ptvarcone20/pt}  & $< 0.06$   & $ < 0.04$ \\
 \texttt{topoetcone20/pt} &  $< 0.06$   & $ < 0.15$\\
 \hline
 \end{tabular}
