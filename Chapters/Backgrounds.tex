@@ -79,7 +79,8 @@ However, when performing this estimate, the B region (electron passes, muon fail
 \small
 \begin{center}
 \begin{tabular}{lccc}
-Estimate Region     & signal \pt, \absdz cuts on all $\ell$ & signal \pt, \absdz cuts on passing $\ell$ & no signal \pt, \absdz cuts \\
+Estimate Region     & signal \pt, \absdz cuts  & signal \pt, \absdz cuts  & no signal \pt, \absdz cuts \\
+     & on all $\ell$ & passing $\ell$ &  \\
 \hline
 D Observed                & 81          & 139           & 138     \\
 C Observed                & 0             & 0             & 1     \\
@@ -142,7 +143,7 @@ The muon reconstruction algorithm described in \autoref{sec:muonreco} uses the m
 \begin{figure}[!ht]
 \centering
 \includegraphics[width=.8\textwidth]{figures/cosmics/tag_sketch.png}
-\caption{A sketch of a cosmic passing through the ATLAS detector, illustrating why the tag is designed the way that it is. This image is slightly adapted from Ref.~\cite{ATLAS-CONF-2019-006}}
+\caption{A sketch of a cosmic passing through the ATLAS detector, illustrating why the tag is designed the way that it is. This image is slightly adapted from Ref.~\cite{dvplusmu}}
 \label{fig:tag_sketch}
 \end{figure}
 
@@ -205,7 +206,8 @@ For this analysis, two different definitions of a ``cosmic muon'' are used. The 
 \begin{table}
 \centering
 \begin{tabular}{lcccc}
-Tag & $\Delta \phi (\textrm{muon, segment})$ & $\Sigma \eta (\textrm{muon, segment})$ & Pass Coverage Acceptance & Rejection Efficiency\\
+Tag & $\Delta \phi (\mu, \textrm{seg})$ & $\Sigma \eta (\mu, \textrm{seg})$ & Pass Coverage  & Rejection \\
+ &                                         &                                &    Acceptance & Efficiency \\
 \hline
 Full   & $<0.25$   & $ <0.018 $   & True & 99.5\% \\
 Narrow & $<0.02$   & $ <0.013$    & True & 59\% \\
@@ -256,6 +258,7 @@ These are used to determine the fraction of cosmic muons in VR-$\mu$ before and 
   	\includegraphics[width=\textwidth]{figures/cosmics/mc_300_ratio_z0.pdf}
   	\caption{Signal \ac{MC} with respect to \z}
   \end{subfigure}
+  \caption{Cosmic tagging efficiency with respect to kinematic variables in VR-$\mu$ data and signal \ac{MC}}
 \end{figure}
 \begin{figure}[!ht]
   \ContinuedFloat
@@ -313,9 +316,8 @@ These are used to determine the fraction of cosmic muons in VR-$\mu$ before and 
 \subsection{Properties of Events with Cosmic Tagged Muons}
 Because all all events with a cosmic tagged muon are vetoed, a \ac{CR} with at least one cosmic tagged muon, CR-$M_{\textrm{full}}$, is defined to study cosmic events. There are about 224,000 events with at least one cosmic-tagged muon in the full dataset. 90\% of events in CR-$M_{\textrm{full}}$ have only one muon, and that muon is cosmic tagged. 90\% of those events find the cosmic muon on the bottom of the detector, \mb. The other 10\% of events have two reconstructed muons and they are both cosmic tagged. One event was seen that had four cosmic tagged muons, two on either side of the detector, indicating muons from a cosmic shower. In CR-$M_{\textrm{full}}$ events, some jets are seen from pileup collisions, but no additional leptons are observed in events with with cosmic muons. Interesting \ac{LHC} collisions are rare and so are cosmic muons, so the odds of having the two coincident in the same bunch crossing is minuscule. Generally, the cosmic muon is the most notable feature of the event and is the reason the event was triggered.
 
-Events with two muons reconstructed from one cosmic muon have a very distinct signature. They have exactly correlated $z_{0}$, exactly anti-correlated $d_{0}$, equal and opposite $\phi$ measurement, and their $\eta$ measurements sum to 0. This can be seen in \autoref{fig:2cos}.
+Events with two muons reconstructed from one cosmic muon have a very distinct signature. They have exactly correlated $z_{0}$, exactly anti-correlated $d_{0}$, equal and opposite $\phi$ measurement, and their $\eta$ measurements sum to 0. This can be seen in \autoref{fig:2cos}. No events were found with evidence of a cosmic muon's trajectory changing due to radiation in the detector, so this effect is assumed to be negligible within the detector resolution.
 
-\question{talk about the brems rabbit hole? maybe no}
 
 \begin{figure}[!ht]
 \centering
@@ -388,10 +390,10 @@ Region & $\phi < 0$ muon & $\phi > 0$ muon \\
 2 & signal & fails at least one MS quality cut\\ 
 3 & signal & cosmic tagged \\ 
 4 & signal & cosmic tagged and fails at least one quality cut\\ 
-5 & narrow cosmic tagged & narrow cosmic tagged\\ 
-6 & narrow cosmic tagged & narrow cosmic tagged and fails at least one quality cut\\ 
-7 & narrow cosmic tagged & full, but not narrow, tagged \\ 
-8 & narrow cosmic tagged & full, but not narrow, tagged and fails at least one quality cut\\  
+5 & narrow tagged & narrow cosmic tagged\\ 
+6 & narrow tagged & narrow cosmic tagged and fails at least one quality cut\\ 
+7 & narrow tagged & full, but not narrow, tagged \\ 
+8 & narrow tagged & full, but not narrow, tagged and fails at least one quality cut\\  
 \hline
 \end{tabular}
 \caption{A description of the regions used for the cosmic estimate and validation. Each column describes the way in which the muon deviates from a signal muon, meaning a muon is signal in all respects except for the parameter(s) listed in the table.}
@@ -480,7 +482,9 @@ In the nominal estimate, a ``bad'' quality muon means one that fails any one of 
 \centering
 \small
 \begin{tabular}{cccccccc}
-Variable & central value  & up error & down error &  actual value & \% diff from actual & \% diff from nominal\\
+Variable & central value  & up error & down error &  actual value & \% diff  & \% diff \\
+  &    &   &   &   & from actual & nominal\\
+
 \hline
 \nphi          & 783.6 & 69.2 & 68.1 & 1088 & 38.8\% & 0.9\% \\
 \nprecision    & 920.6 & 51.8 & 50.9 & 1088 & 18.2\% & 16.5\% \\
@@ -551,24 +555,24 @@ Cosmics 		 & - 				& $0.11 ^{+0.20}_{-0.11}$ 	& - \\
 \begin{table}[htb]
 \small
 \begin{center}
-\begin{tabular}{|l|c|c|}
+\begin{tabular}{lcc}
 Background & Uncertainty & Value [\%] \\
 \hline
-\multicolumn{3}{|c|}{SR-$ee$} \\
+\multicolumn{3}{c}{SR-$ee$} \\
 \hline
 \multirow{3}{*}{Fake and Heavy Flavor} 	& Statistical 	& 18 \\
  						& HF Nonclosure & 11 \\
  						& Fake Nonclosure& 6 \\
  						& Total 		& 22 \\
 \hline
-\multicolumn{3}{|c|}{SR-$e\mu$} \\
+\multicolumn{3}{c}{SR-$e\mu$} \\
 \hline
 \multirow{3}{*}{Fake and Heavy Flavor} 	& Statistical 	& +260 / -130 \\
  						& HF Nonclosure & 92 \\ 
  						& Fake Nonclosure & 8 \\
  						& Total 		& +270 / -160 \\
 \hline
-\multicolumn{3}{|c|}{SR-$\mu\mu$} \\
+\multicolumn{3}{c}{SR-$\mu\mu$} \\
 \hline
 \multirow{4}{*}{Cosmic Muons} 	& Statistical 			& +180 / -95 \\
  								& VR Nonclosure		& 38 \\

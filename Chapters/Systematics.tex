@@ -47,7 +47,6 @@ Then the statistical uncertainty on this value is evaluated and applied as an ad
 
 \ac{ATLAS} centrally defines electron and muon scale factors for prompt electrons and muons, but due to the special triggers and selection criteria used in this analysis, custom scale factors are required. For electrons, this analysis uses photon triggers as well as a bug-fixed electron reconstruction, as well as a custom identification and non-standard selection criteria, so all scale factors must be derived specifically for this analysis. For muons, a nonstandard trigger is used, but the reconstruction is standard (except for the tracking, evaluated separately) and the only change to the identification criteria is the removal of the cut on pixel hits, which does not impact prompt muons, so central scale factors are used, with additional selection and special trigger scale factors derived for this analysis.
 
-\question{I never talked about the electron bug.. i assume that's fine?}
 
 \subsubsection{Electrons}
 
@@ -107,11 +106,12 @@ The remaining difference between cosmic and signal muons is the correlation betw
 \includegraphics[width=.48\textwidth]{figures/LRT_systs/stlrt_compare_elmu_pt.pdf}
 \includegraphics[width=.48\textwidth]{figures/LRT_systs/stlrt_compare_elmu_eta.pdf}
 \includegraphics[width=.48\textwidth]{figures/LRT_systs/stlrt_compare_elmu_phi.pdf}
-\caption{Tracking efficency for electrons and muons in signal MC (all lifetimes of 300 GeV \selec or \smu). These plots justify the assumpution that tracking efficiency is the same between electrons and muons and symmetric about the \ac{ID} volume.}
+\caption{Tracking efficiency for electrons and muons in signal MC (all lifetimes of 300 GeV \selec or \smu). These plots justify the assumpution that tracking efficiency is the same between electrons and muons and symmetric about the \ac{ID} volume.}
 \label{fig:trk_el_mu}
 \end{figure}
 
 \begin{table}
+\centering
 \begin{tabular}{c}
 Cut on cosmic muon \\
 \hline
@@ -119,7 +119,8 @@ $\pt > 50 \GeV$ \\
 $\absdz > 3$mm \\
 $|\eta| < 1.05$ \\
 $\absz < 120$ mm \\
-$\tavg > 0$ if $\phi_{\mu} < 0$ OR $\tavg > 0$ if $\phi_{\mu} > 0$ \\
+$\tavg > 0$ if $\phi_{\mu} < 0$  \\
+OR $\tavg > 0$ if $\phi_{\mu} > 0$ \\
 \hline
 \end{tabular}
 \quad
@@ -130,7 +131,8 @@ $\pt > 50 \GeV$ \\
 $\absdz > 3$mm \\
 $|\eta| < 1.05$ \\
 parent is a \smu \\
-\dz and $R_{\textrm{decay}}$ between the same silicon layers\\
+\dz and $R_{\textrm{decay}}$ between\\
+the same silicon layers\\
 \hline
 \end{tabular}
 \caption{Cuts on tag muons. Cosmic muons (right) and truth signal muons (left).}

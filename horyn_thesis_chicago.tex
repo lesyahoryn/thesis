@@ -18,6 +18,8 @@
 \usepackage{subcaption}
 \usepackage[hidelinks]{hyperref}
 \usepackage{multirow}
+\usepackage{setspace}
+\usepackage{url}
 \usepackage[backend=bibtex,sorting=none]{biblatex}
 \usepackage[nottoc,numbib]{tocbibind}
 \setcounter{tocdepth}{3}
@@ -26,29 +28,20 @@
 \newcommand{\todo}[2][TODO]{{\color{red}\em[{\textbf\em {#1}: }{#2}]}}
 \newcommand{\question}[2][Question]{{\color{blue}\em[{\textbf\em {#1}: }{#2}]}}
 \newcommand{\comebackto}[2][come back to this?]{{\color{magenta}\em[{\textbf\em {#1}: }{#2}]}}
-%\PassOptionsToPackage{%
-%backend=biber, % Instead of bibtex
-%backend=bibtex8,bibencoding=ascii,%
-%language=auto,%
-%style=numeric-comp,%
-%style=authoryear-comp, % Author 1999, 2010
-%bibstyle=authoryear,dashed=false, % dashed: substitute rep. author with ---
-%sorting=nyt, % name, year, title
-%maxbibnames=10, % default: 3, et al.
-%backref=true,%
-%natbib=true % natbib compatibility mode (\citep and \citet still work)
-%}{biblatex}
-%\usepackage{biblatex}
+\usepackage{etoolbox}
+\patchcmd{\part}{\thispagestyle{plain}}{\thispagestyle{empty}}{}{}
+\AtBeginEnvironment{thebibliography}{\linespread{1}\selectfont}
+
 
 %% Use these commands to set biographic information for the title page:
 %for uchicago
 \title{A Search for Displaced Leptons in the ATLAS Detector}
 \author{Lesya Horyn}
 %for uchicago
-\department{Department of Physics}
-\division{Physical Sciences Division}
+\department{Physics}
+\division{Physical Sciences}
 \degree{Doctor of Philosophy}
-\date{October 21, 2020}
+\date{December 2020}
 
 
 %% Use these commands to set a dedication and epigraph text
@@ -86,13 +79,35 @@
 \listoffigures
 \listoftables
 \include{FrontBackMatter/Acronyms}
+\addcontentsline{toc}{chapter}{List of Acronyms}
 
 
 \acknowledgments
-% Enter Acknowledgements here
+I think it's safe to say that nothing about this PhD has gone the way I expected. I didn't expect to write this dissertation during a pandemic, and I didn't expect to feel so content at the end of this time. I came to the University of Chicago with a lot of self doubt and not a lot of certainty, but I leave feeling like a scientist. For that feeling, I have to thank everyone who has guided and supported me over the last six years.
+
+I've had the immense privilege of having some incredible mentors.
+Young-Kee, thank you for pushing me and always making sure I had the support I needed. I've learned so much from your perspective on the world and on physics. 
+Tova, I can only hope that I can be as great of a postdoc to someone as you have been to me. Working with you has really shaped my identity as a scientist. Thank you for always treating me with respect. I will really miss working with you.
+Max, I truly wouldn't have made it through my first year without you. You've been such a generous mentor, completely independent of how closely we were working together at the time. Thank you for always taking the time to answer all my questions. 
+
+I've also learned that working with good people makes all the difference. The displaced leptons analysis was a small and scrappy team who all taught me a lot. Thank you to Elodie, for pushing this through until the very end, to Xiaohe for being such a wonderful undergrad to work with, and to Kate for being the most helpful at the most important time. 
+Though not the focus of this thesis, I spent four years working on FTK with a truly incredible team. Thanks to Mel, Patrick, and Rui, for your guidance and opinions. And to Todd, my favorite physics younger brother, somehow we made it through together and I'm really grateful for your friendship. 
+Liza, I've learned so much from you about problem solving, care, thoughtful work, and of course, team building. Also to Tyler, Stany, Bri, Jon, and the rest of the team that made a stressful project a lot of fun.
+
+I've been extremely fortunate to have friends that always made me feel like I was at home, no matter where in the world I was. I'll always cherish my first year in Chicago, I was very lucky to have a wonderful cohort full of smart, caring people, especially Gautam, Mark, and Dani. But most especially Lipi, the best long distance friend and spontaneous roommate turned family. 
+Thank you to my CERN lunch crew turned pandemic survival team, Max, Tova, Kate, Larry, Liza, Karri, Ann, Emma, and Chris. I'm so grateful for your friendship and have learned so much from your many many opinions.
+A very important thank you to Julia and Audrey, how could any of us have survived this alone. 
+
+And of course thank you to Simone. You've brought me immeasurable joy and comfort. Thank you for never wavering in your support, for always being patient with me, and for all of the adventures. I can't wait to see what's next.
+
+Most importantly, thank you to my family. Without your support this never would have been possible. Sofia, thank you for always being on my side. Mama and Tato, there are no words to express how grateful I am. You taught me to think for myself and to ask questions, and you always made sure that the world was open before me.  For all of my family, these last few years have been hard in many ways, but there's no feeling quite like going home and being surrounded by your love.
+ 
+
+
+
 
 \abstract
-A search for long-lived particles decaying into displaced leptons with large impact parameters is presented. While the signature provides sensitivity to many models Beyond the Standard Model, it provides unique sensitivity to long-lived scalar lepton-partners, sleptons. This search uses 139~\ifb~ of $\sqrt{s} = 13~\TeV$ data from proton-proton collected by the ATLAS detector at the Large Hadron Collider between 2015 and 2018. This search is done for the first time at the LHC, and covers a long-standing gap in coverage of possible new physics signatures. Special reconstruction and identification algorithms are used, and backgrounds are estimated from data. Results are consistent with background. For 0.1 ns lifetimes selectron, smuon and stau masses up to 720 GeV, 680 GeV, and 340 GeV are excluded, respectively, at 95\% CL drastically improving on the previous best limits from LEP.
+A search for long-lived particles decaying into displaced electrons and/or muons with large impact parameters is presented. This signature provides unique sensitivity to the production of theoretical supersymmetric lepton-partners, sleptons, with lifetimes between 0.01 and 10 ns. This search is done for the first time at the Large Hadron Collider (LHC), and covers a long-standing gap in coverage of possible new physics signatures. The search is performed using 139 fb$^{-1}$ of $\sqrt{s} = 13$ TeV proton-proton collision data collected by the ATLAS detector at the LHC between 2015 and 2018. Special reconstruction and identification algorithms are used to select leptons with large impact parameters. Backgrounds are estimated from data. Results are consistent with background, and so limits on slepton masses and lifetimes in this model are calculated at 95\% CL. For 0.1 ns lifetimes selectron, smuon and stau masses up to 720 GeV, 680 GeV, and 340 GeV are excluded, respectively, drastically improving on the previous best limits from LEP. 
 
 
 \mainmatter
@@ -141,7 +156,7 @@ A search for long-lived particles decaying into displaced leptons with large imp
 
 
 \cleardoublepage 
-
+\singlespacing
 \printbibliography[heading=bibintoc,title={References}]
 
 % Figures and tables, if you decide to leave them to the end

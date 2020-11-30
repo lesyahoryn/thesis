@@ -1,4 +1,5 @@
 \chapter{Interpretation}
+\label{chap:interp}
 
 Since no events are observed, limits are set on the parameter space of \ac{GMSB} \ac{SUSY} mdoels. Limits are computed using HistFitter \cite{histfitter}, an \ac{ATLAS} framework that combines the observed number of events with uncertainties on background predictions and signal systematics and calculates both model dependent and model independent limits using the CL$_{\text{s}}$ technique \cite{CLs-1}. CL$_{\text{s}}$ is a useful tool for particle physics analyses. Somewhere between a purely frequentist and purlely basian method of deriving a confidence interval, the CL$_{\text{s}}$ describes the confidence in a signal-only hypothesis. The limit curve is drawn where CL$_{\text{s}}(m_{\tilde{\ell}}) \leq 5\%$, meaning that the probability of having falsely excluded a \slep of a given mass is less than or equal to 5\%. The smaller the value of CL$_{\text{s}}$, the lower the probability that a \slep with a given mass exists. For a search where 0 background events are predicted, 3 events are required for a 95\% CL$_{\text{s}}$~\cite{better-than-zero}.
 
@@ -19,36 +20,45 @@ For the \selec \ac{NLSP} and \smu \ac{NLSP} cases, the results from SR-$ee$ and 
 
 \begin{figure}[!ht]
     \centering
-        \includegraphics[width=0.45\textwidth]{figures/limits/SlepSlep_SRee_clsobs_ps-eps-converted-to.pdf}
-        \includegraphics[width=0.45\textwidth]{figures/limits/SlepSlep_SRmm_clsobs_ps-eps-converted-to.pdf}
-        \includegraphics[width=0.45\textwidth]{figures/limits/Stau_clsobs_ps-eps-converted-to.pdf}
-        \includegraphics[width=0.45\textwidth]{figures/limits/Comb_clsobs_ps-eps-converted-to.pdf}
-    \caption{Individual exclusion curves for four different \ac{NLSP} scenarios: \selec (top left), \smu (top right), \stau (bottom left), co-\ac{NLSP} (bottom right). Overlaid numbers represent the observed CLs values.}
+        \includegraphics[width=0.45\textwidth]{figures/limits/SRee_Slep.pdf}
+        \includegraphics[width=0.45\textwidth]{figures/limits/SRmm_Slep.pdf}
+        \includegraphics[width=0.45\textwidth]{figures/limits/Stau.pdf}
+        \includegraphics[width=0.45\textwidth]{figures/limits/Comb.pdf}
+    \caption{Individual exclusion curves for four different \ac{NLSP} scenarios: \selec (top left), \smu (top right), \stau (bottom left), co-\ac{NLSP} (bottom right).}
     \label{fig:plot_cls}
 \end{figure}
 
 \subsection{Comparison to LEP}
 
-The summary in \autoref{fig:excl_limit} includes both right- and left-handed slepton production and cannot be directly compared to the results from \ac{LEP}. Right-handed only or left-handed only, as well as $\stau_1$ and $\stau_2$ limits are shown in \todo{figure when available} and compared to the LEP limit where possible.
+The summary in \autoref{fig:excl_limit} includes both right- and left-handed slepton production and cannot be directly compared to the results from \ac{LEP}. Right-handed only or left-handed only, as well as $\stau_1$ and $\stau_2$ limits are shown in \autoref{fig:lep_comp} and compared to the LEP limit where possible.
 
-\todo{These limit plots are currently being finalized and should be available this week. I will add them here whent they are available.}
+\begin{figure}[!ht]
+    \centering
+        \includegraphics[width=0.45\textwidth]{figures/limits/SRee_Slepleft.pdf}
+        \includegraphics[width=0.45\textwidth]{figures/limits/SRee_Slepright.pdf}
+        \includegraphics[width=0.45\textwidth]{figures/limits/SRmm_Slepleft.pdf}
+        \includegraphics[width=0.45\textwidth]{figures/limits/SRmm_Slepright.pdf}
+        \includegraphics[width=0.45\textwidth]{figures/limits/Stauleft.pdf}
+    \caption{Limits on \slep separated by their chirality with the \ac{LEP} limit shown in pink. In order from top to bottom, left to right: $\selec_{L}$, $\selec_{R}$, $\smu_{L}$, $\smu_{R}$, left-handed $\stau_{1}$. This result does not have significant sensitivity to right-handed $\stau_{2}$.}
+    \label{fig:lep_comp}
+\end{figure}
 
 \FloatBarrier
 
 \section{Model-Indpendent Limits}
 Additionally, model independent limits are set on generic new physics processes in the \acp{SR}. These limits are based on the visible cross-section of new physics ($\langle \epsilon \sigma^{95}_{\text{obs}} \rangle$) and the observed ($S^{95}_{\text{obs}}$) and expected ($S^{95}_{\text{exp}}$) number of signal events that would be measured. Visible \ac{BSM} cross sections above 0.02 fb are excluded in each \ac{SR} These values are shown in \autoref{table.results.exclxsec.pval.upperlimit.SR}
 
-\begin{table}
+\begin{table}[hbt]
 \centering
 \begin{tabular*}{\textwidth}{@{\extracolsep{\fill}}lccccccc}
 \noalign{\smallskip}\noalign{\smallskip}
-{ Signal channel} & $\langle\epsilon{ \sigma}\rangle_\text{obs}^{95}$[fb]  &  $S_\text{ obs}^{95}$  & $S_\text{ exp}^{95}$  & $p(s=0)$ 
+{ Signal channel} & $\langle\epsilon{ \sigma}\rangle_\text{obs}^{95}$[fb]  &  $S_\text{ obs}^{95}$  & $S_\text{ exp}^{95}$  
 \\
 \noalign{\smallskip}\hline\noalign{\smallskip}
 %%
- SR-$ee$   & $0.02$ &  $3.0$ & $ { 3.1 }^{ +1.1 }_{ -0.1 }$ &  $ 0.47$ \\%                                                                                 
- SR-$\mu\mu$   &$0.02$ &  $3.0$ & $ { 3.0 }^{ +0.1 }_{ -0.0 }$ & $ 0.72$ \\%                                                                               
-SR-$e\mu$   &$0.02$ &  $2.7$ & $ { 3.0 }^{ +0.0 }_{ -0.0 }$ & $ 0.10$ \\%
+ SR-$ee$   & $0.02$ &  $3.0$ & $ 3.0$   \\%                                                                                 
+ SR-$\mu\mu$   &$0.02$ &  $3.0$ & $ 3.0$  \\%                                                                               
+SR-$e\mu$   &$0.02$ &  $2.7$ & $ 3.0$  \\%
 \noalign{\smallskip}\hline\noalign{\smallskip}
 \end{tabular*}
 \caption[Breakdown of upper limits.]{

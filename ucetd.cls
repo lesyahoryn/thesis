@@ -400,7 +400,7 @@
 % need to change the following.
 
 
-\renewcommand*{\l@table}{\@dottedtocline{1}{0em}{2.3em}}
+\renewcommand*{\l@table}{\@dottedtocline{1}{0em}{3em}}
 \let\oldlistoftables = \listoftables
 \renewcommand{\listoftables}{
   \begin{singlespace}
@@ -411,7 +411,7 @@
   \end{singlespace}
 }
 
-\renewcommand*{\l@figure}{\@dottedtocline{1}{0em}{2.3em}}
+\renewcommand*{\l@figure}{\@dottedtocline{1}{0em}{3em}}
 \let\oldlistoffigures = \listoffigures
 \renewcommand{\listoffigures}{
   \begin{singlespace}

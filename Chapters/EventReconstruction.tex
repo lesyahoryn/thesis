@@ -39,7 +39,7 @@ For example, if the pattern being searched for is a line described by $y = mx + 
 
 \begin{figure}[!h]
 \centering
-\includegraphics[width=.6\textwidth]{figures/EventReconstruction/hough-transform.png}
+\includegraphics[width=.7\textwidth]{figures/EventReconstruction/hough-transform.png}
 \caption{An illustration of $x-y$ space (left) and $m-b$ space used to find lines via the Hough transform \cite{hough-transform-sketch}. }
 \label{fig:hough-transform}
 \end{figure}
@@ -98,7 +98,7 @@ Min number of silicon hits   & 7     & 7 \\
 \centering
 \includegraphics[width=.5\textwidth]{figures/EventReconstruction/ST-d0-eff.png}
 \includegraphics[width=.41\textwidth]{figures/EventReconstruction/LRT-d0-eff.png}
-\caption{Number of tracks reconstructed with respect to \dzero in \ac{ST} (left) and \ac{LRT}. Note the difference in x-axis range.}
+\caption{Number of tracks reconstructed with respect to \dzero in \ac{ST} (left) \cite{tracking-public} and \ac{LRT} \cite{lrt}. Note the difference in x-axis range.}
 \label{fig:trking_d0_eff}
 \end{figure}
 
@@ -106,14 +106,14 @@ Min number of silicon hits   & 7     & 7 \\
 \centering
 \includegraphics[width=.45\textwidth]{figures/EventReconstruction/ST-d0-res.png}
 \includegraphics[width=.5\textwidth]{figures/EventReconstruction/LRT-d0-res.png}
-\caption{\dzero resolution as a function of \pt in \ac{ST} (left) and \ac{LRT}. This analysis uses high \pt leptons with high \pt tracks, and thus with very good \dzero resolution}
+\caption{\dzero resolution as a function of \pt in \ac{ST} (left) \cite{tracking-public} and \ac{LRT} \cite{lrt}. This analysis uses high \pt leptons with high \pt tracks, and thus with very good \dzero resolution}
 \label{fig:trking_d0_res}
 \end{figure}
 
 %mostly used this: https://pdfs.semanticscholar.org/a591/7c383e4b07d64116b57c9c33e82138a08d12.pdf (p19+)
 
 
-\comebackto{How are seeds formed? Hough transform?}
+%\comebackto{How are seeds formed? Hough transform?}
 
 
 \subsection{Primary Vertex Reconstruction}
@@ -134,7 +134,7 @@ After all of the tracks are reconstructed, they must be correctly assigned to a 
 \label{sec:muonreco}
 \subsection{Standard Reconstruction and Identification}
 
-Muons are reconstructed by combining a \ac{MS} track with an \ac{ID} track via a $\chi^2$ fit. Then, at the identification stage, quality requirements are imposed on the combined tracks to improve the purity of the muon collection. For this analysis, the muon reconstruction algorithm remains unchanged (though \ac{LRT} tracks are used), while changes are made at the identification stage. \cite{muon-reco}
+Muons are reconstructed by combining a \ac{MS} track with an \ac{ID} track via a $\chi^2$ fit. Then, at the identification stage, quality requirements are imposed on the combined tracks to improve the purity of the muon collection. For this analysis, the muon reconstruction algorithm remains unchanged (though \ac{LRT} tracks are used), while changes are made at the identification stage \cite{muon-reco}.
 
 \subsubsection{MS Track Reconstruction}
 To reconstruct \ac{MS} tracks, a Hough transform (described in \autoref{sec:hough}) is used to search for hits in each \ac{MDT} chamber to find hits following a trajectory on the $\eta$ plane of the detector. These hits are fit to a straight line within each chamber to form \emph{segments}. Co-located \ac{RPC} or \ac{TGC} hits are used to measure the $\phi$ coordinate. 
@@ -157,7 +157,7 @@ This analysis uses the default muon working point for ATLAS analyses, called a \
 \centering
 \includegraphics[width=.43\textwidth]{figures/EventReconstruction/muon-reco-eta.png}
 \includegraphics[width=.52\textwidth]{figures/EventReconstruction/muon-reco-pt.png}
-\caption{Medium muon identification efficiency with standard tracking and criteria. Left is efficiency vs $\eta$ and right is efficiency as a function of $p_{T}$. Medium muons are reconstructed very efficiently, except for around $|\eta| \approx 0$, where the \ac{MS} is missing detector coverage.}
+\caption{Medium muon identification efficiency with standard tracking and criteria. Left is efficiency vs $\eta$ and right is efficiency as a function of $p_{T}$. Medium muons are reconstructed very efficiently, except for around $|\eta| \approx 0$, where the \ac{MS} is missing detector coverage. \cite{muon-reco}}
 \label{fig:std_muon_eff}
 \end{figure}
 
@@ -185,7 +185,7 @@ For this analysis, muons are reconstructed after \ac{LRT} is performed and the r
 %USED atlas-electron-reco.pdf atlas-electron-reco-sliding-window.pdf
 \label{sec:elecreco}
 
-Electrons are reconstructed using clusters from the \ac{EM} calorimeter as well as tracks from the \ac{ID}. \cite{electron-reco} Electron reconstruction brings more complication and ambiguity than muon reconstruction because of the presence of photons, converted photons, and bremsstrahlung radiation from electrons moving through material. These factors make the identification and accurate measurement of electrons quite challenging. More than in muon reconstruction, it relies on displacement-based quality information, posing a problem for this search. In order to select electrons with high \dz, some of these selections are modified and electrons are reconstructed with the \ac{LRT} collection. However, due to the more challening reconstruction, the electron selection efficiency is lower than that for muons.
+Electrons are reconstructed using clusters from the \ac{EM} calorimeter as well as tracks from the \ac{ID} \cite{electron-reco}. Electron reconstruction brings more complication and ambiguity than muon reconstruction because of the presence of photons, converted photons, and bremsstrahlung radiation from electrons moving through material. These factors make the identification and accurate measurement of electrons quite challenging. More than in muon reconstruction, it relies on displacement-based quality information, posing a problem for this search. In order to select electrons with high \dz, some of these selections are modified and electrons are reconstructed with the \ac{LRT} collection. However, due to the more challening reconstruction, the electron selection efficiency is lower than that for muons.
 
 \subsection{Standard Reconstruction and Identification}
 
@@ -199,7 +199,7 @@ A \emph{sliding window} algorithm \cite{electron-sliding-window} is used to form
 \begin{figure}[htbp]
 \centering
 \includegraphics[width=.8\textwidth]{figures/EventReconstruction/electron-reco-sketch.png}
-\caption{A sketch of an electron's path through a slice of the \ac{ATLAS} detector.}
+\caption{A sketch of an electron's path through a slice of the \ac{ATLAS} detector. \cite{electron-reco}}
 \label{fig:elec_reco_sketch}
 \end{figure}
 
@@ -213,7 +213,7 @@ This procedure is performed on tracks with at least 5 silicon hits and roughly m
 \begin{figure}[htbp]
 \centering
 \includegraphics[width=.6\textwidth]{figures/EventReconstruction/elec-qxd0.png}
-\caption{The impact on the $q \times \dzero /\sigma(\dzero)$ measurement by the addition of \ac{GSF} tracking. This is sampled from prompt electrons, so the narrower distribution centered around zero indicates significant improvement.}
+\caption{The impact on the $q \times \dzero /\sigma(\dzero)$ measurement by the addition of \ac{GSF} tracking. This is sampled from prompt electrons, so the narrower distribution centered around zero indicates significant improvement. \cite{electron-reco}}
 \label{fig:elec_gsf}
 \end{figure}
 
@@ -227,7 +227,7 @@ Final clusters are formed by looking in a window around the seed cluster. The re
 \centering
 \includegraphics[width=.4\textwidth]{figures/EventReconstruction/elec-reco.png}
 \includegraphics[width=.5\textwidth]{figures/EventReconstruction/elec-reco-steps.png}
-\caption{Electron reconstruction efficiency as a function of true transverse energy, \et. For the various electron working points (left) and for each step in the reconstruction process (right).}
+\caption{Electron reconstruction efficiency as a function of true transverse energy, \et. For the various electron working points (left) and for each step in the reconstruction process (right). \cite{electron-reco}}
 \label{fig:elec_gsf}
 \end{figure}
 
